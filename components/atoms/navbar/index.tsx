@@ -55,7 +55,7 @@ const Navbar = () => {
 	}
 
 	return (
-		<nav className='h-navbar w-full flex items-center justify-between'>
+		<nav className='sm:h-navbar h-[100px] w-full flex items-center sm:justify-between justify-center'>
 			<Image
 				src={'/images/logo_gradient.webp'}
 				width={35}
