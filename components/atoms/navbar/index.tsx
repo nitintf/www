@@ -78,7 +78,7 @@ const Navbar = () => {
 				/>
 				{NAV_LINKS.map((link, index) => (
 					<Link
-						className='flex items-center h-8 px-5 z-10'
+						className='flex items-center h-8 px-4 z-10'
 						key={link.label}
 						href={`/${link.href}`}
 						ref={(el) =>
