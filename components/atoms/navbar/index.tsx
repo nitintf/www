@@ -66,7 +66,7 @@ const Navbar = () => {
 			/>
 			<div className='relative border-2 border-border rounded-3xl flex p-[5px]'>
 				<motion.div
-					className='absolute h-8 rounded-2xl bg-highlight'
+					className='absolute h-[32px] rounded-2xl bg-highlight'
 					animate={{
 						x: highlighterDimensions.left - 5.5,
 						width: highlighterDimensions.width,

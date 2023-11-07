@@ -1,6 +1,10 @@
 import { ExternalLink } from '@/components/ui/external-link'
 import { Typography } from '@/components/ui/typography'
 import { WavingHand } from '@/components/ui/waving-hand'
+import { generateMeta } from '@/lib/meta'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = generateMeta()
 
 export default function Home() {
 	return (
