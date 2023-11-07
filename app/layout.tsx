@@ -26,7 +26,7 @@ export default function RootLayout({
 				)}>
 				<Navbar />
 				<Providers>
-					<main className='relative max-w-[1300px] w-full flex items-center justify-center'>
+					<main className='relative max-w-[1300px] w-full flex items-center justify-center md:container pr-0 mt-20'>
 						{children}
 					</main>
 				</Providers>

@@ -62,7 +62,7 @@ const Navbar = () => {
 				height={35}
 				alt='logo'
 				priority
-				className='rounded-full h-logo w-logo sm:relative sm:left-0 sm:bottom-0 absolute left-10 bottom-10'
+				className='rounded-full h-logo w-logo sm:relative sm:left-0 sm:bottom-0 fixed left-[30px] bottom-[30px]'
 			/>
 			<div className='relative border-2 border-border rounded-3xl flex p-[5px]'>
 				<motion.div
