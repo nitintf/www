@@ -13,7 +13,7 @@ const typographyVariance = cva(
 	{
 		variants: {
 			as: {
-				h1: 'text-[30px] leading-[40px] font-light md:text-[40px] md:leading-[60px]',
+				h1: 'text-[28px] leading-[35px] font-light md:text-[40px] md:leading-[60px]',
 				h2: 'text-3xl font-medium sm:text-2xl sm:leading-normal xs:text-lg xs:leading-snug',
 				h3: 'text-2xl font-medium sm:text-xl sm:leading-normal xs:text-base xs:leading-snug',
 				h4: 'text-xl font-light sm:text-lg sm:leading-normal xs:text-sm xs:leading-snug',
