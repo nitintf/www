@@ -33,6 +33,10 @@ const config: Config = {
 			width: {
 				logo: 'var(--logo)',
 			},
+			boxShadow: {
+				link: 'var(--link)',
+				linkhover: 'var(--link-hover)',
+			},
 		},
 	},
 	plugins: [],
