@@ -3,7 +3,6 @@ import { Providers } from '@/components/providers'
 import Navbar from '@/components/atoms/navbar'
 import { cn } from '@/lib/utils/cn'
 import { moranga, silka } from '@/lib/fonts'
-import { AnimateMain } from '@/components/animate'
 
 export default function RootLayout({
 	children,
@@ -21,7 +20,9 @@ export default function RootLayout({
 				)}>
 				<Providers>
 					<Navbar />
-					<AnimateMain>{children}</AnimateMain>
+					<main className='relative max-w-[1300px] w-full flex items-center justify-center md:container md:mt-20 mt-10'>
+						{children}
+					</main>
 				</Providers>
 			</body>
 		</html>
