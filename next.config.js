@@ -2,6 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'cdn.sanity.io'
+      }
+    ]
+  },
   async redirects() {
     const isProd = process.env.NODE_ENV === 'production'
     const commonRedirects = [
@@ -18,12 +25,12 @@ const nextConfig = {
 
     return [
       {
-        source: '/studio',
+        source: '/admin',
         destination: '/',
         permanent: true,
       },
       {
-        source: '/studio/:any*',
+        source: '/admin/:any*',
         destination: '/',
         permanent: true,
       },

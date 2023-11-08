@@ -1,8 +1,9 @@
-import './globals.css'
-import { Providers } from './providers'
+import '../globals.css'
+import { Providers } from '@/components/providers'
 import Navbar from '@/components/atoms/navbar'
 import { cn } from '@/lib/utils/cn'
 import { moranga, silka } from '@/lib/fonts'
+import { AnimateMain } from '@/components/animate'
 
 export default function RootLayout({
 	children,
@@ -18,11 +19,9 @@ export default function RootLayout({
 					silka.variable,
 					'container bg-background text-foreground text-[14px] font-silka'
 				)}>
-				<Navbar />
 				<Providers>
-					<main className='relative max-w-[1300px] w-full flex items-center justify-center md:container pr-0 py-[3.5vw] md:mt-20 mt-10'>
-						{children}
-					</main>
+					<Navbar />
+					<AnimateMain>{children}</AnimateMain>
 				</Providers>
 			</body>
 		</html>

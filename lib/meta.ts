@@ -15,6 +15,15 @@ export const seo: Metadata = {
 		type: 'website',
 		url: site,
 		siteName: title,
+		description,
+		images: [
+			{
+				url: 'https://nitinp.dev/favicon.ico',
+				width: 1920,
+				height: 1080,
+			},
+		],
+		locale: 'en-US',
 	},
 	twitter: {
 		creator: twitter,
@@ -22,9 +31,20 @@ export const seo: Metadata = {
 		site,
 		title,
 	},
+	metadataBase: new URL('https://nitinp.dev'),
 	icons: {
-		icon: '/images/logo_gradient.webp',
-		username: 'nitintf',
+		icon: '/favicon.ico',
+	},
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			'max-video-preview': -1,
+			'max-image-preview': 'large',
+			'max-snippet': -1,
+		},
 	},
 }
 

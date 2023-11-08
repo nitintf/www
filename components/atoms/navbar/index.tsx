@@ -5,12 +5,12 @@ import { usePathname } from 'next/navigation'
 import { cubicBezier, motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useTheme } from 'next-themes'
+import { IsDev } from '@/lib/env'
 
 const NAV_LINKS = [
 	{
 		href: '',
-		label: 'Home',
+		label: 'About',
 	},
 	{
 		href: 'projects',
@@ -19,10 +19,6 @@ const NAV_LINKS = [
 	{
 		href: 'codelabs',
 		label: 'Codelabs',
-	},
-	{
-		href: 'about',
-		label: 'About',
 	},
 ]
 
@@ -49,10 +45,6 @@ const Navbar = () => {
 			left: currentElRef.current[path]?.offsetLeft as number,
 		})
 	}, [pathname])
-
-	if (pathname?.startsWith('/studio')) {
-		return <></>
-	}
 
 	return (
 		<nav className='sm:h-navbar h-[100px] w-full flex items-center sm:justify-between justify-center'>
@@ -90,6 +82,11 @@ const Navbar = () => {
 						{link.label}
 					</Link>
 				))}
+				{IsDev && (
+					<Link className='flex items-center h-8 px-4 z-10' href={'/admin'}>
+						Studio
+					</Link>
+				)}
 			</div>
 			<a
 				className='contact'
