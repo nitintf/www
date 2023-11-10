@@ -59,7 +59,7 @@ const Navbar = () => {
 				priority
 				className='rounded-full h-logo w-logo sm:relative sm:left-0 sm:bottom-0 fixed left-[30px] bottom-[30px]'
 			/>
-			<div className='relative border-2 border-border rounded-3xl flex p-[5px]'>
+			<div className='relative border-2 border-border rounded-3xl flex p-[5px] bg-navBg'>
 				<motion.div
 					className='absolute h-[32px] rounded-2xl bg-highlight'
 					animate={{

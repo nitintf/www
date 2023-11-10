@@ -25,6 +25,7 @@ const config: Config = {
 				border: 'var(--border)',
 				highlight: 'var(--nav-link-highlight)',
 				secondary: 'var(--secondary)',
+				navBg: 'var(--nav-link-bg)',
 			},
 			height: {
 				navbar: 'var(--top-navbar-height)',

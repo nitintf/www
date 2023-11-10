@@ -10,6 +10,7 @@
 		--secondary: #4f576c;
 		--border: transparent;
 		--nav-link-highlight: rgb(255, 255, 255);
+		--nav-link-bg: rgba(0, 0, 0, 0.04);
 
 		/* Shadows */
 		--link: rgb(0, 0, 0, 0.08) 0px 0px 0px 2px;
@@ -29,6 +30,7 @@
 		--secondary: #98a1b6;
 		--border: rgb(48, 54, 61);
 		--nav-link-highlight: rgb(33, 38, 45);
+		--nav-link-bg: rgb(​0, 0, 0);
 
 		/* Shadows */
 		--link: rgb(48, 54, 61) 0px 0px 0px 2px;

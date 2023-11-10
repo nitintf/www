@@ -1,3 +1,6 @@
+/**
+ * @deprecated This file is deprecated and should not be used.
+ */
 import React from 'react'
 import { type VariantProps, cva } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
