@@ -16,8 +16,8 @@ const config: Config = {
 		},
 		extend: {
 			fontFamily: {
-				moranga: ['var(--font-moranga)', 'fallbackFontHere'],
-				silka: ['var(--font-silka)', 'fallbackFontHere'],
+				primary: ['var(--font-primary)', 'fallbackFontHere'],
+				secondary: ['var(--font-secondary)', 'fallbackFontHere'],
 			},
 			colors: {
 				background: 'var(--background)',
@@ -34,9 +34,30 @@ const config: Config = {
 			width: {
 				logo: 'var(--logo)',
 			},
+			maxWidth: {
+				content: '1600px',
+			},
 			boxShadow: {
 				link: 'var(--link)',
 				linkhover: 'var(--link-hover)',
+			},
+			fontSize: {
+				h1: 'var(--font-h1)',
+				h2: 'var(--font-h2)',
+				h3: 'var(--font-h3)',
+				h4: 'var(--font-h4)',
+				h5: 'var(--font-h5)',
+				h6: 'var(--font-h6)',
+				body: 'var(--font-body)',
+				link: 'var(--font-link)',
+				mini: 'var(--font-mini)',
+				h2Display: 'var(--font-h2-display)',
+			},
+			padding: {
+				link: 'calc(1rem - 10px) calc(1rem - 6px)',
+			},
+			zIndex: {
+				nav: '1000',
 			},
 		},
 	},

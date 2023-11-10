@@ -22,6 +22,7 @@ export default async function ProjectPage() {
 							width={200}
 							height={200}
 						/>
+						<h2>{project.title}</h2>
 					</div>
 				)
 			})}

@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+	* {
+		box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+	}
+
 	:root {
 		/* Colors */
 		--background: hsl(0, 24%, 96%);
@@ -21,6 +28,18 @@
 
 		/* Sizes */
 		--logo: 35px;
+
+		/* Fonts size */
+		--font-h1: clamp(3.3rem, .5692rem + 6.238vw, 12.75rem);
+    --font-h2: clamp(1.5rem, 1.0982rem + 1.7143vw, 2.8125rem);
+    --font-h3: clamp(1.375rem, 1.1837rem + .8163vw, 2rem);
+    --font-h4: clamp(1.375rem, 1.1837rem + .8163vw, 1.6rem);
+    --font-h5: clamp(1rem, .9235rem + .3265vw, 1.25rem);
+    --font-h6: clamp(1rem, .9617rem + .1633vw, 1.125rem);
+    --font-body: clamp(1rem, .8852rem + .4898vw, 1.375rem);
+    --font-link: clamp(.875rem, .7985rem + .1265vw, 1.125rem);
+    --font-mini: clamp(.875rem, .8367rem + .1633vw, 1rem);
+    --font-h2-display: clamp(1.875rem, 1.301rem + 2.449vw, 3.95rem);
 	}
 
 	[data-theme='dark'] {
@@ -30,7 +49,7 @@
 		--secondary: #98a1b6;
 		--border: rgb(48, 54, 61);
 		--nav-link-highlight: rgb(33, 38, 45);
-		--nav-link-bg: rgb(​0, 0, 0);
+		--nav-link-bg: hsla(216, 24%, 8%, 0.6);
 
 		/* Shadows */
 		--link: rgb(48, 54, 61) 0px 0px 0px 2px;
@@ -38,6 +57,23 @@
 
 		/* Spacings */
 		--top-navbar-height: 136px;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 700;
+	}
+
+	h1 {
+		display: block;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+	}
+
+	h1 {
+		@apply text-h1 text-center leading-[100%] -tracking-[2px]
 	}
 }
 

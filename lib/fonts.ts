@@ -1,23 +1,16 @@
 import localFont from 'next/font/local'
 
-export const moranga = localFont({
-	src: '../public/fonts/Moranga-Bold.woff',
-	variable: '--font-moranga',
-	weight: 'bold',
+export const primary = localFont({
+	src: '../public/fonts/acorn.woff',
+	variable: '--font-primary',
 })
 
-export const silka = localFont({
+export const secondary = localFont({
 	src: [
 		{
-			path: '../public/fonts/Silka-Medium.woff',
+			path: '../public/fonts/gt.woff',
 			weight: '500',
-			style: 'normal',
-		},
-		{
-			path: '../public/fonts/Silka-Regular.woff',
-			weight: '400',
-			style: 'normal',
 		},
 	],
-	variable: '--font-silka',
+	variable: '--font-secondary',
 })

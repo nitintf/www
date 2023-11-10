@@ -1,5 +1,4 @@
-import { ExternalLink } from '@/components/ui/external-link'
-import { WavingHand } from '@/components/ui/waving-hand'
+import { StarIcon } from '@/components/icons/StarIcon'
 import { generateMeta } from '@/lib/meta'
 import { Metadata } from 'next'
 
@@ -7,19 +6,21 @@ export const metadata: Metadata = generateMeta()
 
 export default function Home() {
 	return (
-		<div className='flex flex-col gap-6'>
-			<h2 className='prose prose-2xl text-secondary [&>span]:font-moranga [&>span]:text-foreground '>
-				Hello there
-				<WavingHand />. I&apos;m Nitin, a <span>software engineer</span> from
-				India. I believe in a practical approach, so here I present my latest
-				explorations and projects. Thank you for visiting!
-			</h2>
-			<div className='flex gap-4 flex-wrap'>
-				<ExternalLink href={'https://github.com/nitintf'}>Github</ExternalLink>
-				<ExternalLink href={'https://www.linkedin.com/in/nitin-panwarr/'}>
-					Linkedin
-				</ExternalLink>
-				<ExternalLink href={'/resume'}>Resume</ExternalLink>
+		<div className='relative w-full h-full mb-[100rem]'>
+			<h1 className='pt-32 text-secondary'>
+				<span className='relative flex justify-center text-foreground'>
+					Hi. I&apos;m Nitin.
+					{/* <figure className='absolute -top-[2rem] right-[17rem]'>
+						<StarIcon />
+					</figure> */}
+				</span>
+				<span className='flex justify-center'>A Developer.</span>
+			</h1>
+			<div className='relative max-w-3xl m-auto px-6'>
+				<p className='text-center text-body text-secondary'>
+					I love building software that&apos;s functional, user-friendly,
+					scalable, and ensures a seamless experience for end-users.
+				</p>
 			</div>
 		</div>
 	)
