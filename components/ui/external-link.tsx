@@ -13,7 +13,7 @@ export const ExternalLink = ({ children, href }: Props) => {
 			target='_blank'
 			whileHover={'hover'}
 			transition={{ duration: 0.8, ease: 'easeIn' }}>
-			<p className='mx-[10px] font-normal'>{children}</p>
+			<p className='mx-[10px] prose text-foreground'>{children}</p>
 			<motion.svg
 				variants={{
 					hover: {

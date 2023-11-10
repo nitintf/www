@@ -3,6 +3,7 @@ import { Providers } from '@/components/providers'
 import Navbar from '@/components/atoms/navbar'
 import { cn } from '@/lib/utils/cn'
 import { moranga, silka } from '@/lib/fonts'
+import { Analytics } from '@vercel/analytics/react'
 
 export default function RootLayout({
 	children,
@@ -24,6 +25,7 @@ export default function RootLayout({
 						{children}
 					</main>
 				</Providers>
+				<Analytics />
 			</body>
 		</html>
 	)
