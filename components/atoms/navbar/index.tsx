@@ -6,6 +6,7 @@ import { cubicBezier, motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { IsDev } from '@/lib/env'
+import { useTheme } from 'next-themes'
 
 const NAV_LINKS = [
 	{
@@ -24,6 +25,7 @@ const NAV_LINKS = [
 
 const Navbar = () => {
 	const pathname = usePathname()
+	const { setTheme, theme } = useTheme()
 
 	const currentElRef = useRef<Record<string, HTMLAnchorElement | null>>({})
 	const [highlighterDimensions, setHighlighterDimensions] = useState({
@@ -53,6 +55,7 @@ const Navbar = () => {
 				width={35}
 				height={35}
 				alt='logo'
+				onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
 				priority
 				className='rounded-full h-logo w-logo sm:relative sm:left-0 sm:bottom-0 fixed left-[30px] bottom-[30px]'
 			/>

@@ -23,7 +23,7 @@
 	}
 
 	[data-theme='dark'] {
-		/* Colors */
+		/* Colors */ 
 		--background: hsl(214, 28%, 5%);
 		--foreground: hsl(225, 36%, 96%);
 		--secondary: #98a1b6;
