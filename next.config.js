@@ -12,7 +12,6 @@ const nextConfig = {
     ]
   },
   async redirects() {
-    const isProd = process.env.NODE_ENV === 'production'
     const commonRedirects = [
       {
         source: '/resume',
@@ -21,23 +20,7 @@ const nextConfig = {
       }
     ]
 
-    if (!isProd) {
-      return commonRedirects
-    }
-
-    return [
-      {
-        source: '/admin',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/admin/:any*',
-        destination: '/',
-        permanent: true,
-      },
-      ...commonRedirects
-    ];
+    return commonRedirects
   },
   headers() {
     return [
