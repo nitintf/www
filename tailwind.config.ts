@@ -19,6 +19,15 @@ const config: Config = {
 				primary: ['var(--font-primary)', 'fallbackFontHere'],
 				secondary: ['var(--font-secondary)', 'fallbackFontHere'],
 			},
+			spacing: {
+				xxl: 'var(--spacing-xxl)',
+				xl: 'var(--spacing-xl)',
+				l: 'var(--spacing-l)',
+				m: 'var(--spacing-m)',
+				s: 'var(--spacing-s)',
+				xs: 'var(--spacing-xs)',
+				xxs: 'var(--spacing-xxs)',
+			},
 			colors: {
 				background: 'var(--background)',
 				foreground: 'var(--foreground)',
@@ -39,6 +48,7 @@ const config: Config = {
 			},
 			boxShadow: {
 				link: 'var(--link)',
+				expand: 'var(--expand)',
 				linkhover: 'var(--link-hover)',
 			},
 			fontSize: {

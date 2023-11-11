@@ -2,7 +2,7 @@
 
 import useScrollPosition from '@/hooks/useScrollPosition'
 import { cn } from '@/lib/utils/cn'
-import { cubicBezier, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
@@ -56,7 +56,7 @@ const Navbar = () => {
 	}, [pathname])
 
 	return (
-		<header className='fixed z-nav inset-0 w-full px-4'>
+		<header className='fixed z-nav top-0 left-0 right-0 w-full px-4'>
 			<nav className='flex items-center justify-center max-w-content mt-8 relative z-nav'>
 				<ul
 					className={cn(
@@ -77,11 +77,9 @@ const Navbar = () => {
 								opacity: {
 									duration: 1,
 								},
+								ease: [0.6, 0.05, -0.01, 0.9],
+								duration: 0.7,
 							},
-						}}
-						transition={{
-							ease: cubicBezier(0.35, 0.17, 0.3, 0.86),
-							duration: 0.4,
 						}}
 					/>
 					{NAV_LINKS.map((link, index) => (
