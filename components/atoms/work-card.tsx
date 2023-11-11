@@ -23,7 +23,7 @@ const WorkCard: React.FC<CardProps> = ({ src, alt, className }) => {
 				'relative inline-flex rounded-3xl overflow-hidden max-h-[20rem] md:max-h-[550px] cursor-pointer max-w-full md:max-w-[47%]'
 			)}>
 			<Image src={src} width={800} height={670} alt={alt} />
-			<div className='absolute left-5 bottom-5 z-[10000]'>
+			<div className='absolute left-5 bottom-5'>
 				<ExpandButton isExpanded={isHovered} text={alt} />
 			</div>
 		</div>

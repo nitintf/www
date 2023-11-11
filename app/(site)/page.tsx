@@ -22,8 +22,8 @@ export default function Home() {
 					scalable, and ensures a seamless experience for end-users.
 				</p>
 			</div>
-			<section className='flex gap-6 mt-l px-7'>
-				<div className='max-w-content flex flex-col md:flex-row flex-wrap gap-x-10 gap-y-16 md:gap-y-40 mx-auto'>
+			<section className='flex gap-6 md:mt-l mt-xl px-3 md:px-7'>
+				<div className='max-w-content flex flex-col md:flex-row flex-wrap gap-x-10 gap-y-10 md:gap-y-20 mx-auto'>
 					<WorkCard src='/images/poly-project.webp' alt='Poly' />
 					<WorkCard src='/images/poly-task.webp' alt='Task Manager' />
 					<WorkCard src='/images/zaars.webp' alt='Zaars' />
