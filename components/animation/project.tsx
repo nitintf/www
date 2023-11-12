@@ -14,7 +14,7 @@ const containerVariant: Variants = {
 		y: 0,
 		opacity: 1,
 		transition: {
-			duration: 0.5,
+			duration: 0.8,
 			ease: cubicBezier(0.6, 0.05, -0.01, 0.9),
 		},
 	},
@@ -72,7 +72,7 @@ export default function ProjectWrapper({ children }: PropsWithChildren) {
 			</Link>
 			<div
 				className={cn(
-					'absolute top-32 transition-transform duration-700 ease-custom',
+					'absolute top-32 transition-transform duration-700 ease-custom w-full px-3 md:px-16 pb-xl',
 					{
 						'translate-y-5': isHovered,
 					}
