@@ -32,15 +32,17 @@ export default function AboutPage() {
 							height={400}
 						/>
 					</figure>
-					<div className='md:ml-l mt-l'>
+					<div className='md:ml-l mt-m'>
 						<h2 className='text-h2 leading-[110%] text-secondary text-center md:text-left'>
 							I&apos;m a Software Engineer working remotely from the tech hub of
 							India.
 						</h2>
 						<p className='text-body text-secondary mt-xxs text-center md:text-left'>
-							Over the past 12+ years, I've worked in various areas of digital
-							design, including front-end development, email, marketing, and app
-							UI/UX. I'm proud to have worn many hats.
+							In my dynamic 2+ years as a software developer, I&apos;ve engaged
+							in diverse areas, from coding efficiency to elevating user
+							experiences. My journey includes front-end development, software
+							architecture, and refining app UI/UX. I take pride in navigating
+							various roles in this ever-evolving tech landscape.
 						</p>
 					</div>
 				</div>
