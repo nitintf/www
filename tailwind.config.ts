@@ -72,6 +72,9 @@ const config: Config = {
 			transitionTimingFunction: {
 				custom: 'var(--custom-ease)',
 			},
+			animation: {
+				scale: 'scaleUp 0.3s ease-in-out 0.8s',
+			},
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],

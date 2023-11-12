@@ -119,6 +119,15 @@
 	h1 {
 		@apply text-h1 text-center leading-[100%] -tracking-[2px]
 	}
+
+	@keyframes scaleUp {
+		from {
+			transform: scale(0.5);
+		}
+    to {
+      transform: scale(1);
+    }
+  }
 }
 
 .contact {
