@@ -69,6 +69,9 @@ const config: Config = {
 			zIndex: {
 				nav: '1000',
 			},
+			transitionTimingFunction: {
+				custom: 'var(--custom-ease)',
+			},
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],

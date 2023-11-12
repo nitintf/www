@@ -4,14 +4,16 @@ import { cn } from '@/lib/utils/cn'
 import Image from 'next/image'
 import ExpandButton from '../ui/expand-button'
 import { useState } from 'react'
+import Link from 'next/link'
 
 interface CardProps {
 	src: string
 	alt: string
+	to: string
 	className?: string
 }
 
-const WorkCard: React.FC<CardProps> = ({ src, alt, className }) => {
+const WorkCard: React.FC<CardProps> = ({ src, alt, to, className }) => {
 	const [isHovered, setHovered] = useState(false)
 	const [isImageLoaded, setImageLoaded] = useState(false)
 
@@ -21,7 +23,8 @@ const WorkCard: React.FC<CardProps> = ({ src, alt, className }) => {
 	}
 
 	return (
-		<div
+		<Link
+			href={`/work/${to}`}
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 			className={cn(
@@ -40,7 +43,7 @@ const WorkCard: React.FC<CardProps> = ({ src, alt, className }) => {
 					<ExpandButton isExpanded={isHovered} text={alt} />
 				</div>
 			)}
-		</div>
+		</Link>
 	)
 }
 

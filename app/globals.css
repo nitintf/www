@@ -68,6 +68,7 @@
 
 		/* Transitions */
     --transition-bounce: cubic-bezier(.175,.885,.32,1.275);
+		--custom-ease: cubic-bezier(0.6, 0.05, -0.01, 0.9);
     --transition-ease: ease-in-out;
 
 		/* Z Index */
