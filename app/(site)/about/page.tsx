@@ -94,7 +94,7 @@ export default function AboutPage() {
 			</NodeAnimate>
 
 			<NodeAnimate delay={0.6} as='section' className='container mt-xl md:px-l'>
-				<StarIcon height={38} className='my-l' />
+				<StarIcon height={38} className='my-l mx-auto' />
 				{experiences.map((exp, index) => {
 					return <ExperienceItem key={index} exp={exp} />
 				})}
