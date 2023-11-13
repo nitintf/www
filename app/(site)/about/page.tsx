@@ -42,7 +42,7 @@ export default function AboutPage() {
 				</div>
 			</NodeAnimate>
 
-			<NodeAnimate as='section' className=''>
+			<NodeAnimate as='section' delay={0.4}>
 				<div className='flex flex-wrap gap-16 md:gap-y-32 bg-highlight md:rounded-[64px] p-xl md:mx-l mt-xl'>
 					<div className='flex flex-col w-full md:w-[46%]'>
 						<span className='opacity-50 mb-xxs text-h2 font-primary'>01</span>
@@ -93,7 +93,7 @@ export default function AboutPage() {
 				</div>
 			</NodeAnimate>
 
-			<NodeAnimate delay={0.4} as='section' className='container mt-xl md:px-l'>
+			<NodeAnimate delay={0.6} as='section' className='container mt-xl md:px-l'>
 				<StarIcon height={38} className='my-l' />
 				{experiences.map((exp, index) => {
 					return <ExperienceItem key={index} exp={exp} />
