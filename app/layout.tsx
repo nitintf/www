@@ -16,7 +16,7 @@ export default function RootLayout({
 				className={cn(
 					primary.variable,
 					secondary.variable,
-					'container bg-background text-foreground text-[14px] font-secondary'
+					'bg-background text-foreground text-[14px] font-secondary'
 				)}>
 				<Providers>{children}</Providers>
 				<Analytics />

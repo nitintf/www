@@ -8,7 +8,7 @@ export const metadata: Metadata = generateMeta()
 
 export default function Home() {
 	return (
-		<div className='relative w-full h-full mb-xl'>
+		<div className='relative container w-full h-full mb-xl'>
 			<NodeAnimate>
 				<h1 className='pt-32 text-secondary'>
 					<span className='relative flex justify-center text-foreground'>
