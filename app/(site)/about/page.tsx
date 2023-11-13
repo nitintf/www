@@ -48,52 +48,48 @@ export default function AboutPage() {
 						<span className='opacity-50 mb-xxs text-h2 font-primary'>01</span>
 						<h3 className='text-h3'>Crafting Solutions in Code</h3>
 						<p className='mt-xxs text-body text-secondary'>
-							I specialize in translating ideas into tangible digital solutions.
-							Whether it&apos;s sketching wireframes or developing prototypes, I
-							believe in the power of bringing designs to life within the
-							browser. Design tools set the stage, but the true realization
-							happens through a link that my team can unite around.
+							I turn ideas into digital reality. From wireframes to prototypes,
+							I bring designs to life in the browser. Design tools set the
+							stage, but the real magic happens with a link that unites my team.
 						</p>
 					</div>
 					<div className='flex flex-col w-full md:w-[46%]'>
 						<span className='opacity-50 mb-xxs text-h2 font-primary'>02</span>
 						<h3 className='text-h3'>Collaborative Coding</h3>
 						<p className='mt-xxs text-body text-secondary'>
-							Recognizing that good software is a result of collaborative
-							efforts, I foster a shared space for development. I actively
-							involve stakeholders in the coding process, creating an
-							environment that thrives on feedback and iteration. Building
-							together ensures the software meets both user needs and business
-							goals.
+							I believe in teamwork for great software. I create a collaborative
+							space, involving stakeholders in coding. Feedback and iteration
+							thrive, ensuring our software meets user needs and business goals
+							as we build together.
 						</p>
 					</div>
 					<div className='flex flex-col w-full md:w-[46%]'>
 						<span className='opacity-50 mb-xxs text-h2 font-primary'>03</span>
 						<h3 className='text-h3'>Coding for Accessibility</h3>
 						<p className='mt-xxs text-body text-secondary'>
-							In my coding endeavors, I prioritize accessibility as a
-							fundamental principle. I strive to make every software product
-							accessible to all, driven by the belief that inclusivity is not
-							just beneficial; it&apos;s the right thing to do. Accessible
-							software empowers a wider audience and contributes to a more
-							inclusive digital landscape.
+							I prioritize accessibility in my coding, aiming to make every
+							software inclusive. It&apos;s not just beneficial; it&apos;s the
+							right thing to do. Accessible software empowers a broader
+							audience, fostering a more inclusive digital landscape.
 						</p>
 					</div>
 					<div className='flex flex-col w-full md:w-[46%]'>
 						<span className='opacity-50 mb-xxs text-h2 font-primary'>04</span>
 						<h3 className='text-h3'>Embracing the Agile Mindset</h3>
 						<p className='mt-xxs text-body text-secondary'>
-							Every line of code I write is a part of an ongoing experiment. I
-							understand that not every approach will yield the desired outcome,
+							Each code line is an ongoing experiment. Not every approach works,
 							but the process of trying and learning is invaluable. Embracing an
-							agile mindset allows for continuous improvement, ensuring that the
-							software I develop remains adaptive and resilient.
+							agile mindset ensures continuous improvement, keeping the software
+							adaptive and resilient.
 						</p>
 					</div>
 				</div>
 			</NodeAnimate>
 
-			<NodeAnimate delay={0.6} as='section' className='container mt-xl md:px-l'>
+			<NodeAnimate
+				delay={0.6}
+				as='section'
+				className='container mt-xl md:px-xxl'>
 				<StarIcon height={38} className='my-l mx-auto' />
 				{experiences.map((exp, index) => {
 					return <ExperienceItem key={index} exp={exp} />
