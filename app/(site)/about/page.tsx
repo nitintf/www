@@ -2,7 +2,6 @@ import NodeAnimate from '@/components/animation/node'
 import { StarIcon } from '@/components/icons/StarIcon'
 import { generateMeta } from '@/lib/meta'
 import { Metadata } from 'next'
-import Image from 'next/image'
 
 export const metadata: Metadata = generateMeta({ title: 'About' })
 
