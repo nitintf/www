@@ -29,7 +29,7 @@
 		--logo: 35px;
 
 		/* Fonts size */
-		--font-h1: clamp(3.3rem, .5692rem + 7.238vw, 12.75rem);
+		--font-h1: clamp(3.3rem, .5692rem + 7.238vw, 11.75rem);
     --font-h2: clamp(1.5rem, 1.0982rem + 1.7143vw, 2.8125rem);
     --font-h3: clamp(1.375rem, 1.1837rem + .8163vw, 2rem);
     --font-h4: clamp(1.375rem, 1.1837rem + .8163vw, 1.6rem);

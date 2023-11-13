@@ -23,21 +23,13 @@ export default function AboutPage() {
 			</NodeAnimate>
 
 			<NodeAnimate delay={0.2} className='relative max-w-5xl m-auto'>
-				<div className='flex flex-row justify-around'>
-					<figure className='pl-xl hidden md:inline-flex'>
-						<Image
-							src='/images/character1.png'
-							alt='Character'
-							width={400}
-							height={400}
-						/>
-					</figure>
+				<div className='flex justify-around'>
 					<div className='md:ml-l mt-m'>
-						<h2 className='text-h2 leading-[110%] text-secondary text-center md:text-left'>
+						<h2 className='text-h2 leading-[110%] text-secondary text-center'>
 							I&apos;m a Software Engineer working remotely from the tech hub of
 							India.
 						</h2>
-						<p className='text-body text-secondary mt-xxs text-center md:text-left'>
+						<p className='text-body text-secondary mt-xxs text-center'>
 							In my dynamic 2+ years as a software developer, I&apos;ve engaged
 							in diverse areas, from coding efficiency to elevating user
 							experiences. My journey includes front-end development, software

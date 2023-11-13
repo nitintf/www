@@ -53,7 +53,7 @@ const Navbar = () => {
 
 	return (
 		<header className='fixed z-nav top-0 left-0 right-0 w-full px-4'>
-			<nav className='flex items-center justify-center max-w-content mt-8 relative z-nav'>
+			<nav className='flex items-center justify-center max-w-content mt-8 relative z-nav m-auto'>
 				<ul
 					className={cn(
 						'flex relative shadow-link rounded-[30px] p-[5px] transition-all duration-500',
