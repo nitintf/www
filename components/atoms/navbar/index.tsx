@@ -93,7 +93,7 @@ const Navbar = () => {
 							</Link>
 						</li>
 					))}
-					<li className='flex z-10'>
+					{/* <li className='flex z-10'>
 						<a
 							href='https://mail.google.com/mail/?view=cm&fs=1&to=contact@nitinp.dev'
 							target='_blank'
@@ -101,7 +101,7 @@ const Navbar = () => {
 							className='flex items-center h-[36px] px-3 md:px-6 z-10 text-link cursor-pointer'>
 							Contact
 						</a>
-					</li>
+					</li> */}
 				</ul>
 			</nav>
 		</header>
