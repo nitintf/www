@@ -45,7 +45,7 @@ export default function AboutPage() {
 			</NodeAnimate>
 
 			<NodeAnimate as='section' delay={0.4} className='max-w-[1800px] m-auto'>
-				<div className='flex flex-wrap gap-16 md:gap-y-32 bg-highlight md:rounded-[64px] p-xl md:mx-l mt-xl'>
+				<div className='flex flex-wrap gap-16 md:gap-y-12 bg-highlight md:rounded-[64px] p-xl md:mx-l mt-xl'>
 					<div className='flex flex-col w-full md:w-[46%]'>
 						<span className='opacity-50 mb-xxs text-h2 font-primary'>01</span>
 						<h3 className='text-h3'>Crafting Solutions in Code</h3>
@@ -99,6 +99,17 @@ export default function AboutPage() {
 				<div className='flex mt-m'>
 					<ExternalLink href='/resume'>View Resume</ExternalLink>
 				</div>
+			</NodeAnimate>
+
+			<NodeAnimate delay={0.8} as='section' className='max-w-2xl m-auto mt-xl'>
+				<p className='text-body leading-[160%] text-secondary'>
+					Outside work, my downtime is a mix of pure enjoyment. Whether
+					it&apos;s the thrill of a football match, the strategic game of pool,
+					or just the laid-back moments hanging out with friends and family,
+					each experience adds its own touch to the canvas of my life. These are
+					the simple pleasures that keep the rhythm of my days vibrant and
+					fulfilling.
+				</p>
 			</NodeAnimate>
 		</div>
 	)
