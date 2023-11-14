@@ -104,7 +104,7 @@ export default function AboutPage() {
 			<NodeAnimate
 				delay={0.8}
 				as='section'
-				className='max-w-2xl m-auto mt-xl mx-m'>
+				className='max-w-5xl m-auto mt-xl px-l'>
 				<p className='text-body leading-[160%] text-secondary'>
 					Outside work, my downtime is a mix of pure enjoyment. Whether
 					it&apos;s the thrill of a football match, the strategic game of pool,
