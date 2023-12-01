@@ -9,7 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@sanity/client": "^6.7.1",
+		"@sanity/client": "^6.8.0",
 		"@sanity/icons": "^2.7.0",
 		"@sanity/image-url": "^1.0.2",
 		"@sanity/types": "^3.19.1",
