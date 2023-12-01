@@ -14,7 +14,7 @@
 		"@sanity/image-url": "^1.0.2",
 		"@sanity/types": "^3.19.1",
 		"@sanity/ui": "^1.9.0",
-		"@sanity/vision": "^3.19.1",
+		"@sanity/vision": "^3.19.2",
 		"@vercel/analytics": "^1.1.1",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.0.0",
