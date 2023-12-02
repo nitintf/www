@@ -12,7 +12,7 @@
 		"@sanity/client": "^6.7.1",
 		"@sanity/icons": "^2.7.0",
 		"@sanity/image-url": "^1.0.2",
-		"@sanity/types": "^3.19.1",
+		"@sanity/types": "^3.19.2",
 		"@sanity/ui": "^1.9.0",
 		"@sanity/vision": "^3.19.1",
 		"@vercel/analytics": "^1.1.1",
