@@ -35,6 +35,7 @@ const config: Config = {
 				highlight: 'var(--nav-link-highlight)',
 				secondary: 'var(--secondary)',
 				navBg: 'var(--nav-link-bg)',
+				opaque: 'var(--opaque)',
 			},
 			height: {
 				navbar: 'var(--top-navbar-height)',
@@ -74,6 +75,9 @@ const config: Config = {
 			},
 			animation: {
 				scale: 'scaleUp 0.3s ease-in-out 0.8s',
+			},
+			borderRadius: {
+				base: 'var(--radius-base)',
 			},
 		},
 	},

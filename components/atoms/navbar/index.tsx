@@ -16,10 +16,10 @@ const NAV_LINKS = [
 		href: 'about',
 		label: 'About',
 	},
-	{
-		href: 'codelabs',
-		label: 'Codelabs',
-	},
+	// {
+	// 	href: 'codelabs',
+	// 	label: 'Codelabs',
+	// },
 	{
 		href: 'notes',
 		label: 'Notes',

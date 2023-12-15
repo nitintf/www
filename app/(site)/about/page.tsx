@@ -5,6 +5,7 @@ import { ExternalLink } from '@/components/ui/external-link'
 import { experiences } from '@/data/experience'
 import { generateMeta } from '@/lib/meta'
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = generateMeta({
 	title: 'About' + ' — Nitin Panwar',
@@ -12,7 +13,7 @@ export const metadata: Metadata = generateMeta({
 
 export default function AboutPage() {
 	return (
-		<div className='relative w-full h-full mb-xl'>
+		<div className='relative w-full h-full mb-xl mt-32'>
 			<NodeAnimate>
 				<h1 className='pt-32 text-secondary'>
 					<span className='relative flex justify-center text-foreground'>
@@ -44,55 +45,12 @@ export default function AboutPage() {
 				</div>
 			</NodeAnimate>
 
-			<NodeAnimate as='section' delay={0.4} className='max-w-[1800px] m-auto'>
-				<div className='flex flex-wrap gap-16 md:gap-y-12 bg-highlight md:rounded-[64px] p-xl md:mx-l mt-xl'>
-					<div className='flex flex-col w-full md:w-[46%]'>
-						<span className='opacity-50 mb-xxs text-h2 font-primary'>01</span>
-						<h3 className='text-h3'>Crafting Solutions in Code</h3>
-						<p className='mt-xxs text-body text-secondary'>
-							I turn ideas into digital reality. From wireframes to prototypes,
-							I bring designs to life in the browser. Design tools set the
-							stage, but the real magic happens with a link that unites my team.
-						</p>
-					</div>
-					<div className='flex flex-col w-full md:w-[46%]'>
-						<span className='opacity-50 mb-xxs text-h2 font-primary'>02</span>
-						<h3 className='text-h3'>Collaborative Coding</h3>
-						<p className='mt-xxs text-body text-secondary'>
-							I believe in teamwork for great software. I create a collaborative
-							space, involving stakeholders in coding. Feedback and iteration
-							thrive, ensuring our software meets user needs and business goals
-							as we build together.
-						</p>
-					</div>
-					<div className='flex flex-col w-full md:w-[46%]'>
-						<span className='opacity-50 mb-xxs text-h2 font-primary'>03</span>
-						<h3 className='text-h3'>Coding for Accessibility</h3>
-						<p className='mt-xxs text-body text-secondary'>
-							I prioritize accessibility in my coding, aiming to make every
-							software inclusive. It&apos;s not just beneficial; it&apos;s the
-							right thing to do. Accessible software empowers a broader
-							audience, fostering a more inclusive digital landscape.
-						</p>
-					</div>
-					<div className='flex flex-col w-full md:w-[46%]'>
-						<span className='opacity-50 mb-xxs text-h2 font-primary'>04</span>
-						<h3 className='text-h3'>Embracing the Agile Mindset</h3>
-						<p className='mt-xxs text-body text-secondary'>
-							Each code line is an ongoing experiment. Not every approach works,
-							but the process of trying and learning is invaluable. Embracing an
-							agile mindset ensures continuous improvement, keeping the software
-							adaptive and resilient.
-						</p>
-					</div>
-				</div>
-			</NodeAnimate>
-
 			<NodeAnimate
 				delay={0.6}
 				as='section'
 				className='container mt-xl md:px-xl'>
 				<StarIcon height={38} className='my-l mx-auto' />
+				<h3 className='text-h3 my-s'>Experience</h3>
 				{experiences.map((exp, index) => {
 					return <ExperienceItem key={index} exp={exp} />
 				})}

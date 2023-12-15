@@ -20,7 +20,11 @@ const containerVariant: Variants = {
 	},
 }
 
-export default function ProjectWrapper({ children }: PropsWithChildren) {
+interface Props extends PropsWithChildren {
+	backTo: string
+}
+
+export default function Wrapper({ backTo, children }: Props) {
 	const [isHovered, setHovered] = useState(false)
 
 	return (
@@ -33,7 +37,7 @@ export default function ProjectWrapper({ children }: PropsWithChildren) {
 			<Link
 				onMouseEnter={() => setHovered(true)}
 				onMouseLeave={() => setHovered(false)}
-				href={'/'}
+				href={backTo}
 				className='absolute w-10 h-10 top-9 rounded-full flex items-center justify-center border-border border-2 left-[50%] hover:shadow-link transition-shadow duration-500 -translate-x-[50%]'>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'

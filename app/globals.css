@@ -18,6 +18,7 @@
 		--border: transparent;
 		--nav-link-highlight: rgb(255, 255, 255);
 		--nav-link-bg: rgba(0, 0, 0, 0.04);
+		--opaque: rgba(0, 0, 0, 0.094);
 
 		/* Shadows */
 		--link: rgb(0, 0, 0, 0.08) 0px 0px 0px 2px;
@@ -36,7 +37,7 @@
     --font-h5: clamp(1rem, .9235rem + .3265vw, 1.25rem);
     --font-h6: clamp(1rem, .9617rem + .1633vw, 1.125rem);
     --font-body: clamp(1rem, .8852rem + .4898vw, 1.375rem);
-    --font-link: clamp(.875rem, .7985rem + .1265vw, 1.125rem);
+    --font-link: clamp(.875rem, .7985rem + .3265vw, 1.125rem);
     --font-mini: clamp(.875rem, .8367rem + .1633vw, 1rem);
     --font-h2-display: clamp(1.875rem, 1.301rem + 2.449vw, 3.95rem);
 
@@ -89,7 +90,7 @@
 	[data-theme='dark'] {
 		/* Colors */ 
 		--background: hsl(214, 28%, 5%);
-		--foreground: hsl(225, 36%, 96%);
+		--foreground: hsl(0, 0%, 83%);
 		--secondary: #98a1b6;
 		--border: rgb(48, 54, 61);
 		--nav-link-highlight: rgb(33, 38, 45);
