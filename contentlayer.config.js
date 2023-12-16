@@ -62,6 +62,11 @@ export const Note = defineDocumentType(() => ({
     image: {
       type: 'string',
     },
+    length: {
+      options: ['Medium', 'Long', 'Short'],
+      default: 'Medium',
+      type: 'enum',
+    }
   },
   computedFields,
 }));
@@ -76,7 +81,6 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: 'one-dark-pro',
           onVisitLine(node) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted
@@ -85,9 +89,9 @@ export default makeSource({
             }
           },
           onVisitHighlightedLine(node) {
-            node.properties.className.push('line--highlighted');
+            node.properties.className = ['line--highlighted'];
           },
-          onVisitHighlightedWord(node) {
+          onVisitHighlightedChars(node) {
             node.properties.className = ['word--highlighted'];
           },
         },

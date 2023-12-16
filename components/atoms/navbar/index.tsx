@@ -5,26 +5,7 @@ import { cn } from '@/lib/utils/cn'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useRef, useState } from 'react'
-
-const NAV_LINKS = [
-	{
-		href: '',
-		label: 'Work',
-	},
-	{
-		href: 'about',
-		label: 'About',
-	},
-	// {
-	// 	href: 'codelabs',
-	// 	label: 'Codelabs',
-	// },
-	{
-		href: 'notes',
-		label: 'Notes',
-	},
-]
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 const Navbar = () => {
 	const pathname = usePathname()
@@ -50,6 +31,27 @@ const Navbar = () => {
 			left: currentElRef.current[path]?.offsetLeft as number,
 		})
 	}, [pathname])
+
+	const navLinks = useMemo(() => {
+		const links = [
+			{
+				href: '',
+				label: 'Work',
+			},
+			{
+				href: 'about',
+				label: 'About',
+			},
+		]
+
+		if (process.env.NEXT_PUBLIC_NOTES_PAGE_ENABLED === 'true') {
+			links.push({
+				href: 'notes',
+				label: 'Notes',
+			})
+		}
+		return links
+	}, [])
 
 	return (
 		<header className='fixed z-nav top-0 left-0 right-0 w-full px-4'>
@@ -78,7 +80,7 @@ const Navbar = () => {
 							},
 						}}
 					/>
-					{NAV_LINKS.map((link, index) => (
+					{navLinks.map((link, index) => (
 						<li key={index} className='flex z-10'>
 							<Link
 								className='flex items-center h-[36px] px-3 md:px-6 z-10 text-link'
