@@ -1,6 +1,7 @@
 import { allDocuments } from '@/.contentlayer/generated'
 import NoteWrapper from '@/components/animation/animation-wrapper'
 import { Mdx } from '@/components/mdx'
+import { ShareNote } from '@/components/share-note'
 import { generateMeta } from '@/lib/meta'
 import { formatDate } from '@/lib/utils/date'
 import { getNoteLenghtIcon } from '@/lib/utils/note-length'
@@ -76,6 +77,7 @@ export default function Page({ params }: Props) {
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify(note.structuredData),
 				}}></script>
+			<div></div>
 			<h2 className='text-h2Display text-center max-w-lg mx-auto'>
 				{note.title}
 			</h2>
@@ -92,6 +94,7 @@ export default function Page({ params }: Props) {
 				</span>
 			</div>
 			<Mdx code={note.body.code} />
+			<ShareNote noteSlug={note.slug} />
 		</NoteWrapper>
 	)
 }

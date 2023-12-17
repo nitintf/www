@@ -10,8 +10,6 @@ export const metadata: Metadata = generateMeta({
 })
 
 export default async function NotesPage() {
-	const notes = allNotes.map((note) => note)
-
 	return (
 		<div className='relative container w-full h-full mb-xl'>
 			<NodeAnimate>

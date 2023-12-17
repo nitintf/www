@@ -36,6 +36,7 @@ const config: Config = {
 				secondary: 'var(--secondary)',
 				navBg: 'var(--nav-link-bg)',
 				opaque: 'var(--opaque)',
+				link: 'var(--link)',
 			},
 			height: {
 				navbar: 'var(--top-navbar-height)',
