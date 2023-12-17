@@ -1,5 +1,3 @@
-'use client'
-
 import HeartIcon from './icons/HeartIcon'
 import LinkIcon from './icons/LinkIcon'
 import LinkedinIcon from './icons/LinkedIcon'
@@ -9,16 +7,10 @@ interface ShareNoteProps {
 	noteSlug: string
 }
 
-export const ShareNote: React.FC<ShareNoteProps> = () => {
+export const ShareNote: React.FC<ShareNoteProps> = ({ noteSlug }) => {
+	const link = `https://nitinp.dev/note/${noteSlug}`
 	const copyCurrentLink = () => {
-		if (typeof window === 'undefined') return
-		const currentLink = window.location.href
-		navigator.clipboard.writeText(currentLink)
-	}
-
-	const getNoteLink = () => {
-		if (typeof window === 'undefined') return
-		return window.location.href
+		navigator.clipboard.writeText(link)
 	}
 
 	return (
@@ -34,14 +26,14 @@ export const ShareNote: React.FC<ShareNoteProps> = () => {
 					<LinkIcon />
 				</button>
 				<a
-					href={`https://twitter.com/share?url=${getNoteLink()}`}
+					href={`https://twitter.com/share?url=${link}`}
 					target='_blank'
 					rel='noopener noreferrer'
 					className='cursor-pointer flex items-center justify-center w-16 h-16 border-0  rounded-xl bg-border  hover:bg-highlight'>
 					<TwitterIcon />
 				</a>
 				<a
-					href={`https://www.linkedin.com/shareArticle?mini=true&url=${getNoteLink()}`}
+					href={`https://www.linkedin.com/shareArticle?mini=true&url=${link}`}
 					target='_blank'
 					rel='noopener noreferrer'
 					className='cursor-pointer flex items-center justify-center w-16 h-16 border-0  rounded-xl bg-border  hover:bg-highlight'>
