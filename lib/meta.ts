@@ -18,7 +18,7 @@ export const seo: Metadata = {
 		description,
 		images: [
 			{
-				url: 'https://nitinp.dev/favicon.ico',
+				url: `https://nitinp.dev/og?title=${title}-${meta}`,
 				width: 1920,
 				height: 1080,
 			},
@@ -30,6 +30,7 @@ export const seo: Metadata = {
 		card: 'summary_large_image',
 		site,
 		title,
+		images: [`https://nitinp.dev/og?title=${title}-${meta}`],
 	},
 	metadataBase: new URL('https://nitinp.dev'),
 	icons: {

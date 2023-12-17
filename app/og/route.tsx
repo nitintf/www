@@ -16,12 +16,14 @@ export async function GET(req: NextRequest) {
 			<div
 				style={{
 					height: '100%',
-					width: '100%',
+					width: '100vw',
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'flex-start',
 					justifyContent: 'center',
-					backgroundImage: 'url(https://nitinp.dev/og-bg.png)',
+					backgroundImage: 'url(http://localhost:3000/og-bg.png)',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'cover',
 				}}>
 				<div
 					style={{
