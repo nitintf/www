@@ -1,0 +1,189 @@
+
+code {
+  counter-reset: line;
+}
+
+code > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply inline-block w-4 mr-8 text-gray-500 pl-4;
+}
+
+pre {
+  @apply !pl-0 !pr-0
+}
+
+code[data-line-numbers-max-digits='2'] > [data-line]::before {
+  width: 1rem;
+}
+ 
+code[data-line-numbers-max-digits='3'] > [data-line]::before {
+  width: 3rem;
+}
+
+[data-rehype-pretty-code-fragment] .line--highlighted {
+  @apply bg-[#88C0D0] bg-opacity-10 border-l-4 border-[#88C0D0] pl-0;
+}
+[data-rehype-pretty-code-fragment] .line-highlighted span {
+  @apply relative;
+}
+[data-rehype-pretty-code-fragment] .word--highlighted {
+  @apply rounded-md bg-[#88C0D0] bg-opacity-30 p-1;
+}
+[data-rehype-pretty-code-title] {
+  @apply px-4 py-3 font-mono text-xs font-medium border rounded-t-lg text-neutral-200 border-[#333333] bg-[#1c1c1c];
+}
+[data-rehype-pretty-code-title] + pre {
+  @apply mt-0 rounded-t-none border-t-0;
+}
+
+
+/* Callouts */
+.prose callout-muted a,
+.prose callout-info a,
+.prose callout-warning a,
+.prose callout-danger a,
+.prose callout-success a {
+  text-decoration: underline;
+}
+
+.prose callout-muted p,
+.prose callout-info p,
+.prose callout-warning p,
+.prose callout-danger p,
+.prose callout-success p {
+  margin-bottom: 0;
+}
+
+.prose callout-muted,
+.prose callout-info,
+.prose callout-warning,
+.prose callout-danger,
+.prose callout-success {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.prose callout-muted,
+.prose callout-info,
+.prose callout-warning,
+.prose callout-danger,
+.prose callout-success {
+  display: block;
+  border-left: solid 4px;
+  padding: 0.5rem 1rem;
+  position: relative;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.prose callout-muted,
+.prose callout-info,
+.prose callout-warning,
+.prose callout-danger,
+.prose callout-success,
+.prose callout-muted *,
+.prose callout-info *,
+.prose callout-warning *,
+.prose callout-danger *,
+.prose callout-success * {
+  font-size: 1.2rem;
+}
+
+.prose callout-muted.aside,
+.prose callout-info.aside,
+.prose callout-warning.aside,
+.prose callout-danger.aside,
+.prose callout-success.aside,
+.prose callout-muted.aside *,
+.prose callout-info.aside *,
+.prose callout-warning.aside *,
+.prose callout-danger.aside *,
+.prose callout-success.aside * {
+  font-size: 0.875rem;
+}
+
+.prose callout-muted.important,
+.prose callout-info.important,
+.prose callout-warning.important,
+.prose callout-danger.important,
+.prose callout-success.important,
+.prose callout-muted.important *,
+.prose callout-info.important *,
+.prose callout-warning.important *,
+.prose callout-danger.important *,
+.prose callout-success.important * {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.prose callout-muted:before,
+.prose callout-info:before,
+.prose callout-warning:before,
+.prose callout-danger:before,
+.prose callout-success:before {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* the warning yellow is really inaccessible in light mode, so we have a special case for light mode */
+.light .prose callout-warning,
+.light .prose callout-warning ol > li:before {
+  color: #676000;
+}
+.light .prose callout-warning:before {
+  background: #ffd800;
+}
+.prose callout-warning,
+.prose callout-warning ol > li:before {
+  color: #ffd644;
+}
+.prose callout-warning:before {
+  background: #ffd644;
+}
+
+/* the muted gray is really inaccessible in light mode, so we have a special case for light mode */
+.light .prose callout-muted,
+.light .prose callout-muted ol > li:before {
+  color: #4c4b5e;
+}
+.light .prose callout-muted:before {
+  background: #3c3e4d;
+}
+
+.prose callout-muted,
+.prose callout-muted ol > li:before {
+  color: #b9b9c3;
+}
+.prose callout-muted:before {
+  background: #3c3e4d;
+}
+
+.prose callout-info,
+.prose callout-info ol > li:before {
+  color: #88C0D0;
+}
+.prose callout-info:before {
+  background: #88C0D0;
+}
+
+.prose callout-danger,
+.prose callout-danger ol > li:before {
+  color: #ff4545;
+}
+.prose callout-danger:before {
+  background: #ff4545;
+}
+
+.prose callout-success,
+.prose callout-success ol > li:before {
+  color: #30c85e;
+}
+.prose callout-success:before {
+  background: #30c85e;
+}

@@ -163,20 +163,3 @@
 		right: 30px;
 	}
 }
-
-
-[data-rehype-pretty-code-fragment] .line--highlighted {
-  @apply bg-slate-300 bg-opacity-10;
-}
-[data-rehype-pretty-code-fragment] .line-highlighted span {
-  @apply relative;
-}
-[data-rehype-pretty-code-fragment] .word--highlighted {
-  @apply rounded-md bg-cyan-300 bg-opacity-10 p-1;
-}
-[data-rehype-pretty-code-title] {
-  @apply px-4 py-3 font-mono text-xs font-medium border rounded-t-lg text-neutral-200 border-[#333333] bg-[#1c1c1c];
-}
-[data-rehype-pretty-code-title] + pre {
-  @apply mt-0 rounded-t-none border-t-0;
-}

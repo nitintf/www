@@ -15,7 +15,7 @@ export default function AboutPage() {
 	return (
 		<div className='relative w-full h-full mb-xl mt-32'>
 			<NodeAnimate>
-				<h1 className='pt-32 text-secondary'>
+				<h1 className='pt-xl text-secondary'>
 					<span className='relative flex justify-center text-foreground'>
 						<p className='relative'>
 							I&apos;m Nitin.

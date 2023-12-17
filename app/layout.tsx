@@ -1,4 +1,5 @@
-import './globals.css'
+import '../styles/globals.css'
+import '../styles/prose.css'
 import { Providers } from '@/components/providers'
 import { cn } from '@/lib/utils/cn'
 import { primary, secondary } from '@/lib/fonts'

@@ -81,7 +81,7 @@ export default function Page({ params }: Props) {
 			</h2>
 			<div className='flex items-center justify-center mt-m text-link text-secondary gap-[7px]'>
 				<span>
-					<time title={formattedDate} dateTime={note.publishedAt}>
+					<time title={note.publishedAt} dateTime={note.publishedAt}>
 						{formattedDate}
 					</time>
 				</span>

@@ -45,6 +45,7 @@
 		"autoprefixer": "^10.0.1",
 		"eslint": "^8",
 		"eslint-config-next": "14.0.1",
+		"mdx": "^0.3.1",
 		"postcss": "^8",
 		"styled-components": "^6.1.1",
 		"tailwindcss": "^3.3.0",

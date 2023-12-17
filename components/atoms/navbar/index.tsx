@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils/cn'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 const Navbar = () => {
 	const pathname = usePathname()
@@ -24,16 +24,16 @@ const Navbar = () => {
 		})
 	}
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const path = pathname?.split('/')[1]
 		setHighlighterDimensions({
 			width: currentElRef.current[path]?.offsetWidth as number,
 			left: currentElRef.current[path]?.offsetLeft as number,
 		})
-	}, [pathname])
+	}, [])
 
 	const navLinks = useMemo(() => {
-		const links = [
+		return [
 			{
 				href: '',
 				label: 'Work',
@@ -42,15 +42,11 @@ const Navbar = () => {
 				href: 'about',
 				label: 'About',
 			},
-		]
-
-		if (process.env.NEXT_PUBLIC_NOTES_PAGE_ENABLED === 'true') {
-			links.push({
+			{
 				href: 'notes',
 				label: 'Notes',
-			})
-		}
-		return links
+			},
+		]
 	}, [])
 
 	return (

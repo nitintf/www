@@ -18,13 +18,14 @@ export function NoteItem({ note }: Props) {
 					</h5>
 					<p className='text-link'>{note.summary}</p>
 				</div>
-				<div className='rounded-[50%] w-20 h-20 flex bg-opaque'>
+				<div className='rounded-[50%] w-20 h-20 flex bg-opaque flex items-center justify-center'>
 					<figure className='relative m-0'>
 						<Image
-							src='/images/notes/fire.png'
+							src={`/images/notes/${note.image}`}
 							alt='Fire Image'
 							width={80}
 							height={80}
+							className='w-8'
 						/>
 					</figure>
 				</div>

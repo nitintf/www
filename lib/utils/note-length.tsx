@@ -1,4 +1,8 @@
-export const getNoteLenghtIcon = (length: 'Long' | 'Medium' | 'Short') => {
+import { Note } from '@/.contentlayer/generated'
+
+type NoteLength = Pick<Note, 'length'>['length']
+
+export const getNoteLenghtIcon = (length: NoteLength) => {
 	const trimmedLength = length.trim()
 
 	return (

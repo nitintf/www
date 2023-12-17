@@ -61,6 +61,7 @@ export const Note = defineDocumentType(() => ({
     },
     image: {
       type: 'string',
+      required: true
     },
     length: {
       options: ['Medium', 'Long', 'Short'],
@@ -73,6 +74,7 @@ export const Note = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'content',
+
   documentTypes: [Note],
   mdx: {
     remarkPlugins: [remarkGfm],
@@ -81,6 +83,7 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
+          theme: 'nord',
           onVisitLine(node) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted

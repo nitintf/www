@@ -1,4 +1,3 @@
-import '../globals.css'
 import Navbar from '@/components/atoms/navbar'
 
 export default function RootLayout({

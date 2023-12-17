@@ -1,134 +1,87 @@
 ---
-title: 'Trying Go & Htmx'
-summary: "Creating a todo application in go and htmx"
+title: 'Go CLI Magic.'
+summary: "Build your own IP tracker CLI tool using Go and Cobra"
 publishedAt: 2023-12-11
 length: Medium 
+image: go.png
 ---
 
-When thinking of APIs, most people think of REST apis (web APIs). Well, APIs are much more than that - In this blog, I’ll explain what exactly APIs are, and we’ll also make a REST API using FastAPI (Python) ⚡
 
-- What are APIs?
-- How do APIs work?
-- Real life examples
-- How to make your own API in python using FastAPI
+Go, a popular programming language, is celebrated for its simplicity, speed, and reliability, making it perfect for crafting command-line tools.
 
-## What are APIs?
+Building a CLI tool involves handling command line inputs, outputs, and other system resources. As your app grows, managing this complexity can get tricky.
 
-Simply speaking, APIs are just constructs that abstract a bit of complex code (Javascript DOM API) , or act as a link between codebases (frontend and backend, for example). APIs can also be really helpful to “connect” programming languages and modify and transfer data from one language to another
+Enter [Cobra](https://cobra.dev/), a fantastic Go library. It simplifies building scalable, maintainable, and extensible command-line interfaces.
 
-[Mozilla has an amazing article on this](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
+In this tutorial, I'll guide you through using Cobra to create a Go CLI tool. We'll focus on building an Ip Tracker tool to effortlessly track IP addresses. Let's explore Cobra's key features and benefits along the way!
 
-Here’s what it says in short:
+### Prerequisites
 
-> Application Programming Interfaces (APIs) are constructs made available in programming languages to allow developers to create complex functionality more easily. They abstract more complex code away from you, providing some easier syntax to use in its place.
+<callout-info>
+- Basic understanding of Go programming.
+- If you're new to Go, check out the [official Go tutorial](https://tour.golang.org/welcome/1).
+- Ensure you have Go version 1.19 or above installed. You can download it [here](https://golang.org/dl/).
+</callout-info>
 
-An amazing analogy to explain APIs (also from mozilla)-
+### Install Cobra Generator:
 
-As a real-world example, think about the electricity supply in your house, apartment, or other dwellings. If you want to use an appliance in your house, you plug it into a plug socket and it works. You don't try to wire it directly into the power supply — to do so would be really inefficient and, if you are not an electrician, difficult and dangerous to attempt.
-
-![Analogy of plug and socket](/static/images/api-ims/analogy.png)
-
-Generally speaking, adding microservices to your codebase is a good idea. APIs are also kinda similar to cloud functions
-
-## Types of APIs
-
-Types of APIs There are a few different types of APIs you should know about There are the program-centric APIs like in Java, (that let objects talk to each other) And web-centric APIs like: REST API (Representational State Transfer) GraphQL API (there are many more ... but out of context here)
-
-## Making your own API⚡⚡
-
-Some popular programming languages to make APIs are - Javascript, Python, Go, Rust (there are a lot more but these are the most popular)
-
-Let’s make an API in Python - It’s really easy with FastAPI!
-
-There are multiple options to make an API in python (like Flask, Quart, Fastapi). I chose Fastapi because it’s fast and made with APIs in mind
-
-OK, now
-
-First, install the requirements
-
-![installing the dependencies - pip install fastapi uvicorn](/static/images/api-ims/cmd.png)
-
-In Python and javascript, making APIs is really easy because it’s just a function with a decorator
-
-```python /FastAPI/2
-from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/")
-def hello():
-    return {"Hello": "World"}
-```
-
-That’s LITERALLY it!
-
-First, we imported `fastapi`, then declared the app. You can pass multiple configurations to the app and fastapi also automatically generates Swagger ui Docs and Redoc page. (picture below is swagger docs, available on `/docs` endpoint)
-
-![Automatically generated Swagger UI docs](/static/images/api-ims/swagger_doc.png)
-
-You can have arguments like so :
-
-```python {1-2}
-@app.get("/items")
-def read_item(q: Optional[str] = None):
-    return {"q": q}
-```
-
-This will return the bread for q on the URL [http://127.0.0.1:8000/items?q=bread](http://127.0.0.1:8000/items?q=bread)
-
-You can also have dynamic endpoints, like so :
-
-```python
-@app.get("/user/{user_name}")
-def read_item(user_name:str):
-    return {"username": user_name}
-```
-
-Now, if I go to the URL [http://127.0.0.1:8000/user/dhravya](http://127.0.0.1:8000/user/dhravya) , it will return “username: dhravya”
-
-But how to run the server?
-
-Use this command :
+To streamline the integration of Cobra into your application, we recommend using the Cobra CLI. Install it effortlessly with the following command:
 
 ```bash
-uvicorn main:app --reload
+go install github.com/spf13/cobra-cli@latest
 ```
 
-and it should show
+Once installed, access the CLI by typing `cobra-cli` in the terminal.
 
-```verilog
-INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [28720]
-INFO:     Started server process [28722]
-INFO:     Waiting for application startup.
-INFO:     Application startup complete.
+### Create a New Project:
+
+Start by setting up the project directory. Execute the following commands to create a new folder for your application and navigate into it:
+
+```bash
+mkdir ip_tracker && cd ip_tracker
 ```
 
-ANND that’s it! APIs are easy. Now you can connect your React frontend to python backend!
+Now, initiate a Go module for your project:
 
-And to deploy, I use this command and reverse proxy with Apache
-
-```zsh
-pkill gunicorn && gunicorn app:app -w 1 -k uvicorn.workers.UvicornWorker -b "127.0.0.1:8000" --daemon
+```bash
+go mod init iptracker
 ```
 
-It does not end here! Go to [https://fastapi.tiangolo.com](https://fastapi.tiangolo.com/) FastAPI docs and mess around! Or make your own API
+With the module in place, create the application using the Cobra CLI
 
-The web is fullll of APIs. Utilising them will save your time! So go to [https://rapidapi.com](https://rapidapi.com) and browse through them.
+```bash
+cobra-cli init
+```
 
-## Now you know
 
-Now you know:
+### Adding Commands:
 
-- APIs are _not only_ web APIs
-- What are APIs
-- How to make APIs and deploy them
-- FastAPI - Parameters and dynamic URLs
+In the world of CLIs, commands are like the heartbeats—they do things. They're the main players in your application, each representing a specific action.
 
-Comment below if you want me to make the same tutorial but for Express.JS or Rust
+Every Cobra app has a root command. When you say the CLI's name, this command wakes up. Normally, it shares info about the app, but you can make it do something special. You'll find this root command in `cmd/root.go`. Open it up and make it look like this:
 
-If you liked this blog, or if it helped you in ANY way, make sure to 💖 this blog and [follow me on dev.to](https://dev.to/dhravya). I try to write informative tutorials, blogs and about interesting tools and products every week!
+```go
+package cmd
 
-Connect with me on Twitter - [https://twitter.com/dhravyashah](https://twitter.com/dhravyashah)
+import (
+	"fmt"
+	"github.com/spf13/cobra"
+	"os"
+)
 
-If you have any programming questions, [ask on Counsily](https://play.google.com/store/apps/details?id=com.counsily). I’ll try to answer them as soon as I can!
+var rootCmd = &cobra.Command{
+	Use:   "iptracker",
+	Short: "Track IP addresses",
+	Long:  `A Go based CLI tool to track IP addresses`,
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("Welcome to iptracker_cli!")
+	},
+}
+
+func Execute() {
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+}
+```
