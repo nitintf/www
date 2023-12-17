@@ -12,8 +12,6 @@ interface Props {
 	params: { slug: string[] }
 }
 
-// export const dynamic = 'force-static'
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const slug = params.slug[0]
 

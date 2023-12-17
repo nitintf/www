@@ -11,8 +11,14 @@ interface ShareNoteProps {
 
 export const ShareNote: React.FC<ShareNoteProps> = () => {
 	const copyCurrentLink = () => {
+		if (typeof window === 'undefined') return
 		const currentLink = window.location.href
 		navigator.clipboard.writeText(currentLink)
+	}
+
+	const getNoteLink = () => {
+		if (typeof window === 'undefined') return
+		return window.location.href
 	}
 
 	return (
@@ -28,14 +34,14 @@ export const ShareNote: React.FC<ShareNoteProps> = () => {
 					<LinkIcon />
 				</button>
 				<a
-					href={`https://twitter.com/share?url=${window.location.href}`}
+					href={`https://twitter.com/share?url=${getNoteLink()}`}
 					target='_blank'
 					rel='noopener noreferrer'
 					className='cursor-pointer flex items-center justify-center w-16 h-16 border-0  rounded-xl bg-border  hover:bg-highlight'>
 					<TwitterIcon />
 				</a>
 				<a
-					href={`https://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}`}
+					href={`https://www.linkedin.com/shareArticle?mini=true&url=${getNoteLink()}`}
 					target='_blank'
 					rel='noopener noreferrer'
 					className='cursor-pointer flex items-center justify-center w-16 h-16 border-0  rounded-xl bg-border  hover:bg-highlight'>
