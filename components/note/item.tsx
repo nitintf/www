@@ -21,8 +21,8 @@ export function NoteItem({ note }: Props) {
 				<div className='rounded-[50%] w-20 h-20 flex bg-opaque flex items-center justify-center'>
 					<figure className='relative m-0'>
 						<Image
-							src={`/images/notes/${note.image}`}
-							alt='Fire Image'
+							src={`/images/notes/${note.image}.webp`}
+							alt={note.title}
 							width={80}
 							height={80}
 							className='w-8'

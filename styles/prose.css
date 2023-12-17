@@ -66,6 +66,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 .prose callout-success {
   margin-top: 0;
   margin-bottom: 2rem;
+  @apply py-2;
 }
 
 .prose callout-muted,
@@ -75,7 +76,7 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 .prose callout-success {
   display: block;
   border-left: solid 4px;
-  padding: 0.5rem 1rem;
+  padding: 1.5rem 1rem;
   position: relative;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
