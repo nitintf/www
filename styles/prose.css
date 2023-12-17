@@ -37,6 +37,10 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
   @apply mt-0 rounded-t-none border-t-0;
 }
 
+[data-rehype-pretty-code-title] {
+  @apply bg-transparent;
+}
+
 
 /* Callouts */
 .prose callout-muted a,
