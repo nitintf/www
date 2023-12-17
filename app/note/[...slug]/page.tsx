@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		image,
 	} = note
 
-	const ogImage = `https://nitinp.dev/${image}`
+	const ogImage = `https://nitinp.dev/og?title=${title}`
 
 	return generateMeta({
 		title,
