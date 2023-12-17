@@ -32,9 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		image,
 	} = note
 
-	const ogImage = note.image
-		? `https://nitinp.dev${image}`
-		: `https://nitinp.dev/og?title=${title}`
+	const ogImage = `https://nitinp.dev/og?title=${title}`
 
 	return generateMeta({
 		title,
@@ -59,6 +57,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		},
 	})
 }
+
+export const dynamic = 'force-static'
 
 export default function Page({ params }: Props) {
 	const note = allDocuments.find((doc) => doc.slug === params.slug[0])

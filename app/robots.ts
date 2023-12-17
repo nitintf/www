@@ -5,7 +5,6 @@ export default function robots(): MetadataRoute.Robots {
 		rules: {
 			userAgent: '*',
 			allow: '/',
-			disallow: '/admin/',
 		},
 		sitemap: 'https://nitinp.dev/sitemap.xml',
 		host: 'https://nitinp.dev',

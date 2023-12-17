@@ -1,3 +1,4 @@
+import { allNotes } from '@/.contentlayer/generated'
 import projects from '@/data/projects'
 
 export default async function sitemap() {
@@ -11,5 +12,10 @@ export default async function sitemap() {
 		lastModified: new Date().toISOString().split('T')[0],
 	}))
 
-	return [...routes, ...projectsRoutes]
+	const notesRoutes = allNotes.map((note) => ({
+		url: `https://nitinp.dev/note/${note.slug}`,
+		lastModified: new Date().toISOString().split('T')[0],
+	}))
+
+	return [...routes, ...projectsRoutes, ...notesRoutes]
 }
