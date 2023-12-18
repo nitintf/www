@@ -53,7 +53,7 @@ const ExpandButton: React.FC<Props> = ({ isExpanded, text }) => {
 			initial='collapsed'
 			animate={isExpanded ? 'expanded' : 'collapsed'}>
 			<motion.p
-				className='mr-[40px] ml-[16px] text-link text-background whitespace-nowrap'
+				className='mr-[40px] ml-[16px] text-background whitespace-nowrap'
 				variants={textVariants}
 				initial='hide'
 				animate={isExpanded ? 'show' : 'hide'}>
