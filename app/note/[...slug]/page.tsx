@@ -1,5 +1,6 @@
 import { allDocuments } from '@/.contentlayer/generated'
 import NoteWrapper from '@/components/animation/animation-wrapper'
+import { BackToTop } from '@/components/back-to-top'
 import { Mdx } from '@/components/mdx'
 import { ShareNote } from '@/components/share-note'
 import { generateMeta } from '@/lib/meta'
@@ -93,6 +94,7 @@ export default function Page({ params }: Props) {
 			</div>
 			<Mdx code={note.body.code} />
 			<ShareNote noteSlug={note.slug} />
+			<BackToTop />
 		</NoteWrapper>
 	)
 }
