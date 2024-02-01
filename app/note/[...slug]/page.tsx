@@ -1,4 +1,4 @@
-import { allDocuments } from '@/.contentlayer/generated'
+import { allNotes } from '@/.contentlayer/generated'
 import NoteWrapper from '@/components/animation/animation-wrapper'
 import { BackToTop } from '@/components/back-to-top'
 import { Mdx } from '@/components/mdx'
@@ -16,7 +16,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const slug = params.slug[0]
 
-	const note = allDocuments.find((doc) => doc.slug === slug)
+	const note = allNotes.find((doc) => doc.slug === slug)
 
 	if (!note) {
 		return {
@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export const dynamic = 'force-static'
 
 export default function Page({ params }: Props) {
-	const note = allDocuments.find((doc) => doc.slug === params.slug[0])
+	const note = allNotes.find((doc) => doc.slug === params.slug[0])
 
 	if (!note) {
 		notFound()
