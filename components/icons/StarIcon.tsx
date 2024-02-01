@@ -4,7 +4,7 @@ import { SVGProps } from 'react'
 export const StarIcon = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
-		width='110x'
+		width='110px'
 		height='110px'
 		fill='none'
 		viewBox='0 0 110.644 110.385'

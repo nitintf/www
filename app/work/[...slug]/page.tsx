@@ -1,9 +1,9 @@
-import projects from '@/data/projects'
 import { notFound } from 'next/navigation'
 import ProjectWrapper from '@/components/animation/animation-wrapper'
 import { Metadata } from 'next'
 import { generateMeta } from '@/lib/meta'
 import Image from 'next/image'
+import { allProjects as projects } from 'contentlayer/generated'
 
 interface Props {
 	params: { slug: string[] }

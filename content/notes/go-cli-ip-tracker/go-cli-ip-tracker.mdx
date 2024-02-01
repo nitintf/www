@@ -1,0 +1,395 @@
+---
+type: Note
+title: 'Go CLI Magic.'
+summary: 'Build your own IP tracker CLI tool using Go and Cobra'
+publishedAt: 2023-12-11
+length: Long
+image: go
+---
+
+Go, a popular programming language, is celebrated for its simplicity, speed, and
+reliability, making it perfect for crafting command-line tools.
+
+Building a CLI tool involves handling command line inputs, outputs, and other
+system resources. As your app grows, managing this complexity can get tricky.
+
+Enter [Cobra](https://cobra.dev/), a fantastic Go library. It simplifies
+building scalable, maintainable, and extensible command-line interfaces.
+
+In this tutorial, I'll guide you through using Cobra to create a Go CLI tool.
+We'll focus on building an Ip Tracker tool to effortlessly track IP addresses.
+Let's explore Cobra's key features and benefits along the way!
+
+### Prerequisites
+
+<callout-info>
+	- Basic understanding of Go programming. - If you're new to Go, check out the
+	[official Go tutorial](https://tour.golang.org/welcome/1). - Ensure you have
+	Go version 1.19 or above installed. You can download it
+	[here](https://golang.org/dl/).
+</callout-info>
+
+## Install Cobra Generator:
+
+To streamline the integration of Cobra into your application, we recommend using
+the Cobra CLI. Install it effortlessly with the following command:
+
+```bash
+go install github.com/spf13/cobra-cli@latest
+```
+
+Once installed, access the CLI by typing `cobra-cli` in the terminal.
+
+## Create a New Project:
+
+Start by setting up the project directory. Execute the following commands to
+create a new folder for your application and navigate into it:
+
+```bash
+mkdir ip_tracker && cd ip_tracker
+```
+
+Now, initiate a Go module for your project:
+
+```bash
+go mod init iptracker
+```
+
+With the module in place, create the application using the Cobra CLI
+
+```bash
+cobra-cli init
+```
+
+## Adding Commands:
+
+In the world of CLIs, commands are like the heartbeats—they do things. They're
+the main players in your application, each representing a specific action.
+
+Every Cobra app has a root command. When you say the CLI's name, this command
+wakes up. Normally, it shares info about the app, but you can make it do
+something special. You'll find this root command in `cmd/root.go`. Open it up
+and make it look like this:
+
+```go
+package cmd
+
+import (
+	"fmt"
+	"github.com/spf13/cobra"
+	"os"
+)
+
+var rootCmd = &cobra.Command{
+	Use:   "iptracker",
+	Short: "Track IP addresses",
+	Long:  `A Go based CLI tool to track IP addresses`,
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("Welcome to iptracker_cli!")
+	},
+}
+
+func Execute() {
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+}
+
+func init() {}
+```
+
+Now you need to call this `Execute` in the `main.go` file in the root dir.
+
+```go
+package main
+
+import "github.com/nitintf/iptracker/cmd"
+
+func main() {
+	cmd.Execute()
+}
+```
+
+The `Execute` function is responsible for running the root command of the CLI
+tool. It calls `rootCmd.Execute()`, which initiates the execution of the command
+and any sub-commands. If an error occurs during execution, the function exits
+the program with an exit status of 1.
+
+<callout-warning class='aside'>This function is typically found in the main file
+of your Go application. It acts as the entry point, ensuring that the Cobra
+commands are executed appropriately.</callout-warning>
+
+The `init` function is a special Go function that is automatically called before
+the `main` function is executed. In this case, the `init` function is currently
+empty, but you can use it for any initialization code that needs to run before
+the CLI tool starts.
+
+<callout-warning class='aside'>Common use cases for the init function include
+setting up configuration, initializing variables, or registering flags or
+subcommands. If your application doesn't require any specific initialization at
+this stage, the init function can remain empty or you can remove
+it.</callout-warning>
+
+## Root Command: What Happends on Execution
+
+In the heart of our CLI is the root command. This command comes to life when we
+call our CLI name `iptracker`. Let's break down what happens when this command
+is executed in the `cmd/root.go`file:
+
+```go
+Run: func(cmd *cobra.Command, args []string) {
+    ipAdd, err := getPrivateIpAddress()
+
+    if err != nil {
+        print.Error("Unable to retrieve Private IP Address")
+    }
+
+    publicIpAddr, err := getPublicIPAddress()
+
+    if err != nil {
+        print.Error("Unable to retrieve Public IP Address")
+        return
+    }
+
+    print.Info("\nPrivate IP Address: " + ipAdd)
+    ip.ShowIpData(publicIpAddr)
+},
+```
+
+### Here's a step-by-step breakdown:
+
+1. Get Private IP Address:
+
+   - Call getPrivateIpAddress to obtain the private IP address.
+   - Print an error message if there's an issue.
+
+2. Get Public IP Address:
+
+   - Call getPublicIPAddress to obtain the public IP address using an external
+     API.
+   - Print an error message and exit if there's an issue.
+
+3. Display Information:
+   - If both private and public IP addresses are successfully obtained, print
+     the private IP address.
+   - Call
+     [ip.ShowIpData](https://github.com/nitintf/iptracker-cli/blob/main/internal/ip/ip.go)
+     to display information about the public IP address.
+
+## Implementing IP Address Retrieval Functions
+
+Now that we've laid the groundwork for our 'iptracker_cli' project, it's time to
+implement the functions responsible for fetching both private and public IP
+addresses.
+
+```go
+type PublicIp struct {
+	Origin string `json:"origin"`
+}
+
+func getPublicIPAddress() (string, error) {
+    resp, err := http.Get("http://httpbin.org/ip")
+    if err != nil {
+        return "", err
+    }
+    defer resp.Body.Close()
+
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        return "", err
+    }
+
+    data := PublicIp{}
+
+    err = json.Unmarshal(body, &data)
+
+    if err != nil {
+        return "", err
+    }
+
+    return data.Origin, nil
+}
+```
+
+In this function:
+
+- We make an HTTP request to http://httpbin.org/ip.
+- Read the response body and use JSON unmarshaling to extract the public IP
+  address.
+- Return the public IP address and any potential errors.
+
+```go
+func getPrivateIpAddress() (string, error) {
+    addrs, err := net.InterfaceAddrs()
+
+    if err != nil {
+        return "", err
+    }
+
+    var ipAddress string
+
+    for _, address := range addrs {
+        if ipnet, ok := address.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
+            if ipnet.IP.To4() != nil {
+                ipAddress = ipnet.IP.String()
+                break
+            }
+        }
+    }
+
+    if ipAddress == "" {
+        return "", err
+    }
+
+    return ipAddress, nil
+}
+```
+
+Here's what happens in this function:
+
+- We use `net.InterfaceAddrs()` to retrieve network interface addresses.
+- Iterate through these addresses, filtering out loopback and multicast
+  addresses.
+- Return the first `IPv4` address found, which represents the private IP
+  address.
+
+With these functions in place, it's time to put `iptracker` to test. now, your
+'iptracker' is ready to be executed. Simply call the following commands:
+
+```bash
+go run main.go
+```
+
+<Image
+	src='/images/notes/iptracker-cli-root.webp'
+	width={1200}
+	height={200}
+	alt='Result for root command'
+/>
+
+## Introducing the `track` Sub-Command
+
+Now, let's enhance the capabilities of our `iptracker` with a sleek new
+sub-command: `track` subcommand allows you to track an IP address instead of
+getting your own IP address. It takes a single argument - the IP address.
+
+### Creating the 'track' Sub-Command
+
+```bash
+# Create a new file in cmd for our new command
+
+touch cmd/track.go
+```
+
+Let's add basic cobra arguments to it
+
+```go
+package cmd
+
+import (
+	"regexp"
+
+	"github.com/nitintf/iptracker/internal/ip"
+	"github.com/nitintf/iptracker/internal/print"
+	"github.com/spf13/cobra"
+)
+
+var trackCmd = &cobra.Command{
+	Use:   "track",
+	Short: "Track IP address information",
+	Long:  `sub-command for the IP address CLI tool, allowing you to track and gather information about a specific IP address`,
+	Args:  cobra.ExactArgs(1),
+	Run: func(cmd *cobra.Command, args []string) {},
+}
+
+func init() {
+	rootCmd.AddCommand(trackCmd)
+}
+```
+
+<callout-info class='aside'>Behind the scenes, in the `init()` function, we're
+essentially saying, "Hey, `iptracker` meet `track`. This makes `track` part of
+the big family, making it easy for you to use commands like
+`iptracker track <IP_ADDRESS>`. It's like giving our CLI a new skill, allowing
+you to explore specific IP addresses effortlessly. </callout-info>
+
+Now, add this to our `track` root method
+
+```go {17-29}
+package cmd
+
+import (
+	"regexp"
+
+	"github.com/nitintf/iptracker/internal/ip"
+	"github.com/nitintf/iptracker/internal/print"
+	"github.com/spf13/cobra"
+)
+
+var trackCmd = &cobra.Command{
+	Use:   "track",
+	Short: "Track IP address information",
+	Long:  `sub-command for the IP address CLI tool, allowing you to track and gather information about a specific IP address`,
+	Args:  cobra.ExactArgs(1),
+	Run: func(cmd *cobra.Command, args []string) {
+    if len(args) > 0 {
+			ipAdd := args[0]
+			isValid := isValidIPAddress(ipAdd)
+
+			if isValid {
+				ip.ShowIpData(ipAdd)
+			} else {
+				print.Error("Invalid IP address.")
+			}
+		} else {
+			print.Error("Please provide IP to trace.")
+		}
+  },
+}
+
+func init() {
+	rootCmd.AddCommand(trackCmd)
+}
+```
+
+### Executing the 'track' Sub-Command
+
+To execute the `track` subcommand and see its functionality in action, you can
+run the following command from your terminal:
+
+```bash
+go run main.go track 8.8.8.8
+```
+
+## Install the CLI
+
+At the moment, you have to run the main.go file in order to run your commands.
+However, there’s one more thing you can do to access your commands without even
+accessing your code. You can build your application as an executable binary and
+install it to your $GOPATH/bin folder. Do this by running the following
+commands.
+
+```bash
+go build main.go
+go install
+```
+
+Now, run your application by typing in the following command.
+
+```bash
+iptracker
+# OR iptracker track <IP_ADDRESS>
+```
+
+## There you go!
+
+You have now created a simple `iptracker` CLI using Cobra and Go that can be
+used to get information about an IP Address. That's it for this tutorial on
+creating a simple `Go` based Command Line Interface (CLI). I hope that helps
+inspire you to create more CLI tools and explore the vast possibilities of Go
+and Cobra.
+
+Feel free to explore the entire codebase on
+[GitHub](https://github.com/nitintf/iptracker-cli/) if you ever need a helping
+hand.

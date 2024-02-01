@@ -1,8 +1,8 @@
 import WorkCard from '@/components/atoms/work-card'
 import { generateMeta } from '@/lib/meta'
 import { Metadata } from 'next'
-import projects from '@/data/projects'
 import NodeAnimate from '@/components/animation/node'
+import { allProjects } from 'contentlayer/generated'
 
 export const metadata: Metadata = generateMeta()
 
@@ -31,7 +31,7 @@ export default function Home() {
 				as='section'
 				className='flex gap-6 md:mt-l mt-xl px-3 md:px-7'>
 				<div className='max-w-content flex flex-col md:flex-row flex-wrap gap-x-10 gap-y-10 md:gap-y-20 mx-auto'>
-					{projects.map((project) => {
+					{allProjects.map((project) => {
 						return (
 							<WorkCard
 								key={project.title}

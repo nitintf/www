@@ -24,12 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		}
 	}
 
-	const {
-		title,
-		summary: description,
-		publishedAt: publishedTime,
-		image,
-	} = note
+	const { title, summary: description, publishedAt: publishedTime } = note
 
 	const ogImage = `https://nitinp.dev/og?title=${title}`
 

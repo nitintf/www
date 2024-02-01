@@ -1,0 +1,23 @@
+{
+	"type": "Project",
+	"cover": "/images/projects/task/task.webp",
+	"title": "Task Manager",
+	"slug": "task-manager",
+	"role": "App Developer",
+	"platforms": ["ios", "android"],
+	"links": [
+		{
+			"name": "Github",
+			"href": "https://github.com/nitintf/poly"
+		}
+	],
+	"overview": "Poly Task Manager is a mobile application designed for both iOS and Android, offering a seamless experience for individuals to efficiently manage tasks, create workspaces, and stay organized. Built with React Native and backed by MobX for state management, Poly Task Manager brings a dynamic and responsive task management solution to your fingertips.",
+	"keyFeatures": [
+		"Poly Task Manager empowers users to manage tasks effortlessly, whether you're on iOS or Android. Create, edit, and mark tasks as complete from the convenience of your mobile device.",
+		"Organize your tasks efficiently by creating workspaces. Group tasks based on projects, teams, or any custom category that suits your workflow."
+	],
+	"tech": {
+		"frontend": ["React Native", "Expo", "MobX"],
+		"backend": ["Supabase"]
+	}
+}

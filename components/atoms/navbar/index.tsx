@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils/cn'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 const Navbar = () => {
 	const pathname = usePathname()

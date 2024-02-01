@@ -1,0 +1,26 @@
+{
+	"type": "Project",
+	"cover": "/images/projects/zaars/zaars.webp",
+	"title": "Zaars",
+	"slug": "zaars",
+	"role": "Lead Developer",
+	"platforms": ["web"],
+	"links": [
+		{
+			"name": "Live",
+			"href": "https://zaars.co"
+		}
+	],
+	"overview": "Zaars is a vibrant and dynamic multivendor ecommerce platform that celebrates diversity in ethnic fashion. Built on WordPress and powered by PHP, Zaars provides a unique marketplace where individuals can sign up, become sellers, and showcase a stunning array of both new and preused ethnic wears, Zaars is your one-stop destination for all things ethnic and fashionable.",
+	"keyFeatures": [
+		"Zaars transforms the traditional ecommerce experience by allowing individuals to become sellers. This creates a diverse and expansive marketplace for ethnic fashion enthusiasts.",
+		"Seamlessly onboard sellers who can sign up, create their stores, and start showcasing their curated collection of ethnic wears.",
+		"Keep customers informed and engaged with real-time order tracking. From processing to shipping, customers can monitor their purchases every step of the way.",
+		"From secure payment gateways to a user-friendly interface, Zaars includes all the essential features of a modern ecommerce platform",
+		"Zaars takes customization to the next level with its own set of custom plugins. These plugins manage a plethora of features, adding unique functionalities tailored to the specific needs of the platform."
+	],
+	"tech": {
+		"frontend": ["Wordpress (CMS)", "Elementor"],
+		"backend": ["PHP", "Bluehost Hosting"]
+	}
+}
