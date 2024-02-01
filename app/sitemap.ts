@@ -1,5 +1,4 @@
-import { allNotes } from '@/.contentlayer/generated'
-import projects from '@/data/projects'
+import { allNotes, allProjects as projects } from '@/.contentlayer/generated'
 
 export default async function sitemap() {
 	const projectsRoutes = projects.map((project) => ({
