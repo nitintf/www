@@ -2,8 +2,8 @@ import NodeAnimate from '@/components/animation/node'
 import { StarIcon } from '@/components/icons/StarIcon'
 import { ExperienceItem } from '@/components/timeline'
 import { ExternalLink } from '@/components/ui/external-link'
-import { experiences } from '@/data/experience'
 import { generateMeta } from '@/lib/meta'
+import { allExperiences as experiences } from '@/.contentlayer/generated'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = generateMeta({

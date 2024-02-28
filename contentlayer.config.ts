@@ -7,10 +7,11 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 // Models
 import { Note } from './models/note'
 import { Project } from './models/project'
+import { Experience } from './models/experience'
 
 export default makeSource({
 	contentDirPath: 'content',
-	documentTypes: [Note, Project],
+	documentTypes: [Note, Project, Experience],
 	mdx: {
 		remarkPlugins: [remarkGfm],
 		rehypePlugins: [

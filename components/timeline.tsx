@@ -1,7 +1,10 @@
-import { Experience } from '@/data/experience'
+import { Experience } from '@/.contentlayer/generated'
+import { formatDate } from '@/lib/utils/date'
+
+const DATE_FORMAT = 'MMMM YYYY'
 
 export function ExperienceItem({
-	exp: { content, company, title, link, duration },
+	exp: { content, company, title, link, startDate, endDate, location },
 }: {
 	exp: Experience
 }) {
@@ -23,18 +26,25 @@ export function ExperienceItem({
 						</svg>
 						<h3 className='p-0 m-0 text-h4'>{title}</h3>
 
-						{link ? (
-							<a
-								target='_blank'
-								rel='noopener noreferrer'
-								className='p-0 m-0 underline text-mini'
-								href={link}>
-								{company}
-							</a>
-						) : (
-							<p className='p-0 m-0 text-mini'>{company}</p>
-						)}
-						<p className='p-0 m-0 mt-1 text-base text-secondary'>{duration}</p>
+						<div className='flex items-center gap-2'>
+							{link ? (
+								<a
+									target='_blank'
+									rel='noopener noreferrer'
+									className='p-0 m-0 underline text-mini'
+									href={link}>
+									{company}
+								</a>
+							) : (
+								<p className='p-0 m-0 text-mini'>{company}</p>
+							)}
+							<span>•</span>
+							<p className='italic'>{location}</p>
+						</div>
+						<p className='p-0 m-0 mt-1 text-base text-secondary'>
+							{formatDate(startDate, DATE_FORMAT)} -{' '}
+							{endDate ? formatDate(endDate, DATE_FORMAT) : 'Present'}
+						</p>
 					</div>
 				</div>
 				<div

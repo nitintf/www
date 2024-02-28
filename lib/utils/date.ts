@@ -8,12 +8,15 @@ dayjs.extend(relativeTime)
  * @param date - The date to format.
  * @returns The formatted date.
  */
-export function formatDate(date: Date | string): string {
+export function formatDate(
+	date: Date | string,
+	format = 'MMM D, YYYY'
+): string {
 	const twoMonthsAgo = dayjs().subtract(2, 'month')
 	const inputDate = dayjs(date)
 	if (inputDate.isAfter(twoMonthsAgo)) {
 		return inputDate.fromNow()
 	} else {
-		return inputDate.format('MMMM D, YYYY')
+		return inputDate.format(format)
 	}
 }

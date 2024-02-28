@@ -2,7 +2,7 @@ import { defineDocumentType } from 'contentlayer/source-files'
 
 export const Project = defineDocumentType(() => ({
 	name: 'Project',
-	filePathPattern: 'content/projects/*.mdx', // Adjust the path pattern as needed
+	filePathPattern: 'content/projects/*.json', // Adjust the path pattern as needed
 	contentType: 'data',
 	fields: {
 		cover: {
