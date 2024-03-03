@@ -4,20 +4,18 @@
 	"title": "Task Manager",
 	"slug": "task-manager",
 	"role": "App Developer",
-	"platforms": ["ios", "android"],
 	"links": [
 		{
 			"name": "Github",
 			"href": "https://github.com/nitintf/poly"
 		}
 	],
-	"overview": "Poly Task Manager is a mobile application designed for both iOS and Android, offering a seamless experience for individuals to efficiently manage tasks, create workspaces, and stay organized. Built with React Native and backed by MobX for state management, Poly Task Manager brings a dynamic and responsive task management solution to your fingertips.",
-	"keyFeatures": [
-		"Poly Task Manager empowers users to manage tasks effortlessly, whether you're on iOS or Android. Create, edit, and mark tasks as complete from the convenience of your mobile device.",
-		"Organize your tasks efficiently by creating workspaces. Group tasks based on projects, teams, or any custom category that suits your workflow."
-	],
-	"tech": {
-		"frontend": ["React Native", "Expo", "MobX"],
-		"backend": ["Supabase"]
-	}
+	"overview": "Poly Task Manager allows easy task management on iOS and Android. Create, edit, and complete tasks on your mobile device.",
+	"content": [
+		"Poly Task Manager, built with a frontend tech stack of React Native, Expo, and MobX, and a backend powered by Supabase, is a robust and intuitive task management application. It empowers users to manage their tasks with utmost ease and efficiency, regardless of the platform they are on - be it iOS or Android.",
+
+		"With Poly Task Manager, you can create, edit, and mark tasks as complete directly from your mobile device. It's designed to streamline your task management process, making it easier to keep track of your to-do list, whether you're at home, at work, or on the go.",
+
+		"In addition to its core task management features, Poly Task Manager offers the ability to organize your tasks efficiently by creating workspaces. These workspaces, powered by the efficient backend of Supabase, allow you to group tasks based on various parameters such as projects, teams, or any custom category that suits your workflow. "
+	]
 }

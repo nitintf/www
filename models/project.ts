@@ -21,11 +21,6 @@ export const Project = defineDocumentType(() => ({
 			type: 'string',
 			required: true,
 		},
-		platforms: {
-			type: 'list',
-			of: { type: 'string' },
-			required: true,
-		},
 		links: {
 			type: 'list',
 			of: {
@@ -40,22 +35,9 @@ export const Project = defineDocumentType(() => ({
 			type: 'string',
 			required: true,
 		},
-		keyFeatures: {
+		content: {
 			type: 'list',
 			of: { type: 'string' },
-		},
-		tech: {
-			type: 'json',
-			fields: {
-				frontend: {
-					type: 'list',
-					of: { type: 'string' },
-				},
-				backend: {
-					type: 'list',
-					of: { type: 'string' },
-				},
-			},
 		},
 	},
 }))

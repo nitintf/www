@@ -37,6 +37,7 @@
     --font-h5: clamp(1rem, .9235rem + .3265vw, 1.25rem);
     --font-h6: clamp(1rem, .9617rem + .1633vw, 1.125rem);
     --font-body: clamp(1rem, .8852rem + .4898vw, 1.375rem);
+    --font-content: clamp(1rem, .8852rem + .4898vw, 1.075rem);
     --font-link: clamp(.875rem, .7985rem + .3265vw, 1.125rem);
     --font-mini: clamp(.875rem, .8367rem + .1633vw, 1rem);
     --font-h2-display: clamp(1.875rem, 1.301rem + 2.449vw, 3.95rem);

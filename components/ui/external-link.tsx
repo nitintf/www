@@ -8,7 +8,7 @@ type Props = PropsWithChildren & React.AnchorHTMLAttributes<HTMLAnchorElement>
 export const ExternalLink = ({ children, href }: Props) => {
 	return (
 		<motion.a
-			className='h-[42px] rounded-[18px] relative flex items-center overflow-hidden border-none transition-shadow ease-in-out duration-[550ms] px-3 self-start will-change-auto shadow-link cursor-pointer hover:shadow-linkhover'
+			className='h-[42px] rounded-3xl relative flex items-center overflow-hidden border-none transition-shadow ease-in-out duration-[550ms] px-3 self-start will-change-auto shadow-link cursor-pointer hover:shadow-linkhover'
 			href={href}
 			target='_blank'
 			whileHover={'hover'}

@@ -61,6 +61,7 @@ const config: Config = {
 				h5: 'var(--font-h5)',
 				h6: 'var(--font-h6)',
 				body: 'var(--font-body)',
+				content: 'var(--font-content)',
 				link: 'var(--font-link)',
 				mini: 'var(--font-mini)',
 				h2Display: 'var(--font-h2-display)',

@@ -36,7 +36,9 @@ const WorkCard: React.FC<CardProps> = ({ src, alt, to, className }) => {
 				width={800}
 				height={670}
 				alt={alt}
+				quality={60}
 				onLoad={handleImageLoad}
+				style={{ width: '100%', height: 'auto' }}
 			/>
 			{isImageLoaded && (
 				<div className='absolute left-5 bottom-5'>

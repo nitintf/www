@@ -1,9 +1,10 @@
 import { notFound } from 'next/navigation'
-import ProjectWrapper from '@/components/animation/animation-wrapper'
+import AnimationWrapper from '@/components/animation/animation-wrapper'
 import { Metadata } from 'next'
 import { generateMeta } from '@/lib/meta'
-import Image from 'next/image'
 import { allProjects as projects } from 'contentlayer/generated'
+import Image from 'next/image'
+import { ExternalLink } from '@/components/ui/external-link'
 
 interface Props {
 	params: { slug: string[] }
@@ -31,64 +32,44 @@ export default function Page({ params }: Props) {
 	}
 
 	return (
-		<ProjectWrapper backTo='/'>
-			<div className='max-w-5xl mx-auto'>
-				<h1 className='text-center my-0'>{project.title}.</h1>
-				<div className='mt-xl md:mt-l flex flex-col md:flex-row items-center justify-center text-h6 gap-m md:gap-xl'>
-					<div>
-						<p className='text-body text-secondary'>
-							{project.role} • {project.platforms.join(' / ')} •{' '}
-							{project.links?.map((link, index) => (
-								<a
-									href={link.href}
-									target='_blank'
-									rel='noopener noreferrer'
-									key={link.name}
-									className='underline'>
-									{link.name} {index + 1 !== project.links?.length ? ',' : ''}
-								</a>
+		<AnimationWrapper backTo='/'>
+			<section className='max-w-5xl mx-auto mt-l'>
+				<div>
+					<h2 className='text-h2'>{project.title}</h2>
+					<div className='flex flex-col md:flex-row gap-l mt-xs'>
+						<div className='flex-1'>
+							<h3 className='text-h4 font-secondary'>{project.overview}</h3>
+							<div className='flex gap-3 mt-xs'>
+								{project.links?.map((link) => (
+									<ExternalLink key={link.name} href={link.href}>
+										{link.name}
+									</ExternalLink>
+								))}
+							</div>
+						</div>
+						<div className='flex-1'>
+							{project.content?.map((content, index) => (
+								<p key={index} className='text-content text-secondary mb-xs'>
+									{content}
+								</p>
 							))}
-						</p>
+						</div>
 					</div>
 				</div>
-				<div>
-					<p className='text-body mt-l text-secondary'>{project.overview}</p>
-				</div>
-
-				<div className='mt-l flex items-center w-full justify-center'>
+			</section>
+			<div className='max-w-5xl mx-auto mt-m'>
+				<div className='flex items-center w-full justify-center'>
 					<Image
 						src={project.cover}
 						alt='Main Image'
 						width={1000}
-						height={220}
+						height={620}
+						priority
+						quality={50}
 						className='rounded-3xl mt-auto'
 					/>
 				</div>
-
-				<div className='mt-xl flex md:flex-row flex-col text-h6 gap-5'>
-					<div className='w-[50%]'>
-						<h6 className='mb-xxs'>Frontend</h6>
-						<p className='text-secondary'>
-							{project.tech?.frontend.join(', ')}
-						</p>
-					</div>
-					<div className='w-[50%]'>
-						<h6 className='mb-xxs'>Backend</h6>
-						<p className='text-secondary'>{project.tech?.backend.join(', ')}</p>
-					</div>
-				</div>
-
-				<div className='mt-l'>
-					<h3 className='text-h3'>Key Features</h3>
-					<ul className='text-secondary text-body list-disc px-xs mt-xxs gap-4'>
-						{project.keyFeatures?.map((feature, index) => (
-							<li className='mb-xxs' key={index}>
-								{feature}
-							</li>
-						))}
-					</ul>
-				</div>
 			</div>
-		</ProjectWrapper>
+		</AnimationWrapper>
 	)
 }

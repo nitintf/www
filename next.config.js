@@ -1,6 +1,6 @@
+/** @type {import('next').NextConfig} */
 const { withContentlayer } = require('next-contentlayer')
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -23,6 +23,9 @@ const nextConfig = {
       },
     ];
   },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  }
 }
 
 // https://nextjs.org/docs/advanced-features/security-headers
