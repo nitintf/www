@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import AnimationWrapper from '@/components/animation/animation-wrapper'
 import { Metadata } from 'next'
-import { generateMeta } from '@/lib/meta'
+import { generateMeta, getOgImage, keywords } from '@/lib/meta'
 import { allProjects as projects } from 'contentlayer/generated'
 import Image from 'next/image'
 import { ExternalLink } from '@/components/ui/external-link'
@@ -21,7 +21,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		}
 	}
 
-	return generateMeta({ title: project.title + ' — Nitin Panwar' })
+	const { title, overview } = project
+
+	const ogImage = getOgImage(title, overview, {
+		openGraph: {
+			type: 'article',
+			url: `https://nitinp.dev/note/${slug}`,
+		},
+	})
+
+	return generateMeta({
+		title: title + ' — Nitin Panwar',
+		description: overview,
+		keywords: [...keywords, 'Projects', 'Work', title],
+		...ogImage,
+	})
 }
 
 export default function Page({ params }: Props) {

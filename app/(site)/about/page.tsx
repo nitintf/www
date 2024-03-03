@@ -2,12 +2,18 @@ import NodeAnimate from '@/components/animation/node'
 import { StarIcon } from '@/components/icons/StarIcon'
 import { ExperienceItem } from '@/components/timeline'
 import { ExternalLink } from '@/components/ui/external-link'
-import { generateMeta } from '@/lib/meta'
+import { generateMeta, keywords, getOgImage } from '@/lib/meta'
 import { allExperiences as experiences } from '@/.contentlayer/generated'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = generateMeta({
 	title: 'About' + ' — Nitin Panwar',
+	description: 'Get to know Nitin Panwar, a Software Engineer from India.',
+	keywords: [...keywords, 'About'],
+	...getOgImage(
+		'About',
+		'Get to know Nitin Panwar, a Software Engineer from India.'
+	),
 })
 
 export default function AboutPage() {

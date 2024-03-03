@@ -3,7 +3,7 @@ import NoteWrapper from '@/components/animation/animation-wrapper'
 import { BackToTop } from '@/components/back-to-top'
 import { Mdx } from '@/components/mdx'
 import { ShareNote } from '@/components/share-note'
-import { generateMeta } from '@/lib/meta'
+import { generateMeta, getOgImage } from '@/lib/meta'
 import { formatDate } from '@/lib/utils/date'
 import { getNoteLenghtIcon } from '@/lib/utils/note-length'
 import { Metadata } from 'next'
@@ -26,29 +26,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 	const { title, summary: description, publishedAt: publishedTime } = note
 
-	const ogImage = `https://nitinp.dev/og?title=${title}`
+	const ogImage = getOgImage(title, description, {
+		openGraph: {
+			type: 'article',
+			publishedTime,
+			url: `https://nitinp.dev/note/${slug}`,
+		},
+	})
 
 	return generateMeta({
 		title,
 		description,
-		openGraph: {
-			title,
-			description,
-			type: 'article',
-			publishedTime,
-			url: `https://nitinp.dev/note/${slug}`,
-			images: [
-				{
-					url: ogImage,
-				},
-			],
-		},
-		twitter: {
-			card: 'summary_large_image',
-			title,
-			description,
-			images: [ogImage],
-		},
+		...ogImage,
 	})
 }
 

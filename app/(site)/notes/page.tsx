@@ -1,4 +1,4 @@
-import { generateMeta } from '@/lib/meta'
+import { generateMeta, getOgImage, keywords } from '@/lib/meta'
 import { Metadata } from 'next'
 import { allNotes } from 'contentlayer/generated'
 import NodeAnimate from '@/components/animation/node'
@@ -7,6 +7,11 @@ import { NoteItem } from '@/components/note'
 export const metadata: Metadata = generateMeta({
 	title: 'Notes' + ' — Nitin Panwar',
 	description: 'Diving into Dev: Thoughts on code, design, and more.',
+	keywords: [...keywords, 'Notes', 'Thoughts', 'Code', 'Design'],
+	...getOgImage(
+		'Notes',
+		'Diving into Dev: Thoughts on code, design, and more.'
+	),
 })
 
 export default async function NotesPage() {

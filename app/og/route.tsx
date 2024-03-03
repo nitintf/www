@@ -5,11 +5,17 @@ export const runtime = 'edge'
 
 export async function GET(req: NextRequest) {
 	const { searchParams } = req.nextUrl
-	const postTitle = searchParams.get('title')
-	const font = fetch(
+	const pageTitle = searchParams.get('title')
+	const pageDesc = searchParams.get('desc')
+	const primaryFont = fetch(
 		new URL('../../public/fonts/acorn.woff', import.meta.url)
 	).then((res) => res.arrayBuffer())
-	const fontData = await font
+	const primaryFontData = await primaryFont
+
+	const secondaryFont = fetch(
+		new URL('../../public/fonts/gt.woff', import.meta.url)
+	).then((res) => res.arrayBuffer())
+	const secondaryFontData = await secondaryFont
 
 	return new ImageResponse(
 		(
@@ -21,10 +27,24 @@ export async function GET(req: NextRequest) {
 					flexDirection: 'column',
 					alignItems: 'flex-start',
 					justifyContent: 'center',
-					backgroundImage: 'url(https://nitinp.dev/og-bg.png)',
+					backgroundColor: 'hsl(216, 28%, 7%)',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
 				}}>
+				<h1
+					style={{
+						position: 'absolute',
+						top: 10,
+						right: 100,
+						fontSize: 50,
+						fontFamily: 'Acorn',
+						letterSpacing: '-0.05em',
+						fontStyle: 'normal',
+						color: 'white',
+						lineHeight: '120px',
+					}}>
+					nitinp.dev
+				</h1>
 				<div
 					style={{
 						marginLeft: 190,
@@ -38,8 +58,23 @@ export async function GET(req: NextRequest) {
 						lineHeight: '120px',
 						whiteSpace: 'pre-wrap',
 					}}>
-					{postTitle}
+					{pageTitle}
 				</div>
+				<p
+					style={{
+						marginLeft: 190,
+						marginRight: 190,
+						marginTop: 50,
+						fontSize: 50,
+						fontFamily: 'GT',
+						letterSpacing: '-0.05em',
+						fontStyle: 'normal',
+						color: 'white',
+						lineHeight: '60px',
+						whiteSpace: 'pre-wrap',
+					}}>
+					{pageDesc}
+				</p>
 			</div>
 		),
 		{
@@ -48,7 +83,12 @@ export async function GET(req: NextRequest) {
 			fonts: [
 				{
 					name: 'Acorn',
-					data: fontData,
+					data: primaryFontData,
+					style: 'normal',
+				},
+				{
+					name: 'GT',
+					data: secondaryFontData,
 					style: 'normal',
 				},
 			],

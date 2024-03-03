@@ -13,9 +13,6 @@ export default function Home() {
 				<h1 className='pt-32 text-secondary'>
 					<span className='relative flex justify-center text-foreground'>
 						Hi. I&apos;m Nitin.
-						{/* <figure className='absolute -top-[2rem] right-[14rem]'>
-						<StarIcon />
-					</figure> */}
 					</span>
 					<span className='flex justify-center'>A Developer.</span>
 				</h1>
