@@ -816,7 +816,7 @@
   resolved "https://registry.yarnpkg.com/@sanity/webhook/-/webhook-4.0.0.tgz#0f4e66d0c2c0b84a5bb0a9b12e6ac57adc974502"
   integrity sha512-IRjtj17tHSmxHWZvgRnLZbWj8J8G4jqOWOYC25eV4EcfVn1yZCs0x+km6+PSiJgOphSX6Nm1+X6UJOT+GnWIFw==
 
-"@studio-freight/hamo@^0.6.19":
+"@studio-freight/hamo@^0.6.28":
   version "0.6.28"
   resolved "https://registry.yarnpkg.com/@studio-freight/hamo/-/hamo-0.6.28.tgz#da8af3edb22c9d70d985c45f2d5aa28f37baf4aa"
   integrity sha512-LVXYJwPToVa4ZVIbFnicg8bmZF8xWebbdtx10/1HAQAjN8xGsTWAdc3BmUUOHtLWFvNJNLSuwdX24njrp7LF7g==
@@ -826,21 +826,20 @@
     nanoevents "^9.0.0"
     zustand "^4.4.7"
 
-"@studio-freight/lenis@^1.0.24":
+"@studio-freight/lenis@^1.0.35-dev.0":
   version "1.0.39"
   resolved "https://registry.yarnpkg.com/@studio-freight/lenis/-/lenis-1.0.39.tgz#c86ef9902a90630e2d716e0113475d2a0f87d0bd"
   integrity sha512-63LPZD087kFSiNS3lF6Uve8fFeshQwNCXrl7DUocoeUYiElVTzr9a+dLodNBa0Yn5NZ4umAoQQ6LOosB5I6AAQ==
 
-"@studio-freight/react-lenis@^0.0.36":
-  version "0.0.36"
-  resolved "https://registry.yarnpkg.com/@studio-freight/react-lenis/-/react-lenis-0.0.36.tgz#8ecabc68d54a0e8ab7b1b448c2eb5bb627970907"
-  integrity sha512-BuwckWT8U96tILfrm2y3Q8cr1gXk2ITnpm3Q+aP7x/Ah/U+Bt2hJtjZqEJfnTAGhGLqTlhuk7YoX3/PYf/RNqQ==
+"@studio-freight/react-lenis@^0.0.44":
+  version "0.0.44"
+  resolved "https://registry.yarnpkg.com/@studio-freight/react-lenis/-/react-lenis-0.0.44.tgz#796a103bfabc1445a1e4df2bd600a34fff3ac4d9"
+  integrity sha512-SUEgsRGXUWftXkW8Zzw83TiJVrKk5gEdF/Wj5H7H09MIhczV0M9CyY8efK1UoHaSo0QjhqrjgUscddwooMGC9g==
   dependencies:
-    "@studio-freight/hamo" "^0.6.19"
-    "@studio-freight/lenis" "^1.0.24"
+    "@studio-freight/hamo" "^0.6.28"
+    "@studio-freight/lenis" "^1.0.35-dev.0"
     clsx "^2.0.0"
-    prop-types "^15.8.1"
-    zustand "^4.4.1"
+    zustand "^4.4.7"
 
 "@studio-freight/tempus@^0.0.38":
   version "0.0.38"
@@ -6036,7 +6035,7 @@ zod@^3.21.4:
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.22.4.tgz#f31c3a9386f61b1f228af56faa9255e845cf3fff"
   integrity sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==
 
-zustand@^4.4.1, zustand@^4.4.7:
+zustand@^4.4.7:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.5.2.tgz#fddbe7cac1e71d45413b3682cdb47b48034c3848"
   integrity sha512-2cN1tPkDVkwCy5ickKrI7vijSjPksFRfqS6237NzT0vqSsztTNnQdHw9mmN7uBdk3gceVXU0a+21jFzFzAc9+g==

@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"@plaiceholder/next": "^3.0.0",
-		"@studio-freight/react-lenis": "^0.0.36",
+		"@studio-freight/react-lenis": "^0.0.44",
 		"@vercel/analytics": "^1.1.1",
 		"@vercel/speed-insights": "^1.0.2",
 		"class-variance-authority": "^0.7.0",
