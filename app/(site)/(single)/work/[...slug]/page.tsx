@@ -63,7 +63,7 @@ export default function Page({ params }: Props) {
 						</div>
 						<div className='flex-1'>
 							{project.content?.map((content, index) => (
-								<p key={index} className='text-content text-secondary mb-xs'>
+								<p key={index} className='text-body text-secondary mb-xs'>
 									{content}
 								</p>
 							))}

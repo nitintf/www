@@ -13,6 +13,6 @@
 	"overview": "Poly is a robust project management tool designed to streamline collaboration and enhance efficiency within teams.",
 	"content": [
 		"Poly is a robust project management tool designed to streamline collaboration and enhance efficiency within teams. Built with a tech stack including React, GraphQL, Apollo, Tailwind, and Vite on the frontend, and NestJs, PostgreSQL, Prisma, GraphQL, and Resend on the backend, Poly offers a comprehensive suite of features that enable teams to manage tasks, share resources, and communicate seamlessly. With a user-friendly interface and real-time updates, Poly ensures that teams can stay on top of their projects without any hassle.",
-		"Poly simplifies task tracking, enabling teams to break down projects into manageable tasks. Assign, prioritize, and monitor progress effortlessly. Foster real-time collaboration with a centralized workspace where team members can share ideas, updates, and resources seamlessly. With an intuitive and visually appealing interface, Poly ensures that team members can navigate and contribute without a steep learning curve. The advanced tech stack ensures a smooth, efficient, and reliable experience for all users."
+		"Poly streamlines task tracking for teams. It enables easy assignment, prioritization, and progress monitoring. It fosters collaboration with a centralized workspace and intuitive interface. Its advanced tech stack ensures a reliable user experience."
 	]
 }

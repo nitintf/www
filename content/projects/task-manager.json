@@ -14,8 +14,6 @@
 	"content": [
 		"Poly Task Manager, built with a frontend tech stack of React Native, Expo, and MobX, and a backend powered by Supabase, is a robust and intuitive task management application. It empowers users to manage their tasks with utmost ease and efficiency, regardless of the platform they are on - be it iOS or Android.",
 
-		"With Poly Task Manager, you can create, edit, and mark tasks as complete directly from your mobile device. It's designed to streamline your task management process, making it easier to keep track of your to-do list, whether you're at home, at work, or on the go.",
-
-		"In addition to its core task management features, Poly Task Manager offers the ability to organize your tasks efficiently by creating workspaces. These workspaces, powered by the efficient backend of Supabase, allow you to group tasks based on various parameters such as projects, teams, or any custom category that suits your workflow. "
+		"Poly Task Manager streamlines task management, allowing task creation, editing, and completion from your mobile device, whether you're at home, work, or on the go. It also offers efficient organization with workspaces, powered by Supabase, for grouping tasks based on projects, teams, or custom categories to suit your workflow."
 	]
 }
