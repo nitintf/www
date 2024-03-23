@@ -1,4 +1,4 @@
-import Navbar from '@/components/atoms/navbar'
+import Navbar from '@/app/_components/navbar'
 
 export default function RootLayout({
 	children,

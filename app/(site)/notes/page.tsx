@@ -1,8 +1,8 @@
 import { generateMeta, getOgImage, keywords } from '@/lib/meta'
 import { Metadata } from 'next'
 import { allNotes } from 'contentlayer/generated'
-import NodeAnimate from '@/components/animation/node'
-import { NoteItem } from '@/components/note'
+import NodeAnimate from '@/app/_components/animate/node'
+import { NoteItem } from '@/app/_components/note'
 
 export const metadata: Metadata = generateMeta({
 	title: 'Notes' + ' — Nitin Panwar',

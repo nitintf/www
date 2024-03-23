@@ -59,7 +59,7 @@ const Navbar = () => {
 							'shadow-none bg-navBg backdrop-blur-[20px] backdrop-saturate-[1.9]'
 					)}>
 					<motion.span
-						className='absolute h-[36px] rounded-3xl bg-highlight'
+						className='absolute h-[32px] rounded-3xl bg-highlight'
 						initial={{
 							opacity: 0,
 						}}
@@ -79,7 +79,7 @@ const Navbar = () => {
 					{navLinks.map((link, index) => (
 						<li key={index} className='flex z-10'>
 							<Link
-								className='flex items-center h-[36px] px-3 md:px-6 z-10 text-link'
+								className='flex items-center h-[32px] px-3 md:px-5 z-10 text-link'
 								href={`/${link.href}`}
 								ref={(el) =>
 									currentElRef.current
@@ -91,15 +91,6 @@ const Navbar = () => {
 							</Link>
 						</li>
 					))}
-					{/* <li className='flex z-10'>
-						<a
-							href='https://mail.google.com/mail/?view=cm&fs=1&to=contact@nitinp.dev'
-							target='_blank'
-							rel='noopener noreferrer'
-							className='flex items-center h-[36px] px-3 md:px-6 z-10 text-link cursor-pointer'>
-							Contact
-						</a>
-					</li> */}
 				</ul>
 			</nav>
 		</header>

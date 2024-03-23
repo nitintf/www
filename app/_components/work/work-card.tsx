@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils/cn'
 import Image from 'next/image'
-import ExpandButton from '../ui/expand-button'
+import ExpandButton from '../expand-button'
 import { useState } from 'react'
 import Link from 'next/link'
 

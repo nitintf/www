@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation'
-import AnimationWrapper from '@/components/animation/animation-wrapper'
+import AnimationWrapper from '@/app/_components/animate/wrapper'
 import { Metadata } from 'next'
 import { generateMeta, getOgImage, keywords } from '@/lib/meta'
 import { allProjects as projects } from 'contentlayer/generated'
 import Image from 'next/image'
-import { ExternalLink } from '@/components/ui/external-link'
+import { ExternalLink } from '@/app/_components/external-link'
 
 interface Props {
 	params: { slug: string[] }

@@ -1,9 +1,9 @@
 'use client'
 
-import HeartIcon from './icons/HeartIcon'
-import LinkIcon from './icons/LinkIcon'
-import LinkedinIcon from './icons/LinkedIcon'
-import TwitterIcon from './icons/TwitterIcon'
+import HeartIcon from '../icons/HeartIcon'
+import LinkIcon from '../icons/LinkIcon'
+import LinkedinIcon from '../icons/LinkedIcon'
+import TwitterIcon from '../icons/TwitterIcon'
 
 interface ShareNoteProps {
 	noteSlug: string

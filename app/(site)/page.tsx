@@ -1,7 +1,7 @@
-import WorkCard from '@/components/atoms/work-card'
+import WorkCard from '@/app/_components/work/work-card'
 import { generateMeta } from '@/lib/meta'
 import { Metadata } from 'next'
-import NodeAnimate from '@/components/animation/node'
+import NodeAnimate from '@/app/_components/animate/node'
 import { allProjects } from 'contentlayer/generated'
 
 export const metadata: Metadata = generateMeta()

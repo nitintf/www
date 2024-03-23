@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import ExpandButton from './ui/expand-button'
+import ExpandButton from './expand-button'
 import { cn } from '@/lib/utils/cn'
 
 /**
