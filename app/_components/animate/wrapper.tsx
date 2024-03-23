@@ -38,7 +38,7 @@ export default function Wrapper({ backTo, children }: Props) {
 				onMouseEnter={() => setHovered(true)}
 				onMouseLeave={() => setHovered(false)}
 				href={backTo}
-				className='absolute w-12 h-12 top-9 rounded-full flex items-center justify-center border-border border-2 left-[50%] hover:shadow-link transition-shadow duration-500 -translate-x-[50%]'>
+				className='absolute w-10 h-10 top-9 rounded-full flex items-center justify-center border-border border-2 left-[50%] hover:shadow-link transition-shadow duration-500 -translate-x-[50%]'>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					width='11.644'
