@@ -9,7 +9,7 @@ import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 const Navbar = () => {
 	const pathname = usePathname()
-	const { isScrolled } = useScrollPosition({ threshold: 70 })
+	const { isScrolled } = useScrollPosition({ threshold: 130 })
 
 	const currentElRef = useRef<Record<string, HTMLAnchorElement | null>>({})
 	const [highlighterDimensions, setHighlighterDimensions] = useState({
