@@ -1,0 +1,30 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project Overview and Structure
+
+This project is a web application built with [Next.js](mdc:https:/nextjs.org) and [TypeScript](mdc:https:/www.typescriptlang.org), using [Radix UI themes](mdc:https:/radix-ui.com/themes) for styling and components. It is set up to use [Contentlayer](mdc:https:/www.contentlayer.dev) for managing and rendering logs or content.
+
+## Key Technologies
+- **Next.js**: Handles routing, server-side rendering, and application structure. See [next.config.ts](mdc:next.config.ts).
+- **TypeScript**: Provides static typing for safer and more maintainable code. See [tsconfig.json](mdc:tsconfig.json).
+- **Radix UI Themes**: Used for consistent, accessible UI components and theming. Example usage in [src/app/layout.tsx](mdc:src/app/layout.tsx).
+- **Contentlayer**: Will be used for managing logs/content. (Configuration and usage will be in future files.)
+
+## Project Structure
+- `src/app/` — Main application code, including layout and pages.
+- `public/` — Static assets.
+- `next.config.ts` — Next.js configuration.
+- `tsconfig.json` — TypeScript configuration.
+- `.prettierrc`, `.prettierignore` — Code formatting rules.
+- `.husky/` — Git hooks for code quality.
+
+## Styling
+- Global styles are imported in [src/app/layout.tsx](mdc:src/app/layout.tsx).
+- Radix UI's `<Theme>` component wraps the app for consistent theming.
+
+## Adding Rules
+- Store new rules in `.cursor/rules/` with a `.mdc` extension.
+- Reference files using `[filename.ext](mdc:filename.ext)`.

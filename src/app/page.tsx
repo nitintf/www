@@ -1,95 +1,88 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Box, Heading, Text, Link } from '@radix-ui/themes';
+import { compareDesc } from 'date-fns';
 
-export default function Home() {
+import { allWritings, Writing } from 'contentlayer/generated';
+import { ProjectsSection } from '@/components/home/projects';
+import { WritingSection } from '@/components/home/writings';
+
+export default function HomePage() {
+  const writings = allWritings
+    .sort((a: Writing, b: Writing) =>
+      compareDesc(new Date(a.date), new Date(b.date)),
+    )
+    .slice(0, 5);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+    <Box
+      style={{
+        margin: '0 auto',
+        paddingTop: '4rem',
+        minHeight: '100vh',
+      }}
+      asChild
+      role="main"
+    >
+      <main>
+        <Box asChild mb="6" style={{ marginBottom: '120px' }}>
+          <section aria-labelledby="now-heading">
+            <Heading
+              as="h2"
+              id="now-heading"
+              size="4"
+              weight="bold"
+              mb="4"
+              tabIndex={-1}
+            >
+              Now
+            </Heading>
+            <Text size="3" color="gray" as="p">
+              I work as a senior software engineer at Bitcs. I enjoy building
+              solutions and thinking deeply about system design, user
+              experience, and performance.
+            </Text>
+          </section>
+        </Box>
+        <Box asChild mb="9" style={{ marginBottom: '120px' }}>
+          <ProjectsSection />
+        </Box>
+        <Box asChild mb="9" style={{ marginBottom: '120px' }}>
+          <WritingSection writings={writings} />
+        </Box>
+        <Box asChild mb="9" style={{ marginBottom: '120px' }}>
+          <section aria-labelledby="connect-heading">
+            <Heading
+              as="h2"
+              id="connect-heading"
+              size="4"
+              weight="bold"
+              mb="4"
+              tabIndex={-1}
+            >
+              Connect
+            </Heading>
+            <Text size="3" color="gray" as="p">
+              You can find me on{' '}
+              <Link
+                href="https://github.com/nitintf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </Link>
+              ,{' '}
+              <Link
+                href="https://linkedin.com/in/nitin-panwarr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </Link>
+              , or reach out via email at{' '}
+              <Link href="mailto:me@nitin.sh">me@nitin.sh</Link>.
+            </Text>
+          </section>
+        </Box>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </Box>
   );
 }
