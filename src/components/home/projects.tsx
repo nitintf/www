@@ -53,18 +53,20 @@ export const ProjectsSection = () => {
   const projects: ProjectItemProps[] = [
     {
       title: 'Layout app',
-      description: 'A macOS app for seamless windows and app management.',
+      description:
+        'A macOS app for seamless windows and app management, built using Electron and React.',
       href: 'https://github.com/nitintf/layout',
     },
     {
       title: 'Navi',
       description:
-        'Command-line tool to generate shell commands and assist you using AI.',
+        'A command-line tool written in Go that uses AI to help you generate shell commands and assist with your workflow.',
       href: 'https://github.com/nitintf/navi',
     },
     {
       title: 'Zaars',
-      description: 'Multivendor market place for ethnic clothes.',
+      description:
+        'A multivendor marketplace for ethnic clothes, developed with NextJS for the frontend and NestJS for the backend.',
       href: 'https://www.shopzaars.com/',
       tag: 'Freelance Project',
     },

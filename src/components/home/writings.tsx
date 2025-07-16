@@ -57,7 +57,6 @@ export const WritingPreviewItem = ({
   writing,
   isLastItem,
 }: WritingPreviewItemProps) => {
-  console.log(writing);
   return (
     <Box asChild mb={!isLastItem ? '5' : undefined}>
       <article aria-labelledby={`writing-title-${writing._id}`}>

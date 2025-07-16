@@ -46,7 +46,7 @@ export default function RootLayout({
             <Container
               size={{ initial: '1', sm: '2' }}
               py={{ sm: '4', md: '6' }}
-              px={{ initial: '6' }}
+              px={{ initial: '5' }}
             >
               <Header />
               {children}

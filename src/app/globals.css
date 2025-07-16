@@ -5,7 +5,7 @@
   --mask-visible: #000;
   --mask-hidden: transparent;
   --bg: #000;
-  --transparent: rgba(0, 0, 0, 0);
+  --transparent: rgba(129, 115, 115, 0);
 }
 
 html,
@@ -102,4 +102,47 @@ a {
   position: absolute;
   inset: 0;
   background: linear-gradient(var(--direction), var(--bg), var(--transparent));
+}
+
+/* Prose CSS */
+
+.blog-block,
+code .line {
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  overflow: auto;
+  border-radius: 0.75rem;
+  background: #fff;
+  background-color: #f3f4f6;
+  padding: 1.5rem;
+  font-size: 0.8rem;
+  box-shadow:
+    0 0 #0000,
+    0 0 #0000,
+    inset 0 0 0 1px hsla(0, 0%, 100%, 0.22);
+}
+
+code .line {
+  padding: 0 0.25rem;
+  box-shadow: none;
+  background: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  .blog-block,
+  code .line {
+    background: rgb(3, 3, 3);
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-block {
+    width: calc(100vw + 50px);
+    margin-left: -35px;
+    margin-right: -35px;
+    border-radius: 0;
+    padding-left: 35px;
+    padding-right: 65px;
+  }
 }

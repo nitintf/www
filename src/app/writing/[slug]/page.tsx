@@ -4,6 +4,7 @@ import { Box, Container, Heading, Text } from '@radix-ui/themes';
 
 import { allWritings, Writing } from 'contentlayer/generated';
 import { SITE_URL } from '@/lib/constants';
+import { Mdx } from '@/components/mdx/mdx-components';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -60,13 +61,15 @@ const WritingLayout = async ({ params }: Props) => {
         }}
       />
       <Container size="3">
-        <article aria-labelledby={`writing-title-${writing._id}`}>
+        <article
+          aria-labelledby={`writing-title-${writing._id}`}
+          className="prose"
+        >
           <Box>
             <Heading
+              mt="6"
               as="h1"
-              align="center"
-              mb="4"
-              size="8"
+              size="5"
               id={`writing-title-${writing._id}`}
             >
               {writing.title}
@@ -80,8 +83,8 @@ const WritingLayout = async ({ params }: Props) => {
               </time>
             </Text>
           </Box>
-          <Box mt="6">
-            <div dangerouslySetInnerHTML={{ __html: writing.body.html }} />
+          <Box mt="8">
+            {writing.body.code ? <Mdx code={writing.body.code} /> : null}
           </Box>
         </article>
       </Container>

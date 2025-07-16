@@ -1,4 +1,10 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeCodeTitles from 'rehype-code-titles';
+import rehypeExternalLinks from 'rehype-external-links';
+import rehypePrettyCode from 'rehype-pretty-code';
+import { transformerNotationDiff } from '@shikijs/transformers';
 
 const SITE_URL = 'https://nitin.sh';
 const DEFAULT_AUTHOR_NAME = 'Nitin Panwar';
@@ -7,7 +13,8 @@ const PUBLISHER_LOGO_URL = `${SITE_URL}/logo.png`;
 
 export const Writing = defineDocumentType(() => ({
   name: 'Writing',
-  filePathPattern: `**/*.md`,
+  contentType: 'mdx',
+  filePathPattern: `**/*.mdx`,
   fields: {
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
@@ -56,4 +63,32 @@ export const Writing = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: 'writings',
   documentTypes: [Writing],
+  mdx: {
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'wrap',
+        },
+      ],
+      [
+        rehypePrettyCode,
+        {
+          theme: 'github-dark',
+          keepBackground: false,
+          transformers: [
+            transformerNotationDiff({
+              matchAlgorithm: 'v3',
+            }),
+          ],
+        },
+      ],
+      rehypeCodeTitles,
+      [
+        rehypeExternalLinks,
+        { target: '_blank', rel: ['noopener', 'noreferrer'] },
+      ],
+    ],
+  },
 });

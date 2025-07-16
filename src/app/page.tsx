@@ -16,10 +16,10 @@ export default function HomePage() {
     <Box
       style={{
         margin: '0 auto',
-        paddingTop: '4rem',
-        minHeight: '100vh',
       }}
       asChild
+      pt="9"
+      minHeight="100vh"
       role="main"
     >
       <main>
