@@ -1,47 +1,51 @@
-:root {
-  --page-top: 96px;
-  --body-margin-left: 0px;
-  --body-margin-right: 0px;
-  --mask-visible: #000;
-  --mask-hidden: transparent;
-  --bg: #000;
-  --transparent: rgba(129, 115, 115, 0);
-}
+@import '@radix-ui/themes/styles.css';
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  background-color: var(--bg);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  scrollbar-width: thin;
-  scrollbar-color: var(--mono5) transparent;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+  :root {
+    --page-top: 96px;
+    --body-margin-left: 0px;
+    --body-margin-right: 0px;
+    --mask-visible: #000;
+    --mask-hidden: transparent;
+    --bg: #000;
+    --transparent: rgba(129, 115, 115, 0);
   }
-}
 
-.radix-themes {
-  background-color: #000;
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--bg);
+    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--mono5) transparent;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      color-scheme: dark;
+    }
+  }
+
+  .radix-themes {
+    background-color: #000;
+  }
 }
 
 #global-texture {
@@ -56,93 +60,145 @@ a {
   filter: contrast(60%) brightness(100%);
 }
 
-.writing-link {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-  text-decoration-color: #333;
-  transition: text-decoration-color 0.2s;
-}
+@layer components {
+  .thick-underline {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #555;
+    transition: text-decoration-color 0.2s;
+  }
 
-.writing-link:hover {
-  text-decoration-color: #ccc;
-}
+  .thick-underline:hover {
+    text-decoration-color: #ccc;
+  }
 
-.blur {
-  top: 0;
-  --direction: to bottom;
-  position: fixed;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  pointer-events: none;
-  --h: min(96px, var(--page-top, 96px));
-  height: var(--h);
-  z-index: 1;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  opacity: 0.97;
-  -webkit-mask-image: linear-gradient(
-    var(--direction),
-    var(--mask-visible) 25%,
-    var(--mask-hidden)
-  );
-  mask-image: linear-gradient(
-    var(--direction),
-    var(--mask-visible) 25%,
-    var(--mask-hidden)
-  );
-}
+  .writing-link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #333;
+    transition: text-decoration-color 0.2s;
+  }
 
-.blur:after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(var(--direction), var(--bg), var(--transparent));
-}
+  .writing-link:hover {
+    text-decoration-color: #ccc;
+  }
 
-/* Prose CSS */
+  .blur {
+    top: 0;
+    --direction: to bottom;
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    --h: min(96px, var(--page-top, 96px));
+    height: var(--h);
+    z-index: 1;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    opacity: 0.97;
+    -webkit-mask-image: linear-gradient(
+      var(--direction),
+      var(--mask-visible) 25%,
+      var(--mask-hidden)
+    );
+    mask-image: linear-gradient(
+      var(--direction),
+      var(--mask-visible) 25%,
+      var(--mask-hidden)
+    );
+  }
 
-.blog-block,
-code .line {
-  width: 100%;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  overflow: auto;
-  border-radius: 0.75rem;
-  background: #fff;
-  background-color: #f3f4f6;
-  padding: 1.5rem;
-  font-size: 0.8rem;
-  box-shadow:
-    0 0 #0000,
-    0 0 #0000,
-    inset 0 0 0 1px hsla(0, 0%, 100%, 0.22);
-}
-
-code .line {
-  padding: 0 0.25rem;
-  box-shadow: none;
-  background: transparent;
-}
-
-@media (prefers-color-scheme: dark) {
-  .blog-block,
-  code .line {
-    background: rgb(3, 3, 3);
+  .blur:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      var(--direction),
+      var(--bg),
+      var(--transparent)
+    );
   }
 }
 
-@media (max-width: 640px) {
-  .blog-block {
-    width: calc(100vw + 50px);
-    margin-left: -35px;
-    margin-right: -35px;
-    border-radius: 0;
-    padding-left: 35px;
-    padding-right: 65px;
+/* Prose CSS */
+@layer utilities {
+  .blog-block,
+  code .line {
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    overflow: auto;
+    border-radius: 0.75rem;
+    background: #fff;
+    background-color: #f3f4f6;
+    padding: 1.5rem;
+    font-size: 0.8rem;
+    box-shadow:
+      0 0 #0000,
+      0 0 #0000,
+      inset 0 0 0 1px hsla(0, 0%, 100%, 0.22);
+  }
+
+  code .line {
+    padding: 0 0.25rem;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .blog-block,
+    code .line {
+      background: rgb(3, 3, 3);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .blog-block {
+      width: calc(100vw + 50px);
+      margin-left: -35px;
+      margin-right: -35px;
+      border-radius: 0;
+      padding-left: 35px;
+      padding-right: 65px;
+    }
+  }
+
+  /* Blog content links */
+  .prose a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #555;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .prose a:hover {
+    text-decoration-color: #ccc;
+  }
+
+  /* Remove underlines from headings in blog content */
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    text-decoration: none !important;
+  }
+
+  /* Remove underlines from links inside headings */
+  .prose h1 a,
+  .prose h2 a,
+  .prose h3 a,
+  .prose h4 a,
+  .prose h5 a,
+  .prose h6 a {
+    text-decoration: none !important;
   }
 }

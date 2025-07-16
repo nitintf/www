@@ -1,6 +1,6 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -11,57 +11,57 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends(
-    "next/core-web-vitals",
-    "next/typescript",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-    "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended"
+    'next/core-web-vitals',
+    'next/typescript',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
+    'plugin:jsx-a11y/recommended',
+    'plugin:prettier/recommended',
   ),
   {
     rules: {
       // TypeScript
-      "@typescript-eslint/explicit-function-return-type": "off",
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
-        { argsIgnorePattern: "^_" },
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_' },
       ],
       // React
-      "react/react-in-jsx-scope": "off", // Not needed for Next.js
-      "react/prop-types": "off", // Using TypeScript for props
+      'react/react-in-jsx-scope': 'off', // Not needed for Next.js
+      'react/prop-types': 'off', // Using TypeScript for props
       // React Hooks
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
       // Imports
-      "import/order": [
-        "warn",
+      'import/order': [
+        'warn',
         {
           groups: [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index",
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
           ],
-          "newlines-between": "always",
+          'newlines-between': 'always',
         },
       ],
-      "import/no-unresolved": "error",
+      'import/no-unresolved': 'error',
       // Accessibility
-      "jsx-a11y/alt-text": "warn",
+      'jsx-a11y/alt-text': 'warn',
       // General
-      "no-console": ["warn", { allow: ["warn", "error"] }],
-      "no-debugger": "warn",
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-debugger': 'warn',
       // Prettier
-      "prettier/prettier": "error"
+      'prettier/prettier': 'error',
     },
     settings: {
       react: {
-        version: "detect",
+        version: 'detect',
       },
     },
   },

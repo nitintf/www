@@ -36,7 +36,7 @@ export const WritingSection = ({ writings }: WritingSectionProps) => {
             />
           ))}
           <Flex direction="column" gap="1" mt="6">
-            <Link href="/writing" className="writing-link">
+            <Link href="/writing" className="thick-underline">
               <Heading as="h3" size="3" weight="medium">
                 <span id={`all-writings`}>View all writings</span>
               </Heading>
@@ -65,7 +65,7 @@ export const WritingPreviewItem = ({
             <Heading as="h3" size="3" weight="medium">
               <Link
                 href={writing.url}
-                className="writing-link"
+                className="thick-underline"
                 aria-describedby={`writing-summary-${writing._id}`}
               >
                 <span id={`writing-title-${writing._id}`}>{writing.title}</span>

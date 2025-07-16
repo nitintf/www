@@ -20,7 +20,7 @@ const ProjectItem = ({ title, description, href, tag }: ProjectItemProps) => {
   const titleWithLink = href ? (
     <Link
       href={href}
-      className="writing-link"
+      className="thick-underline"
       target="_blank"
       rel="noopener noreferrer"
     >

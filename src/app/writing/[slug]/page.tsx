@@ -3,8 +3,9 @@ import { format } from 'date-fns';
 import { Box, Container, Heading, Text } from '@radix-ui/themes';
 
 import { allWritings, Writing } from 'contentlayer/generated';
-import { SITE_URL } from '@/lib/constants';
 import { Mdx } from '@/components/mdx/mdx-components';
+import { BackNavigation } from '@/components/back-button';
+import { generateSEO } from '@/lib/seo';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -19,28 +20,14 @@ export async function generateMetadata({ params }: Props) {
     return {};
   }
 
-  return {
+  return generateSEO({
     title: writing.title,
     description: writing.summary,
-    openGraph: {
-      title: writing.title,
-      description: writing.summary,
-      publishedTime: writing.date,
-      url: `${SITE_URL}${writing.url}`,
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: writing.title,
-      description: writing.summary,
-    },
-    alternates: {
-      canonical: `${SITE_URL}${writing.url}`,
-    },
-    other: {
-      'structured-data': writing.structuredData,
-    },
-  };
+    url: writing.url,
+    type: 'article',
+    publishedTime: writing.date,
+    tags: writing.keywords,
+  });
 }
 
 const WritingLayout = async ({ params }: Props) => {
@@ -61,16 +48,19 @@ const WritingLayout = async ({ params }: Props) => {
         }}
       />
       <Container size="3">
+        <Box mt="9">
+          <BackNavigation href="/writing" label="Writing" />
+        </Box>
         <article
           aria-labelledby={`writing-title-${writing._id}`}
           className="prose"
         >
           <Box>
             <Heading
-              mt="6"
               as="h1"
               size="5"
               id={`writing-title-${writing._id}`}
+              style={{ textDecoration: 'none' }}
             >
               {writing.title}
             </Heading>
