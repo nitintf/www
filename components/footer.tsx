@@ -4,16 +4,16 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer
-      className="mt-4 flex items-center justify-start gap-3 text-sm text-neutral-500"
+      className="mt-4 flex flex-col sm:flex-row sm:items-center items-start justify-start gap-3 text-sm text-neutral-500"
       aria-label="Site footer"
     >
       <CurrentTime />
-      <span aria-hidden="true" className="text-neutral-400">
+      <span aria-hidden="true" className="text-neutral-400 hidden sm:inline">
         •
       </span>
       <nav
         aria-label="Social links and resources"
-        className="flex items-center gap-3"
+        className="flex flex-wrap items-center gap-3"
       >
         <a
           href="https://www.linkedin.com/in/nitin-panwarr/"
