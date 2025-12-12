@@ -5,11 +5,18 @@
   --foreground: #171717;
 }
 
+::selection {
+  background-color: #d4d4d4;
+  color: var(--foreground);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --text-sm: 0.975rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,10 +24,49 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+
+  ::selection {
+    background-color: var(--color-stone-700);
+    color: var(--color-stone-400)
+  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  @apply underline text-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 rounded transition-all;
+}
+
+a:hover {
+  text-decoration-style: wavy;
+  text-decoration-thickness: 1px;
+}
+
+.text-primary {
+  @apply text-neutral-400 font-medium;
+}
+
+.text-secondary {
+  @apply text-neutral-500 text-sm leading-snug;
+}
+
+/* Screen reader only - visually hidden but accessible to assistive technologies */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
