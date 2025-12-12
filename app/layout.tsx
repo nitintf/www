@@ -1,5 +1,8 @@
-import { Geist, Geist_Mono, Inter } from 'next/font/google';
 import './globals.css';
+
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Geist, Geist_Mono, Inter } from 'next/font/google';
 import { metadata, viewport } from '@/lib/metadata';
 
 const geistSans = Geist({
@@ -30,6 +33,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
