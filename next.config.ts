@@ -126,11 +126,6 @@ const nextConfig: NextConfig = {
         destination: '/cv.pdf',
         permanent: true,
       },
-      {
-        source: '/cv.pdf',
-        destination: '/cv.pdf',
-        permanent: true,
-      },
     ];
   },
 };
