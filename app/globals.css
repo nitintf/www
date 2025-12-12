@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -27,14 +27,23 @@
 
   ::selection {
     background-color: var(--color-stone-700);
-    color: var(--color-stone-400)
+    color: var(--color-stone-400);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    var(--font-inter),
+    var(--font-geist-sans),
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,7 +51,7 @@ body {
 }
 
 a {
-  @apply underline text-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 rounded transition-all;
+  @apply underline text-neutral-400 focus:outline-none focus:ring-1 focus:ring-neutral-800 focus:ring-offset-2 transition-all;
 }
 
 a:hover {

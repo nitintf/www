@@ -8,31 +8,31 @@ const workItems: WorkItem[] = [
   {
     title: 'navi',
     description:
-      'AI-powered shell guide that helps developers navigate and understand their command-line environment more efficiently. Built with Go for performance and reliability.',
+      'AI-powered shell guide for developers. Built with Go for performance and reliability.',
     url: 'https://github.com/nitintf/navi',
   },
   {
     title: 'layout',
     description:
-      'A macOS app for seamless windows and app management, providing intuitive controls for organizing your workspace. Built with TypeScript for a smooth native experience.',
+      'macOS app for seamless windows and app management. Built with Electron.',
     url: 'https://github.com/nitintf/layout',
   },
   {
     title: 'commet',
     description:
-      'AI-powered commit message generator and Git utilities to help you write better commits. Automates the process of creating meaningful commit messages using AI.',
+      'AI-powered commit message generator and Git utilities. Automates meaningful commit messages using AI.',
     url: 'https://github.com/nitintf/commet',
   },
   {
     title: 'nullmail',
     description:
-      'A fully self-deployable and open source Temp Mail SMTP Service written in Go. Provides temporary email functionality with full control over your deployment.',
+      'Self-deployable open source Temp Mail SMTP Service written in Go. Full control over your deployment.',
     url: 'https://github.com/nitintf/nullmail',
   },
   {
     title: 'nl2sql',
     description:
-      'Natural Language to SQL conversion API using LangChain, FastAPI and React. Converts plain English queries into SQL statements through advanced AI processing.',
+      'Natural Language to SQL conversion API using LangChain, FastAPI and React. Converts plain English to SQL queries.',
     url: 'https://github.com/nitintf/nl2sql',
   },
 ];

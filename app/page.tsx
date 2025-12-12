@@ -18,16 +18,20 @@ export default function Home() {
                 About
               </h2>
               <p className="text-secondary mt-4">
-                I have 4+ years of experience building scalable web, mobile, and
-                backend systems with a focus on system design, performance, and
-                user experience. I work across AI agents, data pipelines, and
-                cloud-native applications.
+                For the past 4+ years, I&apos;ve been building web, mobile, and
+                backend systems that scale beyond{' '}
+                <q className="text-neutral-600 dark:text-neutral-400 italic">
+                  works on my machine
+                </q>
+                . I obsess over clean system design, performance, and UX, and
+                I&apos;ve been diving deep into AI agents, data workflows, and
+                cloud-native engineering to build smarter, faster, more reliable
+                products.
               </p>
               <p className="text-secondary mt-4">
-                When I&apos;m not shipping features, you&apos;ll find me chasing
-                a football, trekking up mountains, or planning my next escape
-                into the hills. I like my code clean, my systems fast, and my
-                weekends above the clouds.
+                When I&apos;m not debugging production at 2 AM, I like football,
+                playing games, and travelling. I keep my code clean, my systems
+                fast, and my weekends screen-free.
               </p>
             </section>
 
