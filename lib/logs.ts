@@ -12,6 +12,8 @@ export interface LogMeta {
 }
 
 export function getAllLogs(): LogMeta[] {
+  if (!fs.existsSync(LOGS_DIR)) return [];
+
   const files = fs.readdirSync(LOGS_DIR).filter((f) => f.endsWith('.mdx'));
 
   const logs = files.map((filename) => {
@@ -54,6 +56,8 @@ export function getLogBySlug(
 }
 
 export function getAllLogSlugs(): string[] {
+  if (!fs.existsSync(LOGS_DIR)) return [];
+
   return fs
     .readdirSync(LOGS_DIR)
     .filter((f) => f.endsWith('.mdx'))
