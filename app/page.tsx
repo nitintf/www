@@ -9,7 +9,7 @@ export default function Home() {
         <article className="py-8" aria-labelledby="profile-heading">
           <header>
             <h1 id="profile-heading" className="text-primary">
-              Nitin Panwar—Senior Software Engineer
+              Nitin Panwar—Engineer
             </h1>
           </header>
           <div className="w-full">
@@ -26,7 +26,15 @@ export default function Home() {
                 . I obsess over clean system design, performance, and UX, and
                 I&apos;ve been diving deep into AI agents, data workflows, and
                 cloud-native engineering to build smarter, faster, more reliable
-                products.
+                products. Currently building{' '}
+                <a
+                  href="https://dicta.nitin.sh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  dicta
+                </a>
+                .
               </p>
               <p className="text-secondary mt-4">
                 When I&apos;m not debugging production at 2 AM, I like football,

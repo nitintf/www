@@ -9,7 +9,7 @@ const workItems: WorkItem[] = [
     title: 'dicta',
     description:
       'On-device voice-to-text for macOS. Local AI transcription with zero latency, 50+ languages, and complete privacy.',
-    url: 'https://github.com/nitintf/dicta',
+    url: 'https://dicta.nitin.sh',
   },
   {
     title: 'navi',
