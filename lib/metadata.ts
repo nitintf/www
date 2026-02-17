@@ -4,7 +4,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nitin.sh';
 const siteName = 'Nitin Panwar';
 const title = "hey! i'm nitin :)";
 const description =
-  'software engineer | turning coffee into code and mountains into memories';
+  'senior software engineer | turning coffee into code and mountains into memories';
 const twitterHandle = '@nitinpanwarrr';
 
 export const viewport: Viewport = {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description,
   keywords: [
-    'software engineer',
+    'senior software engineer',
     'web development',
     'backend development',
     'system design',
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: `${siteName} - Software Engineer`,
+        alt: `${siteName} - Senior Software Engineer`,
       },
     ],
   },

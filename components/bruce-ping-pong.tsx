@@ -11,8 +11,8 @@ export default function BrucePingPong() {
         <source src="/Bruce Ping Pong.mp4" />
       </video>
       <figcaption className="text-sm mt-3 text-neutral-500 italic">
-        Personal goal is to one day be as good at finding balance as Bruce Lee
-        is at ping pong with a pair of nunchucks.
+        Personal goal is to one day find work-life balance with the same grace
+        Bruce Lee finds ping pong balls with a pair of nunchucks.
       </figcaption>
     </figure>
   );

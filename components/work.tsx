@@ -6,6 +6,12 @@ interface WorkItem {
 
 const workItems: WorkItem[] = [
   {
+    title: 'dicta',
+    description:
+      'On-device voice-to-text for macOS. Local AI transcription with zero latency, 50+ languages, and complete privacy.',
+    url: 'https://github.com/nitintf/dicta',
+  },
+  {
     title: 'navi',
     description:
       'AI-powered shell guide for developers. Built with Go for performance and reliability.',
@@ -34,6 +40,12 @@ const workItems: WorkItem[] = [
     description:
       'Natural Language to SQL conversion API using LangChain, FastAPI and React. Converts plain English to SQL queries.',
     url: 'https://github.com/nitintf/nl2sql',
+  },
+  {
+    title: 'openport',
+    description:
+      'Expose local services to the internet with secure tunnels. Like ngrok, but simple and open source. Built with Go.',
+    url: 'https://github.com/nitintf/openport',
   },
 ];
 

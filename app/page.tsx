@@ -9,7 +9,7 @@ export default function Home() {
         <article className="py-8" aria-labelledby="profile-heading">
           <header>
             <h1 id="profile-heading" className="text-primary">
-              Nitin Panwar—Software Engineer
+              Nitin Panwar—Senior Software Engineer
             </h1>
           </header>
           <div className="w-full">
@@ -18,7 +18,7 @@ export default function Home() {
                 About
               </h2>
               <p className="text-secondary mt-4">
-                For the past 4+ years, I&apos;ve been building web, mobile, and
+                For the past 5+ years, I&apos;ve been building web, mobile, and
                 backend systems that scale beyond{' '}
                 <q className="text-neutral-600 dark:text-neutral-400 italic">
                   works on my machine

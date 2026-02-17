@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+const TIMEZONE = 'Asia/Kolkata';
+
 export function useCurrentTime() {
   const [time, setTime] = useState<string>('');
 
@@ -10,6 +12,7 @@ export function useCurrentTime() {
         hour: 'numeric',
         minute: '2-digit',
         hour12: true,
+        timeZone: TIMEZONE,
       });
       setTime(timeString);
     };
