@@ -54,6 +54,13 @@ export default function Home() {
               <BrucePingPong />
             </section>
 
+            <p className="text-sm text-neutral-400 dark:text-neutral-500 py-6">
+              Like terminals? Try{' '}
+              <code className="bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 px-1.5 py-0.5 rounded text-xs">
+                npx nitintf
+              </code>
+            </p>
+
             <Footer />
           </div>
         </article>
