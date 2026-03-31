@@ -1,0 +1,94 @@
+---
+title: 'Why Dicta Runs Locally'
+date: '2026-01-15'
+description: "Most voice-to-text tools send your audio to a server. Dicta doesn't. Here's why local-first matters and what it takes to make it work."
+---
+
+## The default is broken
+
+Most voice-to-text tools work the same way: record audio, send it to a server, wait for text back. It's simple, and the results are good. But it comes with baggage — latency, privacy concerns, and a hard dependency on the internet.
+
+> Your words shouldn't have to leave your machine to become text.
+
+I wanted to build something different. Dicta is a native macOS app where everything — transcription, formatting, post-processing — can run entirely on your device. No cloud, no API keys, no data leaving your Mac.
+
+## What runs on-device
+
+Dicta supports multiple local transcription engines, each with different tradeoffs.
+
+### Whisper models
+
+The backbone of local transcription. These are OpenAI's Whisper models compiled to run natively on macOS via `whisper.cpp`:
+
+| Model           | Size   | Speed         | Best for                                   |
+| --------------- | ------ | ------------- | ------------------------------------------ |
+| tiny            | 78 MB  | ~32x realtime | Quick drafts, real-time captioning         |
+| base            | 148 MB | ~16x realtime | Balanced everyday use                      |
+| small           | 488 MB | ~6x realtime  | Professional transcription                 |
+| large-v3-turbo  | 1.6 GB | ~8x realtime  | Production use — best accuracy/speed ratio |
+| distil-large-v3 | 1.5 GB | ~6x realtime  | Fast multilingual content                  |
+
+"32x realtime" means one minute of audio transcribes in under two seconds. The `large-v3-turbo` model is the sweet spot — nearly the accuracy of the full large model at a fraction of the cost.
+
+All models support 99+ languages with automatic detection. You don't configure anything — just start talking.
+
+### Candle models
+
+A pure Rust implementation using Hugging Face's Candle framework. Same Whisper architecture, but built for tighter macOS integration with Metal GPU acceleration. Still maturing, but the goal is to be the fastest local engine on Apple Silicon.
+
+### Apple Speech
+
+Zero downloads, zero setup. Uses macOS's built-in `SFSpeechRecognizer`. It's fast to start and works immediately, but has a one-minute limit per request and fewer languages. Good for quick notes when you don't want to download a model.
+
+## Local post-processing
+
+Transcription is only half the problem. Raw voice output needs formatting — punctuation, capitalization, list detection. Most apps send this to GPT-4 or Claude. Dicta can do it locally.
+
+Using quantized LLMs running through `llama.cpp` with Metal GPU support:
+
+| Model               | Size   | RAM  | Quality                                |
+| ------------------- | ------ | ---- | -------------------------------------- |
+| Qwen 2.5 7B         | 4.7 GB | 6 GB | Best local — comparable to GPT-4o Mini |
+| Llama 3.1 8B        | 4.9 GB | 6 GB | Excellent instruction following        |
+| Phi-3.5 Mini (3.8B) | 2.3 GB | 3 GB | Fast, good for compact setups          |
+| Llama 3.2 3B        | 2.0 GB | 3 GB | Minimum for reliable formatting        |
+
+These models handle grammar correction, smart punctuation, automatic list detection, snippet expansion, and vocabulary matching — all without an internet connection.
+
+A 7B model on Apple Silicon gives you formatting quality that's genuinely close to cloud APIs. The gap is closing fast.
+
+## Why local matters
+
+Three reasons I keep coming back to:
+
+**Privacy.** Voice is personal. You dictate emails, medical notes, journal entries, passwords sometimes by accident. Sending all of that to a server — even one you trust — is a choice users shouldn't have to make by default.
+
+**Latency.** A cloud round-trip adds 500ms–2s depending on your connection. Locally, transcription starts the moment you stop speaking. The difference is the feeling of "the text just appeared" versus "I'm waiting for the text." It changes how you use the tool.
+
+**Reliability.** Local models don't go down. They don't rate-limit you. They work on planes, in cafes with bad wifi, and in countries where certain APIs aren't available. Once downloaded, they're yours.
+
+> The fastest API call is the one you don't make.
+
+## The tradeoff
+
+I'm not going to pretend local is always better. Cloud models — especially for accented speech, noisy environments, or niche languages — can still be more accurate. And the 7B local LLMs, while good, aren't Claude Sonnet.
+
+So Dicta doesn't force a choice. You can use local Whisper for transcription and Claude for post-processing. Or go fully local. Or fully cloud. Mix and match per your comfort level.
+
+The point is that local-first is the _default_, not an afterthought.
+
+## What it takes
+
+Running all of this on a laptop isn't free. A realistic local setup:
+
+- **Minimal** — Whisper tiny + no post-processing: ~80 MB disk, 1 GB RAM
+- **Recommended** — Large-v3-turbo + Qwen 7B: ~6.3 GB disk, 12 GB RAM
+- **Full** — Large model + 7B LLM + multiple engines: ~15 GB disk, 16+ GB RAM
+
+Apple Silicon makes this practical. The Neural Engine and unified memory mean you're not fighting the hardware — the models run where the silicon is fastest. A base M1 MacBook Air handles the recommended setup without breaking a sweat.
+
+## What's next
+
+Working on [WhisperKit](https://github.com/argmaxinc/WhisperKit) integration — Apple's CoreML-optimized Whisper that runs on the Neural Engine directly. Models are 50% smaller and inference is significantly faster. Early tests are promising.
+
+If you want to try Dicta: [dicta.nitin.sh](https://dicta.nitin.sh).

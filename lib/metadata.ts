@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from 'next';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nitin.sh';
 const siteName = 'Nitin Panwar';
-const title = "hey! i'm nitin :)";
+const title = 'Nitin Panwar';
 const description =
-  'senior software engineer | turning coffee into code and mountains into memories';
+  'Senior software engineer building web, mobile, and backend systems. Creator of Dicta, an on-device voice-to-text app for macOS.';
 const twitterHandle = '@nitinpanwarrr';
 
 export const viewport: Viewport = {
@@ -22,38 +22,28 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: title,
-    template: `%s | ${siteName}`,
+    template: `%s — ${siteName}`,
   },
   description,
   keywords: [
+    'Nitin Panwar',
+    'nitin panwar software engineer',
     'senior software engineer',
+    'full stack developer',
+    'software engineer portfolio',
     'web development',
     'backend development',
     'system design',
     'AI agents',
-    'data pipelines',
-    'cloud-native',
-    'Nitin Panwar',
-    'full stack developer',
-    'software architect',
-    'life',
-    'hobbies',
-    'interests',
-    'goals',
-    'dreams',
-    'aspirations',
-    'ambitions',
-    'aspirations',
-    'personal website',
-    'personal blog',
-    'personal portfolio',
-    'personal projects',
-    'personal achievements',
-    'personal goals',
-    'personal dreams',
-    'personal aspirations',
+    'TypeScript',
+    'React',
+    'Go',
+    'Rust',
+    'macOS developer',
+    'Dicta voice to text',
+    'nitin.sh',
   ],
-  authors: [{ name: 'Nitin Panwar' }],
+  authors: [{ name: 'Nitin Panwar', url: siteUrl }],
   creator: 'Nitin Panwar',
   publisher: 'Nitin Panwar',
   formatDetection: {
@@ -68,21 +58,12 @@ export const metadata: Metadata = {
     siteName,
     title,
     description,
-    images: [
-      {
-        url: `${siteUrl}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: `${siteName} - Senior Software Engineer`,
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title,
     description,
     creator: twitterHandle,
-    images: [`${siteUrl}/og-image.png`],
   },
   robots: {
     index: true,
@@ -102,9 +83,8 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
   },
-  manifest: '/manifest.json',
   alternates: {
     canonical: siteUrl,
   },
-  category: 'personal',
+  category: 'technology',
 };

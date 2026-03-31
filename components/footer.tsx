@@ -1,54 +1,60 @@
 import CurrentTime from '@/components/current-time';
-import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer
-      className="mt-4 flex flex-col sm:flex-row sm:items-center items-start justify-start gap-3 text-sm text-neutral-500"
-      aria-label="Site footer"
-    >
-      <CurrentTime />
-      <span aria-hidden="true" className="text-neutral-400 hidden sm:inline">
-        •
-      </span>
-      <nav
-        aria-label="Social links and resources"
-        className="flex flex-wrap items-center gap-3"
-      >
-        <a
-          href="https://www.linkedin.com/in/nitin-panwarr/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visit Nitin Panwar on LinkedIn (opens in new tab)"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/nitintf"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visit Nitin Panwar on GitHub (opens in new tab)"
-        >
-          GitHub
-        </a>
-        <a
-          href="mailto:contact@nitin.sh"
-          aria-label="Send email to contact@nitin.sh"
-        >
-          Email
-        </a>
-        <a
-          href="/cv.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Download CV or Resume (opens in new tab)"
-        >
-          CV/Resume
-        </a>
-        <Link href="/logs" aria-label="View logs">
-          Logs
-        </Link>
-      </nav>
+    <footer className="w-full pt-16 pb-24" aria-label="Site footer">
+      <div className="max-w-2xl mx-auto px-8">
+        <p className="text-sm leading-relaxed text-ui-9">
+          <CurrentTime /> I&apos;m on{' '}
+          <a
+            href="https://github.com/nitintf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pill-link"
+          >
+            GitHub
+          </a>
+          ,{' '}
+          <a
+            href="https://www.linkedin.com/in/nitin-panwarr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pill-link"
+          >
+            LinkedIn
+          </a>
+          , and{' '}
+          <a
+            href="https://x.com/nitintf_"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pill-link"
+          >
+            X
+          </a>{' '}
+          — or just{' '}
+          <a href="mailto:contact@nitin.sh" className="pill-link">
+            email
+          </a>{' '}
+          me. Grab my{' '}
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pill-link"
+          >
+            CV
+          </a>
+          . Like terminals? Try{' '}
+          <code className="text-xs bg-ui-3 px-1.5 py-0.5 rounded font-mono text-ui-11">
+            npx nitintf
+          </code>
+        </p>
+
+        <p className="text-xs text-ui-8 mt-6 italic font-serif">
+          &copy; {new Date().getFullYear()}, Nitin Panwar
+        </p>
+      </div>
     </footer>
   );
 }

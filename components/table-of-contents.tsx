@@ -79,10 +79,10 @@ export default function TableOfContents({ content }: { content: string }) {
         </svg>
         <span>logs</span>
       </Link>
-      <p className="text-neutral-600 text-[0.65rem] uppercase tracking-widest mb-3 mt-6 font-medium">
+      <p className="text-ui-9 text-[0.65rem] uppercase tracking-widest mb-3 mt-6 font-medium">
         On this page
       </p>
-      <ul className="space-y-0.5 list-none border-l border-neutral-800/60">
+      <ul className="space-y-0.5 list-none border-l border-ui-5">
         {headings.map(({ id, text, level }) => (
           <li key={id}>
             <a

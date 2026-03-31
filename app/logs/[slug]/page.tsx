@@ -4,8 +4,8 @@ import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { mdxComponents } from '@/components/mdx-components';
 import TableOfContents from '@/components/table-of-contents';
-import Footer from '@/components/footer';
 import { notFound } from 'next/navigation';
+import { blogPostingSchema } from '@/lib/schema';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -23,9 +23,22 @@ export async function generateMetadata({
   const log = getLogBySlug(slug);
   if (!log) return {};
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nitin.sh';
+
   return {
     title: log.meta.title,
     description: log.meta.description,
+    alternates: {
+      canonical: `${siteUrl}/logs/${slug}`,
+    },
+    openGraph: {
+      title: log.meta.title,
+      description: log.meta.description,
+      type: 'article',
+      publishedTime: log.meta.date,
+      authors: ['Nitin Panwar'],
+      url: `${siteUrl}/logs/${slug}`,
+    },
   };
 }
 
@@ -37,18 +50,31 @@ export default async function LogPage({ params }: PageProps) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            blogPostingSchema({
+              title: log.meta.title,
+              description: log.meta.description,
+              date: log.meta.date,
+              slug,
+            }),
+          ),
+        }}
+      />
       <div className="page-fog-top" />
       <div className="page-fog-bottom" />
       <TableOfContents content={log.content} />
-      <main className="min-h-screen" role="main" aria-label={log.meta.title}>
-        <div className="w-full max-w-3xl mx-auto p-8 pt-16 pb-32">
+      <main role="main" aria-label={log.meta.title}>
+        <div className="w-full max-w-2xl mx-auto px-8 pt-5 pb-32">
           <article>
             <header className="mb-8">
-              <h1 className="text-neutral-300 font-medium tracking-tight">
+              <h1 className="text-ui-12 font-medium tracking-tight">
                 {log.meta.title}
               </h1>
               <time
-                className="text-neutral-700 text-xs mt-2 block tabular-nums"
+                className="text-ui-8 text-xs mt-2 block tabular-nums"
                 dateTime={log.meta.date}
               >
                 {new Date(log.meta.date).toLocaleDateString('en-US', {
@@ -80,10 +106,6 @@ export default async function LogPage({ params }: PageProps) {
               />
             </div>
           </article>
-
-          <div className="mt-8">
-            <Footer />
-          </div>
         </div>
       </main>
     </>

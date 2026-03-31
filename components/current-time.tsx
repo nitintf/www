@@ -7,8 +7,8 @@ export default function CurrentTime() {
 
   return (
     <span aria-live="polite" aria-atomic="true">
-      It&apos;s <time dateTime={new Date().toISOString()}>{currentTime}</time>{' '}
-      for Nitin
+      It&apos;s <time suppressHydrationWarning>{currentTime || '--:--'}</time>{' '}
+      here in India.
     </span>
   );
 }

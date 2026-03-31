@@ -11,7 +11,7 @@ const ascii = chalk.green(
     ` ██║╚██╗██║██║   ██║   ██║██║╚██╗██║   ██║   ██╔══╝  `,
     ` ██║ ╚████║██║   ██║   ██║██║ ╚████║   ██║   ██║     `,
     ` ╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝     `,
-  ].join('\n')
+  ].join('\n'),
 );
 
 const heading =
@@ -22,7 +22,7 @@ const heading =
 const bio = chalk.white(
   `I write code for a living and break it for fun.\n` +
     `Football, games, and travel keep me sane.\n` +
-    `Weekends are strictly no-screen zones (mostly).`
+    `Weekends are strictly no-screen zones (mostly).`,
 );
 
 const links = [
@@ -52,5 +52,5 @@ const card = boxen(output, {
   borderColor: 'green',
 });
 
-console.log('\n' + ascii );
+console.log('\n' + ascii);
 console.log(card);

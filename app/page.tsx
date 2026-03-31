@@ -1,68 +1,109 @@
-import BrucePingPong from '@/components/bruce-ping-pong';
-import Footer from '@/components/footer';
-import Work from '@/components/work';
+import { MoreAboutMe } from '@/components/expandable-section';
+import Link from 'next/link';
+
+const featuredWork = [
+  {
+    title: 'dicta',
+    description: 'On-device voice-to-text for macOS.',
+    url: 'https://dicta.nitin.sh',
+  },
+  {
+    title: 'easel',
+    description: 'Open-source design studio powered by Claude via MCP.',
+    url: 'https://github.com/nitintf/easel',
+  },
+  {
+    title: 'navi',
+    description: 'AI-powered shell guide for developers.',
+    url: 'https://github.com/nitintf/navi',
+  },
+];
 
 export default function Home() {
   return (
-    <main className="min-h-screen" role="main" aria-label="Main content">
-      <div className="w-full max-w-3xl mx-auto p-8 pt-16">
-        <article className="py-8" aria-labelledby="profile-heading">
-          <header>
-            <h1 id="profile-heading" className="text-primary">
-              Nitin Panwar—Engineer
-            </h1>
-          </header>
-          <div className="w-full">
-            <section aria-labelledby="about-heading">
-              <h2 id="about-heading" className="sr-only">
-                About
-              </h2>
-              <p className="text-secondary mt-4">
-                For the past 5+ years, I&apos;ve been building web, mobile, and
-                backend systems that scale beyond{' '}
-                <q className="text-neutral-600 dark:text-neutral-400 italic">
-                  works on my machine
-                </q>
-                . I obsess over clean system design, performance, and UX, and
-                I&apos;ve been diving deep into AI agents, data workflows, and
-                cloud-native engineering to build smarter, faster, more reliable
-                products. Currently building{' '}
-                <a
-                  href="https://dicta.nitin.sh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  dicta
-                </a>
-                .
-              </p>
-              <p className="text-secondary mt-4">
-                When I&apos;m not debugging production at 2 AM, I like football,
-                playing games, and travelling. I keep my code clean, my systems
-                fast, and my weekends screen-free.
-              </p>
-            </section>
-
-            <div className="py-8">
-              <Work />
-            </div>
-
-            <section className="py-8" aria-labelledby="inspiration-heading">
-              <h2 id="inspiration-heading" className="sr-only">
-                Inspiration
-              </h2>
-              <BrucePingPong />
-            </section>
-
-            <p className="text-sm text-neutral-400 dark:text-neutral-500 py-6">
-              Like terminals? Try{' '}
-              <code className="bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 px-1.5 py-0.5 rounded text-xs">
-                npx nitintf
-              </code>
+    <main role="main" aria-label="Main content">
+      <div className="w-full max-w-2xl mx-auto px-8 pb-8">
+        <article>
+          <div className="pt-5">
+            <p className="text-sm leading-relaxed text-ui-10 pt-2">
+              I care about well-crafted software, clear thinking, and building
+              things that hold up over time.
             </p>
 
-            <Footer />
+            <p className="text-sm leading-relaxed text-ui-10 pt-2">
+              I build web, mobile, and backend systems — currently making{' '}
+              <a
+                href="https://dicta.nitin.sh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pill-link"
+              >
+                dicta
+              </a>
+              , an on-device voice-to-text app for macOS. When I&apos;m not
+              coding, I&apos;m probably watching football, exploring mountains,
+              or watching a good movie.
+            </p>
+
+            <p className="text-sm leading-relaxed text-ui-10 pt-2">
+              Read my{' '}
+              <Link href="/logs" className="pill-link">
+                logs
+              </Link>
+              . Check what I&apos;m up to{' '}
+              <Link href="/now" className="pill-link">
+                now
+              </Link>
+              . Or reach me through{' '}
+              <a href="mailto:contact@nitin.sh" className="pill-link">
+                email
+              </a>
+              .
+            </p>
+
+            <MoreAboutMe />
           </div>
+
+          <section className="pt-20" aria-labelledby="work-heading">
+            <Link
+              href="/works"
+              className="plain-link group inline-flex items-center gap-2 mb-4"
+            >
+              <h2
+                id="work-heading"
+                className="font-serif italic text-base tracking-wide font-medium text-ui-12 group-hover:text-accent-500 transition-colors"
+              >
+                Work
+              </h2>
+              <span className="text-xs text-ui-7 group-hover:text-accent-500 transition-colors">
+                [↗]
+              </span>
+            </Link>
+            <ul className="list-none divide-y divide-ui-4/40">
+              {featuredWork.map((item) => (
+                <li key={item.title}>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="plain-link group flex items-baseline justify-between gap-4 py-2.5"
+                  >
+                    <div className="min-w-0 flex items-baseline gap-2">
+                      <span className="text-sm font-medium text-ui-12 group-hover:text-accent-500 transition-colors shrink-0">
+                        {item.title}
+                      </span>
+                      <span className="text-xs text-ui-8">
+                        {item.description}
+                      </span>
+                    </div>
+                    <span className="text-ui-7 group-hover:text-ui-10 transition-colors shrink-0 text-sm">
+                      ↗
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
         </article>
       </div>
     </main>
