@@ -14,6 +14,12 @@ interface WorkItem {
 
 const works: WorkItem[] = [
   {
+    title: 'promptomato',
+    description: 'A tiny tomato companion that keeps you focused.',
+    tag: 'macOS · AI',
+    url: 'https://promptomato.app',
+  },
+  {
     title: 'dicta',
     description: 'On-device voice-to-text for macOS.',
     tag: 'macOS',
