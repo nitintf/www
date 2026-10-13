@@ -3,6 +3,11 @@ import Link from 'next/link';
 
 const featuredWork = [
   {
+    title: 'promptomato',
+    description: 'A tiny tomato companion that keeps you focused.',
+    url: 'https://promptomato.app',
+  },
+  {
     title: 'dicta',
     description: 'On-device voice-to-text for macOS.',
     url: 'https://dicta.nitin.sh',
@@ -11,11 +16,6 @@ const featuredWork = [
     title: 'easel',
     description: 'Open-source design studio powered by Claude via MCP.',
     url: 'https://github.com/nitintf/easel',
-  },
-  {
-    title: 'navi',
-    description: 'AI-powered shell guide for developers.',
-    url: 'https://github.com/nitintf/navi',
   },
 ];
 
