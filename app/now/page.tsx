@@ -1,130 +1,63 @@
 import type { Metadata } from 'next';
+import { Page } from '@/components/layout/page';
+import { PageIntro } from '@/components/layout/page-intro';
+import { Section } from '@/components/layout/section';
+import { TextLink } from '@/components/ui/text-link';
 
 export const metadata: Metadata = {
   title: 'Now',
-  description: 'What Nitin is currently up to in 2026.',
+  description:
+    'What Nitin Panwar is working on, building and learning right now.',
+  alternates: { canonical: '/now' },
 };
 
 export default function NowPage() {
   return (
-    <main role="main" aria-label="Now">
-      <div className="w-full max-w-2xl mx-auto px-8 pt-5 pb-8 flex-1">
-        <h1 className="sr-only">Now — Nitin Panwar</h1>
-        <div className="pt-2">
-          <p className="text-sm leading-relaxed text-ui-10">
-            What I&apos;m focused on right now. Updated periodically.
-          </p>
-        </div>
+    <Page label="Now">
+      <h1 className="sr-only">now: what nitin panwar is up to</h1>
+      <PageIntro>
+        <p>
+          work is{' '}
+          <TextLink href="https://www.ampd.energy">ampd energy</TextLink>. we
+          make batteries that replace diesel generators, and i build the
+          software around them. most days that means the customer app people use
+          to watch their sites, the kafka and mqtt pipelines that bring in a
+          reading from every device every second, and the backend that turns it
+          all into something you can look at.
+        </p>
+        <p>
+          after work i&apos;m building two apps of my own.{' '}
+          <TextLink href="https://promptomato.app">promptomato</TextLink> lives
+          in the mac notch: you hold fn and talk to write anywhere, it takes
+          notes from your calls, and a small tomato nudges you when you drift.
+          budly is a calm habit app for ios and android. a sprout called bud
+          copies what you do, and after about 66 days a habit is learned and a
+          new leaf grows. budly is coming soon.
+        </p>
+        <p>
+          i&apos;m learning go and what happens closer to the metal, picking up
+          rust for systems side projects, and building ai agents with langchain
+          and langgraph. i keep coming back to operating systems, networking,
+          and tools that stay out of the way.
+        </p>
+        <p>
+          outside of all that it&apos;s football, running as much as i can, and
+          travelling anywhere with mountains. on a slow day it&apos;s a game
+          i&apos;ll never finish, a good movie, or chai and doing nothing.
+        </p>
+      </PageIntro>
 
-        <section className="pt-20">
-          <h2 className="font-serif italic text-base tracking-wide font-medium text-ui-12 mb-4">
-            Work
-          </h2>
-          <p className="text-sm leading-relaxed text-ui-10">
-            Working at{' '}
-            <a
-              href="https://www.ampd.energy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="pill-link"
-            >
-              Ampd Energy
-            </a>
-            , building software for clean energy systems. Day-to-day involves
-            full-stack product work, system design, and keeping things running
-            at scale.
-          </p>
-        </section>
-
-        <section className="pt-12">
-          <h2 className="font-serif italic text-base tracking-wide font-medium text-ui-12 mb-4">
-            Building
-          </h2>
-          <p className="text-sm leading-relaxed text-ui-10">
-            Shipping{' '}
-            <a
-              href="https://dicta.nitin.sh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="pill-link"
-            >
-              dicta
-            </a>
-            , an on-device voice-to-text app for macOS. Focused on accuracy,
-            privacy, and zero latency. Trying to make local AI transcription
-            actually usable.
-          </p>
-        </section>
-
-        <section className="pt-12">
-          <h2 className="font-serif italic text-base tracking-wide font-medium text-ui-12 mb-4">
-            Learning
-          </h2>
-          <ul className="space-y-1.5 list-none">
-            <li className="text-sm leading-relaxed text-ui-10">
-              Go and low-level programming — understanding what happens closer
-              to the metal.
-            </li>
-            <li className="text-sm leading-relaxed text-ui-10">
-              Picking up Rust for systems-level side projects.
-            </li>
-            <li className="text-sm leading-relaxed text-ui-10">
-              Exploring AI agents and LLM applications with LangChain and
-              LangGraph.
-            </li>
-          </ul>
-        </section>
-
-        <section className="pt-12">
-          <h2 className="font-serif italic text-base tracking-wide font-medium text-ui-12 mb-4">
-            Interested in
-          </h2>
-          <ul className="space-y-1.5 list-none">
-            <li className="text-sm leading-relaxed text-ui-10">
-              Operating systems and networking.
-            </li>
-            <li className="text-sm leading-relaxed text-ui-10">
-              AI and its applications in developer tooling.
-            </li>
-            <li className="text-sm leading-relaxed text-ui-10">
-              System design, infrastructure, and engineering at scale.
-            </li>
-            <li className="text-sm leading-relaxed text-ui-10">
-              Developer tools that stay out of the way.
-            </li>
-          </ul>
-        </section>
-
-        <section className="pt-12">
-          <h2 className="font-serif italic text-base tracking-wide font-medium text-ui-12 mb-4">
-            Life
-          </h2>
-          <p className="text-sm leading-relaxed text-ui-10">
-            Outside of work, I spend most of my time chasing footballs and
-            trying to run as much as I can — been playing and staying active
-            since I was a kid and it&apos;s the one thing that never gets old. I
-            love travelling to places I&apos;ve never been, especially anywhere
-            with mountains — something about being up there just clears
-            everything out. When I&apos;m home, I&apos;m probably deep into a
-            game I&apos;ll never finish, watching a movie, or just sitting with
-            a good cup of chai doing absolutely nothing.
-          </p>
-        </section>
-
-        <figure className="pt-20 flex flex-col items-center">
-          <video autoPlay loop muted playsInline className="w-3/4 rounded-lg">
+      <Section>
+        <figure className="flex flex-col items-center">
+          <video autoPlay loop muted playsInline className="w-3/4 rounded-md">
             <source src="/Bruce Ping Pong.mp4" />
           </video>
-          <figcaption className="text-sm mt-3 italic text-ui-9 w-3/4">
-            Personal goal is to one day find work-life balance with the same
-            grace Bruce Lee finds ping pong balls with a pair of nunchucks.
+          <figcaption className="w-3/4 pt-3 text-sm leading-normal text-muted">
+            the goal is to one day find work-life balance with the same grace
+            bruce lee finds ping pong balls with a pair of nunchucks.
           </figcaption>
         </figure>
-
-        <p className="pt-16 text-xs text-ui-8 italic">
-          Last updated — 11 Jan, 2026
-        </p>
-      </div>
-    </main>
+      </Section>
+    </Page>
   );
 }
