@@ -9,6 +9,7 @@ const routeLabels: Record<string, string> = {
   '/logs': 'Logs',
   '/now': 'Now',
   '/reading': 'Reading',
+  '/resume': 'Resume',
   '/works': 'Works',
 };
 
