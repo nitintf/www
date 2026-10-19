@@ -3,7 +3,7 @@ export function Equalizer() {
   return (
     <span
       aria-hidden="true"
-      className="mr-1.5 inline-flex h-[9px] items-end gap-px align-baseline"
+      className="ml-1.5 inline-flex h-[9px] items-end gap-px align-baseline"
     >
       {[0, 1, 2].map((bar) => (
         <span
