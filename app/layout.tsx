@@ -2,17 +2,14 @@ import './globals.css';
 
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Geist, Geist_Mono, Inter } from 'next/font/google';
+import { Geist_Mono, Inter } from 'next/font/google';
 import { metadata, viewport } from '@/lib/metadata';
 import { personSchema } from '@/lib/schema';
-import { ThemeProvider } from '@/components/theme-provider';
-import { SiteHeader } from '@/components/site-header';
-import Footer from '@/components/footer';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
+import { ThemeProvider } from '@/components/ui/theme-provider';
+import { Footer } from '@/components/footer/footer';
+import { SiteHeader } from '@/components/layout/site-header';
+import { SkipLink } from '@/components/layout/skip-link';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
@@ -32,7 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geistMono.variable} ${inter.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"
@@ -41,15 +42,15 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased bg-background text-foreground min-h-svh w-svw flex flex-col no-scrollbar`}
-      >
+      <body className="min-h-svh flex flex-col">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          <SkipLink />
+          <ThemeToggle />
           <SiteHeader />
           {children}
           <Footer />
