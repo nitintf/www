@@ -117,7 +117,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/cv',
+        source:
+          '/:path(cv|CV|resume|Resume|resume\\.pdf|cv\\.html|curriculum-vitae|nitin-panwar-resume|nitin-panwar-cv)',
         destination: '/cv.pdf',
         permanent: true,
       },

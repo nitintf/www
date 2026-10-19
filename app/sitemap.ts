@@ -3,7 +3,7 @@ import { SITE_URL } from '@/lib/constants';
 import { projects } from '@/lib/work';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ['', '/now', '/resume'].map((route) => ({
+  const pages = ['', '/now'].map((route) => ({
     url: `${SITE_URL}${route}`,
     changeFrequency: 'monthly' as const,
     priority: route === '' ? 1 : 0.8,

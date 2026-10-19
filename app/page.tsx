@@ -42,7 +42,7 @@ export default function Home() {
           linkedin
         </TextLink>
         <TextLink href="mailto:contact@nitin.sh">email</TextLink>
-        <TextLink href="/resume">resume</TextLink>
+        <TextLink href="/cv.pdf">resume</TextLink>
       </LinkRow>
 
       <WorkSection />
