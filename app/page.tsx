@@ -13,7 +13,7 @@ import { profiles } from '@/lib/links';
 import { timeline } from '@/lib/timeline';
 
 export const metadata: Metadata = {
-  alternates: { canonical: '/' },
+  alternates: { canonical: '/', types: { 'text/markdown': '/.md' } },
 };
 
 export default function Home() {

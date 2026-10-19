@@ -17,7 +17,10 @@ export function pageMetadata({
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: {
+      canonical: path,
+      types: { 'text/markdown': `${path}.md` },
+    },
     openGraph: {
       type: 'website',
       locale: 'en_US',
