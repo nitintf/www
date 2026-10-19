@@ -19,7 +19,7 @@ export function StatusLine({ status }: { status: Status }) {
       `${status.weather.temperature}° and ${status.weather.summary}`,
     status.commitsThisWeek &&
       `${status.commitsThisWeek} ${status.commitsThisWeek === 1 ? 'commit' : 'commits'} this week`,
-    track && <NowPlaying track={track} />,
+    track && <NowPlaying track={track} now={now} />,
   ].filter(Boolean);
 
   return (

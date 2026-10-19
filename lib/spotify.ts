@@ -5,7 +5,6 @@ const NOW_PLAYING_URL =
   'https://api.spotify.com/v1/me/player/currently-playing';
 const RECENT_URL =
   'https://api.spotify.com/v1/me/player/recently-played?limit=1';
-const RECENT_WINDOW_MS = 15 * 60 * 1000;
 const TIMEOUT_MS = 3000;
 
 export interface Track {
@@ -13,6 +12,7 @@ export interface Track {
   artist: string;
   url: string;
   playing: boolean;
+  playedAt?: string;
 }
 
 interface SpotifyTrack {
@@ -58,8 +58,13 @@ async function accessToken() {
   return cached.token;
 }
 
-function toTrack(track: SpotifyTrack, playing: boolean): Track {
+function toTrack(
+  track: SpotifyTrack,
+  playing: boolean,
+  playedAt?: string,
+): Track {
   return {
+    playedAt,
     title: track.name,
     artist: track.artists[0]?.name ?? '',
     url: track.external_urls.spotify,
@@ -77,7 +82,7 @@ async function spotify<T>(url: string, token: string): Promise<T | null> {
   return res.json() as Promise<T>;
 }
 
-// What's playing now, or the last track if it ended in the last 15 minutes.
+// What's playing now, or else the last track played.
 export async function getNowPlaying(): Promise<Track | null> {
   const token = await accessToken();
   if (!token) return null;
@@ -95,11 +100,5 @@ export async function getNowPlaying(): Promise<Track | null> {
     items: { played_at: string; track: SpotifyTrack }[];
   }>(RECENT_URL, token);
   const last = recent?.items[0];
-  if (
-    last &&
-    Date.now() - new Date(last.played_at).getTime() < RECENT_WINDOW_MS
-  ) {
-    return toTrack(last.track, false);
-  }
-  return null;
+  return last ? toTrack(last.track, false, last.played_at) : null;
 }
