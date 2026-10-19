@@ -1,133 +1,138 @@
-@import url('https://api.fontshare.com/v2/css?f[]=sentient@400,400i,500,500i,600,600i,700,700i&display=swap');
 @import 'tailwindcss';
 
 /* ══════════════════════════════════════════════
-   Design Tokens
+   Theme
+
+   Every visual value on the site comes from here. Components use these
+   through the Tailwind utilities mapped below (bg-bg, text-muted,
+   pt-section, max-w-content, ...) or directly as var(--theme-*).
+   Dark mode only overrides colors.
    ══════════════════════════════════════════════ */
 
 :root {
-  /* ── Neutral scale (1 = lightest, 12 = darkest) ── */
-  --ui-1: #fafafa;
-  --ui-2: #f5f5f5;
-  --ui-3: #efefef;
-  --ui-4: #e5e5e5;
-  --ui-5: #d4d4d4;
-  --ui-6: #bababa;
-  --ui-7: #a3a3a3;
-  --ui-8: #8a8a8a;
-  --ui-9: #737373;
-  --ui-10: #525252;
-  --ui-11: #404040;
-  --ui-12: #171717;
+  /* ── Color ── */
+  --theme-color-bg: #fbfbfa;
+  --theme-color-fg: #171717;
+  --theme-color-muted: #6b6b68;
+  --theme-color-faint: #8c8c88;
+  --theme-color-line: #d6d6d3;
+  --theme-color-line-strong: #7a7a78;
+  --theme-color-surface: #f1f1ef;
+  --theme-color-selection: #e6e4df;
+  --theme-color-card: #ffffff;
+  --theme-color-pattern: #e9e8e4;
 
-  /* ── Accent scale (warm terracotta) ── */
-  --accent-50: #f8f0ed;
-  --accent-100: #eeddd6;
-  --accent-200: #dbb8aa;
-  --accent-300: #c4917e;
-  --accent-400: #a87260;
-  --accent-500: #8c5a48;
-  --accent-600: #744a3a;
-  --accent-700: #5e3c2f;
-  --accent-800: #472d24;
-  --accent-900: #321f19;
+  /* ── Type ── */
+  --font-sf:
+    'Site Inter', var(--font-inter), Inter, -apple-system, BlinkMacSystemFont,
+    'Helvetica Neue', Arial, sans-serif;
+  --theme-font-sans: var(--font-sf);
+  --theme-font-mono:
+    var(--font-geist-mono), ui-monospace, SFMono-Regular, 'SF Mono', Menlo,
+    Consolas, monospace;
+  --theme-text-xs: 11px;
+  --theme-text-sm: 12.5px;
+  --theme-text-base: 14px;
+  --theme-leading-tight: 1.4;
+  --theme-leading-normal: 22px;
+  --theme-leading-body: 22px;
+  --theme-tracking: -0.006em;
 
-  /* ── Semantic tokens ── */
-  --color-bg: var(--ui-1);
-  --color-bg-subtle: var(--ui-2);
-  --color-bg-element: var(--ui-3);
-  --color-bg-hover: var(--ui-4);
-  --color-text: var(--ui-12);
-  --color-text-secondary: var(--ui-11);
-  --color-text-muted: var(--ui-10);
-  --color-text-faint: var(--ui-9);
-  --color-border: var(--ui-5);
-  --color-border-subtle: var(--ui-4);
-  --color-accent: var(--accent-500);
+  /* ── Spacing ── */
+  --theme-space-gutter: 2rem;
+  --theme-space-page-top: 6rem;
+  --theme-space-page-bottom: 4rem;
+  --theme-space-block: 2rem;
+  --theme-space-paragraph: 1rem;
+  --theme-space-row: 1rem;
+  --theme-space-section: 4rem;
+  --theme-space-inline: 1.25rem;
 
-  /* ── Typography ── */
-  --font-body:
-    var(--font-inter), var(--font-geist-sans), -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-heading: 'Sentient', Georgia, 'Times New Roman', serif;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.625;
-  --letter-spacing: -0.01em;
+  /* ── Layout ── */
+  --theme-width-content: 42rem;
+  --theme-width-label: 4.5rem;
+  --theme-width-label-wide: 9rem;
+  --theme-width-card: 30rem;
+  --theme-radius-card: 14px;
+  --theme-space-card-gap: 0.5rem;
+
+  /* ── Borders ── */
+  --theme-radius-sm: 4px;
+  --theme-radius-md: 8px;
+  --theme-underline-offset: 2px;
+  --theme-underline-thickness: 1px;
+  --theme-focus-width: 2px;
+  --theme-focus-offset: 3px;
+
+  /* ── Motion ── */
+  --theme-duration-fast: 150ms;
+  --theme-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ── Dark mode: warm charcoal, not black ── */
 .dark {
-  --ui-1: #1c1917;
-  --ui-2: #231f1d;
-  --ui-3: #2c2825;
-  --ui-4: #36322f;
-  --ui-5: #413d39;
-  --ui-6: #504b46;
-  --ui-7: #635d57;
-  --ui-8: #7a7470;
-  --ui-9: #948e88;
-  --ui-10: #b0aaa4;
-  --ui-11: #d4cfc9;
-  --ui-12: #edebe8;
-
-  --accent-50: #261e1a;
-  --accent-100: #382a23;
-  --accent-200: #523d33;
-  --accent-300: #735648;
-  --accent-400: #97705f;
-  --accent-500: #c08e7a;
-  --accent-600: #d1a595;
-  --accent-700: #dfbcaf;
-  --accent-800: #ead3ca;
-  --accent-900: #f3e7e2;
+  --theme-color-bg: #1a1918;
+  --theme-color-fg: #ecebe8;
+  --theme-color-muted: #9a958f;
+  --theme-color-faint: #7d7873;
+  --theme-color-line: #403c39;
+  --theme-color-line-strong: #8f8b86;
+  --theme-color-surface: #242220;
+  --theme-color-selection: #3a3633;
+  --theme-color-card: #22211f;
+  --theme-color-pattern: #2c2a28;
 }
-
-/* ══════════════════════════════════════════════
-   Tailwind Theme
-   ══════════════════════════════════════════════ */
 
 @custom-variant dark (&:is(.dark *));
 
+/* Only the theme above exists: Tailwind's default palette and fonts are
+   switched off so nothing can reach around it. */
 @theme inline {
-  --font-sans: var(--font-body);
-  --font-serif: var(--font-heading);
-  --font-mono:
-    var(--font-geist-mono), ui-monospace, SFMono-Regular, 'SF Mono', Menlo,
-    Consolas, monospace;
-}
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-bg: var(--theme-color-bg);
+  --color-fg: var(--theme-color-fg);
+  --color-muted: var(--theme-color-muted);
+  --color-faint: var(--theme-color-faint);
+  --color-line: var(--theme-color-line);
+  --color-line-strong: var(--theme-color-line-strong);
+  --color-surface: var(--theme-color-surface);
+  --color-card: var(--theme-color-card);
 
-@theme {
-  --color-ui-1: var(--ui-1);
-  --color-ui-2: var(--ui-2);
-  --color-ui-3: var(--ui-3);
-  --color-ui-4: var(--ui-4);
-  --color-ui-5: var(--ui-5);
-  --color-ui-6: var(--ui-6);
-  --color-ui-7: var(--ui-7);
-  --color-ui-8: var(--ui-8);
-  --color-ui-9: var(--ui-9);
-  --color-ui-10: var(--ui-10);
-  --color-ui-11: var(--ui-11);
-  --color-ui-12: var(--ui-12);
+  --font-*: initial;
+  --font-sans: var(--theme-font-sans);
+  --font-mono: var(--theme-font-mono);
 
-  --color-accent-50: var(--accent-50);
-  --color-accent-100: var(--accent-100);
-  --color-accent-200: var(--accent-200);
-  --color-accent-300: var(--accent-300);
-  --color-accent-400: var(--accent-400);
-  --color-accent-500: var(--accent-500);
-  --color-accent-600: var(--accent-600);
-  --color-accent-700: var(--accent-700);
-  --color-accent-800: var(--accent-800);
-  --color-accent-900: var(--accent-900);
+  --text-xs: var(--theme-text-xs);
+  --text-xs--line-height: 18px;
+  --text-sm: var(--theme-text-sm);
+  --text-sm--line-height: 20px;
+  --text-base: var(--theme-text-base);
+  --text-base--line-height: var(--theme-leading-body);
 
-  --color-background: var(--ui-1);
-  --color-foreground: var(--ui-12);
+  --leading-tight: var(--theme-leading-tight);
+  --leading-normal: var(--theme-leading-normal);
+  --leading-body: var(--theme-leading-body);
+
+  --spacing-gutter: var(--theme-space-gutter);
+  --spacing-page-top: var(--theme-space-page-top);
+  --spacing-page-bottom: var(--theme-space-page-bottom);
+  --spacing-block: var(--theme-space-block);
+  --spacing-paragraph: var(--theme-space-paragraph);
+  --spacing-row: var(--theme-space-row);
+  --spacing-section: var(--theme-space-section);
+  --spacing-inline: var(--theme-space-inline);
+  --spacing-label: var(--theme-width-label);
+  --spacing-label-wide: var(--theme-width-label-wide);
+  --spacing-card: var(--theme-width-card);
+  --spacing-card-gap: var(--theme-space-card-gap);
+
+  --container-content: var(--theme-width-content);
+
+  --radius-sm: var(--theme-radius-sm);
+  --radius-md: var(--theme-radius-md);
+
+  --ease-theme: var(--theme-ease);
 }
 
 /* ══════════════════════════════════════════════
@@ -140,315 +145,247 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-ui-4, currentcolor);
+    border-color: var(--theme-color-line);
+    border-width: 0;
+    border-style: solid;
   }
 
-  *::selection {
-    @apply bg-accent-100;
-  }
-}
-
-@layer base {
-  html.light .shiki,
-  html.light .shiki span {
-    color: var(--shiki-light) !important;
-    font-style: var(--shiki-light-font-style) !important;
-    font-weight: var(--shiki-light-font-weight) !important;
-    text-decoration: var(--shiki-light-text-decoration) !important;
+  ::selection {
+    background: var(--theme-color-selection);
   }
 
-  html.dark .shiki,
-  html.dark .shiki span {
-    color: var(--shiki-dark) !important;
-    font-style: var(--shiki-dark-font-style) !important;
-    font-weight: var(--shiki-dark-font-weight) !important;
-    text-decoration: var(--shiki-dark-text-decoration) !important;
-  }
-}
-
-/* ══════════════════════════════════════════════
-   Utilities
-   ══════════════════════════════════════════════ */
-
-@utility hover-expand-* {
-  position: relative;
-  --hover-radius: --spacing(--value(integer) * -1);
-  --hover-radius: calc(--value([*]) * -1);
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: var(--hover-radius);
-    left: var(--hover-radius);
-    right: var(--hover-radius);
-    bottom: var(--hover-radius);
-    pointer-events: auto;
-  }
-}
-
-@layer utilities {
-  :root {
-    * {
-      cursor: default;
-      letter-spacing: var(--letter-spacing);
-    }
-
-    input[type='text'],
-    input[type='password'],
-    input[type='email'],
-    textarea,
-    select {
-      cursor: text;
-    }
-
-    a {
-      cursor: pointer;
-      & * {
-        cursor: pointer;
-      }
-    }
-
-    @media (max-width: 639px) {
-      font-size: 14px;
-    }
-
-    ::-webkit-scrollbar {
-      display: none;
-    }
-    -ms-overflow-style: none;
+  html {
     scrollbar-width: none;
-    scrollbar-color: transparent;
+    -ms-overflow-style: none;
   }
-}
 
-/* ══════════════════════════════════════════════
-   Body
-   ══════════════════════════════════════════════ */
+  html::-webkit-scrollbar {
+    display: none;
+  }
 
-body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-normal);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  body {
+    background: var(--theme-color-bg);
+    color: var(--theme-color-fg);
+    font-family: var(--theme-font-sans);
+    font-size: var(--theme-text-base);
+    line-height: var(--theme-leading-normal);
+    letter-spacing: var(--theme-tracking);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Keyboard focus only; mouse clicks don't draw it. */
+  :focus-visible {
+    outline: var(--theme-focus-width) solid var(--theme-color-fg);
+    outline-offset: var(--theme-focus-offset);
+    border-radius: var(--theme-radius-sm);
+  }
+
+  @media (max-width: 639px) {
+    :root {
+      --theme-space-gutter: 1rem;
+      --theme-space-page-top: 3rem;
+      --theme-space-section: 3rem;
+    }
+  }
 }
 
 /* ══════════════════════════════════════════════
    Links
+
+   One link style for the whole site: a thin underline that darkens on
+   hover.
    ══════════════════════════════════════════════ */
 
-a {
-  color: var(--color-accent);
-  text-decoration: underline;
-  transition: all 0.15s ease;
-}
-
-a:hover {
-  text-decoration-style: wavy;
-  text-decoration-thickness: 1px;
-}
-
-a.plain-link {
-  text-decoration: none;
+@utility line-link {
   color: inherit;
-}
-
-a.plain-link:hover {
   text-decoration: none;
-}
+  padding-bottom: var(--theme-underline-offset);
+  background-image:
+    linear-gradient(var(--theme-color-fg), var(--theme-color-fg)),
+    linear-gradient(var(--theme-color-line), var(--theme-color-line));
+  background-size:
+    0% var(--theme-underline-thickness),
+    100% var(--theme-underline-thickness);
+  background-position:
+    0 100%,
+    0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s cubic-bezier(0.65, 0, 0.35, 1);
 
-a.pill-link {
-  display: inline-block;
-  cursor: pointer;
-  background-color: var(--accent-50);
-  padding: 0 0.25rem;
-  margin: 0.125rem 0;
-  border-radius: 2px;
-  color: var(--color-accent);
-  font-weight: 500;
-  text-decoration: none;
-  white-space: nowrap;
-  font-style: italic;
-  transition:
-    background-color 0.2s,
-    color 0.2s;
-}
-
-a.pill-link:hover {
-  background-color: var(--accent-100);
-  color: var(--color-accent);
-  text-decoration: none;
-}
-
-
-/* ══════════════════════════════════════════════
-   Typography helpers
-   ══════════════════════════════════════════════ */
-
-.text-primary {
-  color: var(--color-text);
-  font-weight: 500;
-}
-
-.text-secondary {
-  color: var(--color-text-muted);
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-relaxed);
-}
-
-
-/* ══════════════════════════════════════════════
-   Fog overlay (log detail pages)
-   ══════════════════════════════════════════════ */
-
-.page-fog-top,
-.page-fog-bottom {
-  position: fixed;
-  left: 0;
-  right: 0;
-  pointer-events: none;
-  z-index: 50;
-}
-
-.page-fog-top {
-  top: 0;
-  height: 100px;
-  background: linear-gradient(
-    to bottom,
-    var(--color-bg) 0%,
-    color-mix(in srgb, var(--color-bg) 70%, transparent) 40%,
-    transparent 100%
-  );
-}
-
-.page-fog-bottom {
-  bottom: 0;
-  height: 100px;
-  background: linear-gradient(
-    to top,
-    var(--color-bg) 0%,
-    color-mix(in srgb, var(--color-bg) 70%, transparent) 40%,
-    transparent 100%
-  );
+  &:hover,
+  &:focus-visible {
+    background-size:
+      100% var(--theme-underline-thickness),
+      100% var(--theme-underline-thickness);
+  }
 }
 
 /* ══════════════════════════════════════════════
-   Back nav (TOC)
+   Scrolling strips
    ══════════════════════════════════════════════ */
 
-.log-back-nav-inline {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  text-decoration: none;
-  color: var(--color-text-faint);
-  font-size: 0.7rem;
-  letter-spacing: 0.03em;
-  transition: color 0.2s ease;
+.no-scrollbar {
+  scrollbar-width: none;
 }
 
-.log-back-nav-inline:hover {
-  color: var(--color-text-secondary);
-  text-decoration: none;
-}
-
-.log-back-nav-inline:focus-visible {
-  text-decoration: none;
-  box-shadow: none;
-  opacity: 0.8;
-}
-
-.log-back-nav-inline svg {
-  transition: transform 0.2s ease;
-}
-
-.log-back-nav-inline:hover svg {
-  transform: translateX(-3px);
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* ══════════════════════════════════════════════
-   Table of Contents
+   Work scenes
    ══════════════════════════════════════════════ */
 
-@keyframes toc-fade-in {
-  from {
+@keyframes dicta-bar {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  30% {
+    transform: scaleY(0.85);
+  }
+  55% {
+    transform: scaleY(0.5);
+  }
+  80% {
+    transform: scaleY(1);
+  }
+}
+
+.dicta-bar {
+  animation: dicta-bar 1.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes dicta-caret {
+  50% {
     opacity: 0;
-    transform: translateX(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
   }
 }
 
-.toc {
-  animation: toc-fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.3s;
-  opacity: 0;
+.dicta-caret {
+  animation: dicta-caret 1s steps(1) infinite;
 }
 
-.toc-link {
-  text-decoration: none;
-  color: var(--color-text-faint);
-  font-size: var(--font-size-xs);
-  display: block;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  transition: color 0.2s;
-}
-
-.toc-link:hover {
-  color: var(--color-text-secondary);
-  text-decoration: none;
-}
-
-.toc-link:focus-visible {
-  text-decoration: none;
-  box-shadow: none;
-  opacity: 0.8;
-}
-
-.toc-link.active {
-  color: var(--color-text);
+@media (prefers-reduced-motion: reduce) {
+  .dicta-bar,
+  .dicta-caret {
+    animation: none;
+  }
 }
 
 /* ══════════════════════════════════════════════
-   Syntax highlighting (rehype-pretty-code)
+   Card textures
    ══════════════════════════════════════════════ */
 
-pre > code {
-  display: grid;
+.texture-dots {
+  background-image: radial-gradient(
+    var(--theme-color-pattern) 1.2px,
+    transparent 1.4px
+  );
+  background-size: 14px 14px;
 }
 
-pre > code > [data-line] {
-  padding: 0 1.5rem;
+.texture-diagonal {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--theme-color-pattern) 0 1px,
+    transparent 1px 11px
+  );
 }
 
-[data-highlighted-line] {
-  background: rgba(255, 255, 255, 0.04);
+/* Rotates around the circle's centre, not the half's own box, with a
+   little overshoot. */
+.theme-toggle-half {
+  transform-box: view-box;
+  transform-origin: 12px 12px;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-code[data-line-numbers] {
-  counter-reset: line;
+/* Textures drawn as masks so they take the theme's pattern colour. */
+.texture-waves,
+.texture-plus,
+.texture-stagger {
+  position: relative;
 }
 
-code[data-line-numbers] > [data-line]::before {
-  counter-increment: line;
-  content: counter(line);
-  display: inline-block;
-  width: 1rem;
-  margin-right: 1.25rem;
-  text-align: right;
-  color: var(--ui-7);
+.texture-waves::before,
+.texture-plus::before,
+.texture-stagger::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-color: var(--theme-color-pattern);
 }
 
-[data-rehype-pretty-code-title] {
-  padding: 0.5rem 1.5rem;
-  font-size: var(--font-size-xs);
-  font-family: var(--font-geist-mono), monospace;
-  color: var(--color-text-faint);
-  border-bottom: 1px solid var(--ui-5);
+.texture-waves::before {
+  mask-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2730%27%20height%3D%2716%27%3E%3Cpath%20d%3D%27M0%208%20Q%207.5%202%2015%208%20T%2030%208%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.2%27/%3E%3C/svg%3E');
+}
+
+.texture-plus::before {
+  mask-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2724%27%20height%3D%2724%27%3E%3Cpath%20d%3D%27M12%208v8M8%2012h8%27%20stroke%3D%27black%27%20stroke-width%3D%271.3%27%20stroke-linecap%3D%27round%27/%3E%3C/svg%3E');
+}
+
+.texture-stagger::before {
+  mask-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2724%27%20height%3D%2720%27%3E%3Ccircle%20cx%3D%274%27%20cy%3D%274%27%20r%3D%271.3%27/%3E%3Ccircle%20cx%3D%2716%27%20cy%3D%2714%27%20r%3D%271.3%27/%3E%3C/svg%3E');
+}
+
+/* The "hi" and smiley that write themselves beside the name on hover. */
+.doodle-stroke {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  transition:
+    stroke-dashoffset 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.group:hover .doodle-stroke,
+.group:focus-visible .doodle-stroke {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transition:
+    stroke-dashoffset var(--duration) cubic-bezier(0.45, 0, 0.55, 1)
+      var(--delay),
+    opacity 0s linear var(--delay);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .doodle-stroke,
+  .group:focus-visible .doodle-stroke {
+    transition: none;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   Now playing
+   ══════════════════════════════════════════════ */
+
+@keyframes equalizer {
+  0%,
+  100% {
+    height: 30%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+.equalizer-bar {
+  height: 30%;
+  animation: equalizer 1.05s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .equalizer-bar {
+    animation: none;
+    height: 60%;
+  }
 }
