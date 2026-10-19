@@ -114,6 +114,16 @@ const nextConfig: NextConfig = {
     ];
   },
 
+  // Markdown twins of each page for agents, see lib/agent-view.ts.
+  async rewrites() {
+    return [
+      { source: '/.md', destination: '/md' },
+      { source: '/index.md', destination: '/md' },
+      { source: '/now.md', destination: '/md/now' },
+      { source: '/work/:slug([a-z0-9-]+)\\.md', destination: '/md/work/:slug' },
+    ];
+  },
+
   async redirects() {
     return [
       {
