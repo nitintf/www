@@ -1,29 +1,17 @@
 import { MetadataRoute } from 'next';
-import { getAllLogs } from '@/lib/logs';
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nitin.sh';
+import { SITE_URL } from '@/lib/constants';
+import { projects } from '@/lib/work';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = [
-    '',
-    '/logs',
-    '/now',
-    '/reading',
-    '/resume',
-    '/works',
-  ].map((route) => ({
-    url: `${siteUrl}${route}`,
-    lastModified: new Date(),
+  const pages = ['', '/now'].map((route) => ({
+    url: `${SITE_URL}${route}`,
     changeFrequency: 'monthly' as const,
     priority: route === '' ? 1 : 0.8,
   }));
-
-  const logRoutes = getAllLogs().map((log) => ({
-    url: `${siteUrl}/logs/${log.slug}`,
-    lastModified: new Date(log.date),
-    changeFrequency: 'yearly' as const,
-    priority: 0.6,
+  const work = projects.map((project) => ({
+    url: `${SITE_URL}/work/${project.slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
   }));
-
-  return [...staticRoutes, ...logRoutes];
+  return [...pages, ...work];
 }

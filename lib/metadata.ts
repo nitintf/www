@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from 'next';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nitin.sh';
-const siteName = 'Nitin Panwar';
-const title = 'Nitin Panwar';
-const description =
-  'Senior software engineer building web, mobile, and backend systems. Creator of Dicta, an on-device voice-to-text app for macOS.';
+import {
+  SITE_DESCRIPTION as description,
+  SITE_NAME as siteName,
+  SITE_TITLE as title,
+  SITE_URL as siteUrl,
+} from '@/lib/constants';
+
 const twitterHandle = '@nitinpanwarrr';
 
 export const viewport: Viewport = {
@@ -12,8 +14,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+    { media: '(prefers-color-scheme: light)', color: '#fbfbfa' },
+    { media: '(prefers-color-scheme: dark)', color: '#1a1918' },
   ],
   colorScheme: 'light dark',
 };
@@ -22,13 +24,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: title,
-    template: `%s — ${siteName}`,
+    template: `%s · ${siteName}`,
   },
   description,
   keywords: [
     'Nitin Panwar',
     'nitin panwar software engineer',
-    'senior software engineer',
+    'full-stack engineer',
     'full stack developer',
     'software engineer portfolio',
     'web development',
@@ -40,7 +42,9 @@ export const metadata: Metadata = {
     'Go',
     'Rust',
     'macOS developer',
-    'Dicta voice to text',
+    'promptomato',
+    'budly habit app',
+    'dicta voice to text',
     'nitin.sh',
   ],
   authors: [{ name: 'Nitin Panwar', url: siteUrl }],
@@ -75,16 +79,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
-  },
-  alternates: {
-    canonical: siteUrl,
   },
   category: 'technology',
 };

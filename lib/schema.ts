@@ -1,11 +1,11 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nitin.sh';
+import { SITE_DESCRIPTION, SITE_URL as siteUrl } from '@/lib/constants';
 
 export const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Nitin Panwar',
   url: siteUrl,
-  jobTitle: 'Senior Software Engineer',
+  jobTitle: 'Software Engineer',
   worksFor: {
     '@type': 'Organization',
     name: 'Ampd Energy',
@@ -14,10 +14,13 @@ export const personSchema = {
   sameAs: [
     'https://github.com/nitintf',
     'https://www.linkedin.com/in/nitin-panwarr/',
-    'https://x.com/nitintf_',
+    'https://x.com/nitinpanwarrr',
   ],
   knowsAbout: [
     'Software Engineering',
+    'Full-stack Development',
+    'React Native',
+    'Real-time Data Pipelines',
     'Web Development',
     'System Design',
     'AI Agents',
@@ -26,27 +29,10 @@ export const personSchema = {
     'Go',
     'Rust',
   ],
-  description:
-    'Senior software engineer building web, mobile, and backend systems. Creator of Dicta, an on-device voice-to-text app for macOS.',
+  description: SITE_DESCRIPTION,
+  nationality: { '@type': 'Country', name: 'India' },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Meerut Institute of Engineering and Technology',
+  },
 };
-
-export function blogPostingSchema(post: {
-  title: string;
-  description: string;
-  date: string;
-  slug: string;
-}) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: post.title,
-    description: post.description,
-    datePublished: post.date,
-    author: {
-      '@type': 'Person',
-      name: 'Nitin Panwar',
-      url: siteUrl,
-    },
-    url: `${siteUrl}/logs/${post.slug}`,
-  };
-}

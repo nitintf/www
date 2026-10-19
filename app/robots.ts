@@ -1,21 +1,10 @@
 import { MetadataRoute } from 'next';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nitin.sh';
+import { SITE_URL as siteUrl } from '@/lib/constants';
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/'],
-      },
-      {
-        userAgent: 'Googlebot',
-        allow: '/',
-        disallow: ['/api/', '/_next/'],
-      },
-    ],
+    rules: [{ userAgent: '*', allow: '/', disallow: ['/api/'] }],
     sitemap: `${siteUrl}/sitemap.xml`,
   };
 }
