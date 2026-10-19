@@ -5,11 +5,13 @@ type TransitionDocument = Document & {
   };
 };
 
-const DURATION_MS = 600;
+const DURATION_MS = 650;
+// Width of the feathered edge, in px.
+const SOFT_EDGE = 90;
 const EASING = 'cubic-bezier(0.4, 0, 0.2, 1)';
 
-// Reveals the new theme through a circle growing out of `origin` until it
-// reaches the farthest corner, with a glowing ring riding its edge.
+// Reveals the new theme through a soft-edged circle growing out of `origin`
+// until it passes the farthest corner, with a glowing ring riding its edge.
 export function revealTheme(
   origin: { x: number; y: number },
   glow: string,
@@ -28,6 +30,11 @@ export function revealTheme(
     Math.max(y, window.innerHeight - y),
   );
 
+  const root = document.documentElement;
+  root.style.setProperty('--reveal-x', `${x}px`);
+  root.style.setProperty('--reveal-y', `${y}px`);
+  root.style.setProperty('--reveal-soft', `${SOFT_EDGE}px`);
+
   let ring: HTMLDivElement | null = null;
   const transition = doc.startViewTransition(() => {
     apply();
@@ -42,17 +49,12 @@ export function revealTheme(
 
   transition.ready
     .then(() => {
-      const root = document.documentElement;
       root.animate(
-        {
-          clipPath: [
-            `circle(0px at ${x}px ${y}px)`,
-            `circle(${radius}px at ${x}px ${y}px)`,
-          ],
-        },
+        { '--reveal-radius': ['0px', `${radius + SOFT_EDGE}px`] },
         {
           duration: DURATION_MS,
           easing: EASING,
+          fill: 'forwards',
           pseudoElement: '::view-transition-new(root)',
         },
       );
@@ -71,5 +73,10 @@ export function revealTheme(
     })
     .catch(() => {});
 
-  transition.finished.finally(() => ring?.remove());
+  transition.finished.finally(() => {
+    ring?.remove();
+    for (const name of ['--reveal-x', '--reveal-y', '--reveal-soft']) {
+      root.style.removeProperty(name);
+    }
+  });
 }

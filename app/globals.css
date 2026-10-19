@@ -394,10 +394,26 @@
    Theme reveal
    ══════════════════════════════════════════════ */
 
+@property --reveal-radius {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
+}
+
+/* The new theme shows through a circle whose edge fades out over
+   --reveal-soft, so it reads as a glow rather than a hard line. */
+::view-transition-new(root) {
+  mask-image: radial-gradient(
+    circle at var(--reveal-x) var(--reveal-y),
+    #000 calc(var(--reveal-radius) - var(--reveal-soft)),
+    transparent var(--reveal-radius)
+  );
 }
 
 ::view-transition-group(theme-glow),
@@ -410,7 +426,7 @@
   pointer-events: none;
   border-radius: 50%;
   box-shadow:
-    0 0 28px 10px var(--glow),
-    inset 0 0 28px 10px var(--glow);
+    0 0 70px 26px var(--glow),
+    inset 0 0 70px 26px var(--glow);
   view-transition-name: theme-glow;
 }
