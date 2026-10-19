@@ -119,12 +119,37 @@ const nextConfig: NextConfig = {
       {
         source: '/resume',
         destination: '/cv.pdf',
-        permanent: true,
+        permanent: false,
       },
       {
         source: '/cv',
         destination: '/cv.pdf',
         permanent: true,
+      },
+      {
+        source: '/works',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/projects',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/reading',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/logs/:path*',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/lab',
+        destination: '/',
+        permanent: false,
       },
     ];
   },
