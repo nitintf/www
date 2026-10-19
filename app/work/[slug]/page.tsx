@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/page-metadata';
 import { notFound } from 'next/navigation';
 import { Page } from '@/components/layout/page';
 import { Section } from '@/components/layout/section';
@@ -20,11 +21,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = findProject((await params).slug);
   if (!project) return {};
-  return {
+  return pageMetadata({
     title: `${project.name}, ${project.what}`,
     description: project.story,
-    alternates: { canonical: `/work/${project.slug}` },
-  };
+    path: `/work/${project.slug}`,
+  });
 }
 
 export default async function WorkPage({ params }: Props) {

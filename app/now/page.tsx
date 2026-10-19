@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/page-metadata';
 import { Page } from '@/components/layout/page';
 import { PageIntro } from '@/components/layout/page-intro';
 import { Section } from '@/components/layout/section';
 import { TextLink } from '@/components/ui/text-link';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Now',
   description:
     'What Nitin Panwar is working on, building and learning right now.',
-  alternates: { canonical: '/now' },
-};
+  path: '/now',
+});
 
 export default function NowPage() {
   return (
