@@ -389,3 +389,28 @@
     height: 60%;
   }
 }
+
+/* ══════════════════════════════════════════════
+   Theme reveal
+   ══════════════════════════════════════════════ */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-group(theme-glow),
+::view-transition-new(theme-glow) {
+  animation: none;
+}
+
+.theme-reveal-ring {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  box-shadow:
+    0 0 28px 10px var(--glow),
+    inset 0 0 28px 10px var(--glow);
+  view-transition-name: theme-glow;
+}

@@ -4,8 +4,14 @@ import { motion } from 'motion/react';
 import { useTheme } from 'next-themes';
 import { useSyncExternalStore } from 'react';
 import { playClick } from '@/lib/utils/click-sound';
+import { revealTheme } from '@/lib/utils/theme-reveal';
 
 const subscribe = () => () => {};
+
+const GLOW = {
+  light: 'rgb(255 196 120 / 0.55)',
+  dark: 'rgb(120 140 255 / 0.45)',
+};
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -22,9 +28,23 @@ export function ThemeToggle() {
       role="switch"
       aria-checked={dark}
       aria-label="Dark mode"
-      onClick={() => {
+      onClick={(e) => {
+        const next = dark ? 'light' : 'dark';
+        const box = e.currentTarget.getBoundingClientRect();
         playClick(!dark);
-        setTheme(dark ? 'light' : 'dark');
+        revealTheme(
+          { x: box.left + box.width / 2, y: box.top + box.height / 2 },
+          GLOW[next],
+          () => {
+            // Applied by hand so the new theme is on the page when the
+            // browser takes its snapshot; next-themes then saves it.
+            const root = document.documentElement;
+            root.classList.remove(dark ? 'dark' : 'light');
+            root.classList.add(next);
+            root.style.colorScheme = next;
+            setTheme(next);
+          },
+        );
       }}
       initial={{ opacity: 0, x: 8 }}
       animate={{ opacity: mounted ? 1 : 0, x: mounted ? 0 : 8 }}
