@@ -1,14 +1,12 @@
-export interface TimelineGroup {
-  label: string;
-  items: React.ReactNode[];
-}
+import { RichText } from '@/components/ui/rich-text';
+import type { TimelineYear } from '@/lib/timeline';
 
 // Rows of a muted year and the things that happened in it.
 export function Timeline({
   groups,
   label,
 }: {
-  groups: TimelineGroup[];
+  groups: TimelineYear[];
   label: string;
 }) {
   return (
@@ -24,7 +22,7 @@ export function Timeline({
           <ul className="list-none space-y-row">
             {group.items.map((item, i) => (
               <li key={i} className="text-base leading-normal text-fg">
-                {item}
+                <RichText value={item} />
               </li>
             ))}
           </ul>
