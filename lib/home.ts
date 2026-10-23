@@ -3,7 +3,9 @@ import type { Rich } from '@/lib/rich-text';
 
 export const intro: Rich[] = [
   [
-    "i'm nitin, a full-stack engineer from india. i've spent 5+ years building web, mobile and backend systems, and these days i work at ",
+    "i'm nitin, a full-stack engineer from ",
+    { text: 'india', location: true },
+    ". i've spent 5+ years building web, mobile and backend systems, and these days i work at ",
     ampd,
     ' on clean energy software.',
   ],

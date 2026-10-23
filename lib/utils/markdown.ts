@@ -12,7 +12,11 @@ export function link(text: string, href: string) {
 export function richToMarkdown(value: Rich) {
   return value
     .map((part) =>
-      typeof part === 'string' ? part : link(part.text, part.href),
+      typeof part === 'string'
+        ? part
+        : 'href' in part
+          ? link(part.text, part.href)
+          : part.text,
     )
     .join('');
 }

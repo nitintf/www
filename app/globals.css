@@ -21,6 +21,13 @@
   --theme-color-selection: #e6e4df;
   --theme-color-card: #ffffff;
   --theme-color-pattern: #e9e8e4;
+  --theme-color-map-land: #c4dc9c;
+  --theme-color-map-home: #a9cb78;
+  --theme-color-map-border: #5f8a34;
+  --theme-color-map-states: #ffffff;
+  --theme-color-map-pin: #1a73e8;
+  --theme-color-map-pin-ring: #ffffff;
+  --theme-color-map-river: #7fb6e8;
 
   /* ── Type ── */
   --font-sf:
@@ -80,6 +87,13 @@
   --theme-color-selection: #3a3633;
   --theme-color-card: #22211f;
   --theme-color-pattern: #2c2a28;
+  --theme-color-map-land: #2b3a2f;
+  --theme-color-map-home: #36503a;
+  --theme-color-map-border: #7fae7c;
+  --theme-color-map-states: #415545;
+  --theme-color-map-pin: #4f8ff7;
+  --theme-color-map-pin-ring: #ffffff;
+  --theme-color-map-river: #4a7397;
 }
 
 @custom-variant dark (&:is(.dark *));
