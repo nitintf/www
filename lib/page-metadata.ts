@@ -31,7 +31,6 @@ export function pageMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      creator: '@nitinpanwarrr',
       title: shareTitle,
       description,
     },

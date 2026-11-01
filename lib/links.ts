@@ -8,7 +8,7 @@ export const codersera = { text: 'codersera', href: 'https://codersera.com' };
 
 export const profiles = [
   { label: 'github', href: 'https://github.com/nitintf' },
-  { label: 'X', href: 'https://x.com/nitinpanwarrr' },
+  { label: 'bluesky', href: 'https://bsky.app/profile/nitin.sh' },
   { label: 'linkedin', href: 'https://www.linkedin.com/in/nitin-panwarr/' },
   { label: 'email', href: 'mailto:contact@nitin.sh' },
   { label: 'resume', href: '/cv.pdf' },

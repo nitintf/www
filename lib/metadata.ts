@@ -7,8 +7,6 @@ import {
   SITE_URL as siteUrl,
 } from '@/lib/constants';
 
-const twitterHandle = '@nitinpanwarrr';
-
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -67,7 +65,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title,
     description,
-    creator: twitterHandle,
   },
   robots: {
     index: true,

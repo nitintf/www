@@ -14,7 +14,7 @@ export const personSchema = {
   sameAs: [
     'https://github.com/nitintf',
     'https://www.linkedin.com/in/nitin-panwarr/',
-    'https://x.com/nitinpanwarrr',
+    'https://bsky.app/profile/nitin.sh',
   ],
   knowsAbout: [
     'Software Engineering',

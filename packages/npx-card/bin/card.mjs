@@ -32,7 +32,10 @@ const links = [
     chalk.white.bold(' LinkedIn'),
     chalk.cyan('https://linkedin.com/in/nitin-panwarr'),
   ],
-  [chalk.white.bold('  Twitter'), chalk.cyan('https://x.com/nitinpanwarrr')],
+  [
+    chalk.white.bold('  Bluesky'),
+    chalk.cyan('https://bsky.app/profile/nitin.sh'),
+  ],
   [chalk.white.bold('    Email'), chalk.cyan('contact@nitin.sh')],
 ].map(([label, value]) => `${label}:  ${value}`);
 
